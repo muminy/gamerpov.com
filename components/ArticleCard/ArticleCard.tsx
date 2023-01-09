@@ -7,7 +7,7 @@ export default function ArticleCard({ image, title }: ArticleCardProps) {
     <Permalink href={"/"} className="block relative">
       <img
         src={image}
-        className="w-full h-[120px] object-cover rounded-md mb-2"
+        className="w-full xl:h-[320px] lg:h-[260px] h-[180px] object-cover rounded-md mb-2"
       />
       <button className="w-9 h-9 text-white rounded-full bg-black bg-opacity-30 flex items-center justify-center absolute top-2 right-2">
         <Icon size={16} icon="external" />

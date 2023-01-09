@@ -11,27 +11,21 @@ import { BlogMock } from "mocks/blogs"
 import { GameMock } from "mocks/games"
 
 export default function Home({ posts }: { posts: PostType[] }) {
-  console.log(posts)
   return (
     <div>
       <Container>
         <Hero.HomeHero items={posts} />
 
-        <div className="grid grid-cols-12 gap-10">
-          <div className="col-span-9"></div>
-          <div className="col-span-3">
-            <div className="font-bold text-xl mt-14 mb-6"></div>
-
-            <Repeater<ArticleCardProps>
-              items={BlogMock.slice(0, 5)}
-              renderHeader={() => <Title title="Popüler Bloglar" />}
-              className="space-y-4 block"
-              renderItem={(item, index) => (
-                <ArticleCard.Image key={index} {...item} />
-              )}
-            />
-          </div>
-        </div>
+        <Repeater<ArticleCardProps>
+          items={BlogMock.slice(0, 5)}
+          renderHeader={() => <Title title="Popüler Bloglar" />}
+          className="grid grid-cols-12 gap-5"
+          renderItem={(item, index) => (
+            <div key={index} className="xl:col-span-3 lg:col-span-4 col-span-6">
+              <ArticleCard.Image {...item} />
+            </div>
+          )}
+        />
 
         <Title title="Oyunlar" />
         <Carousel<GameProps>
