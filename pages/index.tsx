@@ -26,7 +26,9 @@ export default function Home({ posts }: { posts: PostType[] }) {
               items={BlogMock.slice(0, 5)}
               renderHeader={() => <Title title="Popüler Bloglar" />}
               className="space-y-4 block"
-              renderItem={(item) => <ArticleCard.Image {...item} />}
+              renderItem={(item, index) => (
+                <ArticleCard.Image key={index} {...item} />
+              )}
             />
           </div>
         </div>
@@ -35,7 +37,7 @@ export default function Home({ posts }: { posts: PostType[] }) {
         <Carousel<GameProps>
           items={GameMock}
           className="flex"
-          renderItem={(item) => <GameCard {...item} />}
+          renderItem={(item, index) => <GameCard key={index} {...item} />}
         />
       </Container>
     </div>
