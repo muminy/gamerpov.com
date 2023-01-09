@@ -10,6 +10,7 @@ export default function HomeHero({ items }: HeroProps) {
       renderItem={(item, index) => (
         <div
           key={`custom${index}`}
+          key={index}
           className="xl:col-span-3 md:col-span-6 col-span-12"
         >
           <BlogCard {...item} />
