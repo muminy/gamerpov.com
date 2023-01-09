@@ -41,7 +41,9 @@ export default function Carousel<T>({
         className={cn("snap-x overflow-x-hidden relative space-x-4", className)}
       >
         {items.map((item, index) => (
-          <div id={`${index}_carousel`}>{renderItem(item, index)}</div>
+          <div key={index} id={`${index}_carousel`}>
+            {renderItem(item, index)}
+          </div>
         ))}
       </div>
 
