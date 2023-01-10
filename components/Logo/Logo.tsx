@@ -1,4 +1,4 @@
-import Permalink from "../Permalink";
+import Permalink from "../Permalink"
 
 export default function Logo() {
   return (
@@ -6,8 +6,8 @@ export default function Logo() {
       href={"/"}
       className="block rounded-sm py-1.5 text-lg text-black uppercase"
     >
-      <span className="font-medium">Game</span>
-      <span className="font-black">wod</span>
+      <span className="font-medium">Gamer</span>
+      <span className="font-black">Pov</span>
     </Permalink>
-  );
+  )
 }

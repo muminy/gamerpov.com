@@ -25,7 +25,8 @@
       "@/libs/*": ["libs/*"],
       "@/hooks/*": ["hooks/*"],
       "@/store/*": ["store/*", "store/index"],
-      "@/services/*": ["services/*"]
+      "@/services/*": ["services/*"],
+      "@/assets/*": ["assets/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

@@ -13,11 +13,13 @@ export type WPPostTypes = {
   title: string
   content: string
   slug: string
+  excerpt: string
 }
 
 export type PostType = {
-  title?: string
+  title: string
   content?: string
   image?: WPImageTypes
   slug: string
+  excerpt: string
 }

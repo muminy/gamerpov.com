@@ -12,6 +12,8 @@ import {
 } from "./Arrows.icons"
 import InfoIcon from "./Info.icon"
 import ExternalIcon from "./External.icon"
+import BookMarkIcon from "./BookMark.icon"
+import { FlashIcon } from "./Remix.icon"
 
 const icons = {
   menu: MenuIcon,
@@ -26,6 +28,8 @@ const icons = {
   arrowDown: ArrowDownIcon,
   info: InfoIcon,
   external: ExternalIcon,
+  bookmark: BookMarkIcon,
+  flash: FlashIcon,
 }
 
 export type IconTypes = keyof typeof icons

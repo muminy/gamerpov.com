@@ -1,5 +1,9 @@
 import { toPostData } from "@/helpers/mapper"
-import { QUERY_ALL_POSTS, QUERY_POST_BY_SLUG } from "data/posts"
+import {
+  QUERY_ALL_POSTS,
+  QUERY_GET_HOME_POSTS,
+  QUERY_POST_BY_SLUG,
+} from "data/posts"
 import { getApolloClient } from "./apollo"
 
 export function mapPostData(post: object) {
@@ -12,15 +16,15 @@ export async function getAllPosts() {
   const apolloClient = getApolloClient()
 
   const data = await apolloClient.query({
-    query: QUERY_ALL_POSTS,
+    query: QUERY_GET_HOME_POSTS,
   })
 
   const posts = data?.data.posts.edges.map(({ node = {} }) => node)
+  const left = data?.data.left.edges.map(({ node = {} }) => node)
 
-  if (Array.isArray(posts)) {
-    return toPostData(posts)
-  } else {
-    return []
+  return {
+    posts: toPostData(posts),
+    left: toPostData(left),
   }
 }
 
