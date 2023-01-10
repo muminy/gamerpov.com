@@ -1,5 +1,5 @@
 import { PostType } from "@/types/post"
 
-export type HeroCardType = Pick<PostType, "content" | "image" | "title">
+export type HeroCardType = PostType & {}
 
 export { default } from "./HeroCard"
