@@ -16,7 +16,7 @@ export default function Home({
   return (
     <Container>
       <Hero.HomeHero items={posts} />
-      <div className="grid grid-cols-12 gap-10 mt-10">
+      <div className="grid grid-cols-12 xl:gap-10 gap-5 mt-10">
         <div className="xl:col-span-3 lg:col-span-4 col-span-12">
           <Title icon="menu" title="Fifa" />
           <Repeater<PostType>
