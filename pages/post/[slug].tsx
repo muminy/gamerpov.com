@@ -24,7 +24,7 @@ export default function PostDetail({ post }: PostDetailProps) {
           <Container size="large">
             <div className="mb-10">
               <img
-                className="h-[300px] w-full object-cover"
+                className="xl:h-[300px] lg:h-[240px] h-[180px] w-full object-cover"
                 src={post.image?.sourceUrl}
                 alt={post.image?.altText}
               />

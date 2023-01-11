@@ -1,5 +1,5 @@
 .container {
-  @apply block xl:h-[400px] lg:h-[300px] h-[200px] rounded-md overflow-hidden relative;
+  @apply block xl:h-[400px] lg:h-[300px] h-[200px] xl:rounded-md lg:rounded-md overflow-hidden relative;
 }
 
 .container::before {

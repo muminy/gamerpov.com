@@ -4,6 +4,7 @@ export type RepeaterProps<T> = {
   items: T[]
   renderItem: (item: T, index: number) => ReactNode
   renderHeader?: () => ReactNode
+  renderNotFound?: () => ReactNode
   className?: string
   as?: keyof JSX.IntrinsicElements
   title?: string

@@ -21,7 +21,7 @@ body {
 }
 
 .article-content :is(h1, h2, h3, h4, h5, h6) {
-  @apply text-lg mt-14 font-extrabold;
+  @apply text-lg mt-10 font-extrabold;
   font-size: 14px;
   color: rgba(74, 87, 111, 0.6);
   text-transform: uppercase;

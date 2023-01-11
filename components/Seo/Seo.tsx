@@ -18,11 +18,11 @@ export default function Seo(props: SeoProps) {
       <meta content={meta.description} name="description" />
       <meta
         property="og:url"
-        content={`https://gamerpod.com${router.asPath}`}
+        content={`https://gamerpov.com${router.asPath}`}
       />
-      <link rel="canonical" href={`https://gamerpod.com${router.asPath}`} />
+      <link rel="canonical" href={`https://gamerpov.com${router.asPath}`} />
       <meta property="og:type" content={"website"} />
-      <meta property="og:site_name" content="Gamerpod" />
+      <meta property="og:site_name" content="Gamerpov" />
       <meta property="og:description" content={meta.description} />
       <meta property="og:title" content={meta.title} />
       <meta property="og:image" content={meta.image} />

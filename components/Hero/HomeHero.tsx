@@ -6,7 +6,7 @@ export default function HomeHero({ items }: HeroProps) {
   return (
     <Repeater<HeroCardType>
       items={items}
-      className="grid grid-cols-12 gap-2"
+      className="grid grid-cols-12 xl:gap-2 lg:gap-2 md:gap-2 xl:mx-0 lg:mx-0 -mx-4"
       renderItem={(item, index) => (
         <div
           key={`custom${index}`}

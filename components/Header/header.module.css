@@ -1,9 +1,9 @@
 .permalink {
-  @apply font-bold text-sm text-gray-900 py-2.5 px-3 rounded-xl duration-200;
-  @apply hover:bg-white hover:bg-opacity-60 hover:backdrop-blur-md;
+  @apply font-bold block text-sm text-gray-900 py-2.5 px-3 rounded-xl duration-200;
+  @apply hover:bg-gray-100 w-full;
 }
 .active-permalink {
-  @apply bg-white bg-opacity-60 backdrop-blur-md;
+  @apply bg-gray-100 bg-opacity-60 backdrop-blur-md;
 }
 
 .header {

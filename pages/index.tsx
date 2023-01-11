@@ -35,6 +35,12 @@ export default function Home({
               <ArticleCard.Image key={index} {...item} />
             )}
           />
+          <Repeater<PostType>
+            items={posts.slice(1, posts.length)}
+            renderItem={(item, index) => (
+              <ArticleCard.Text key={index} {...item} />
+            )}
+          />
         </div>
         <div className="xl:col-span-3 lg:col-span-4 col-span-12">
           <Title icon="menu" title="Haber Kaynağı" />

@@ -14,6 +14,7 @@ export type WPPostTypes = {
   content: string
   slug: string
   excerpt: string
+  date: string
 }
 
 export type PostType = {
@@ -22,4 +23,5 @@ export type PostType = {
   image?: WPImageTypes
   slug: string
   excerpt: string
+  date: string
 }

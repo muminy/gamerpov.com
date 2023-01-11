@@ -2,6 +2,7 @@ import { toPostData } from "@/helpers/mapper"
 import {
   QUERY_ALL_POSTS,
   QUERY_GET_HOME_POSTS,
+  QUERY_POSTS_BY_CATEGORY_ID_INDEX,
   QUERY_POST_BY_SLUG,
 } from "data/posts"
 import { getApolloClient } from "./apollo"
@@ -50,5 +51,32 @@ export async function getPostBySlug(slug: string) {
 
   return {
     post,
+  }
+}
+
+export async function getPostsByCategoryId({
+  categoryId,
+}: {
+  categoryId: string
+}) {
+  const apolloClient = getApolloClient()
+
+  let postData
+
+  try {
+    postData = await apolloClient.query({
+      query: QUERY_POSTS_BY_CATEGORY_ID_INDEX,
+      variables: {
+        categoryId,
+      },
+    })
+  } catch (e) {
+    throw e
+  }
+
+  const posts = postData?.data.posts.edges.map(({ node = {} }) => node)
+
+  return {
+    posts: toPostData(posts),
   }
 }

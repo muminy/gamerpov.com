@@ -1,4 +1,5 @@
 import { PostType, WPPostTypes } from "@/types/post"
+import { CategoryType, WPCategoryType } from "@/types/site"
 
 export function toPostData(items: WPPostTypes[]): PostType[] {
   return items.map((item) => {
