@@ -33,7 +33,7 @@ export default function Header() {
         <div className="flex ml-4 space-x-2">
           <input
             placeholder="Arama Yap"
-            className="px-5 h-10 rounded-2xl w-[200px] bg-gray-100 outline-none text-sm"
+            className="px-5 h-10 rounded-2xl w-[200px] xl:block lg:block hidden bg-gray-100 outline-none text-sm"
           />
           <Repeater<CategoryType>
             items={categories}
