@@ -21,7 +21,6 @@ export default function Home({
           <Title icon="menu" title="Fifa" />
           <Repeater<PostType>
             items={left}
-            className="border-b"
             renderItem={(item, index) => (
               <ArticleCard.Text key={index} {...item} />
             )}

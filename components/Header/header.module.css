@@ -1,11 +1,16 @@
 .permalink {
-  @apply font-bold block text-sm text-gray-900 py-2.5 px-3 rounded-xl duration-200;
-  @apply hover:bg-gray-100 w-full;
+  @apply font-black block text-black py-2.5 px-3 rounded-xl duration-200;
+  @apply hover:text-[#006eff] hover:bg-opacity-10 w-full;
 }
 .active-permalink {
-  @apply bg-gray-100 bg-opacity-60 backdrop-blur-md;
+  @apply text-[#006eff] bg-opacity-10;
 }
 
 .header {
-  @apply h-24 xl:px-24 lg:px-16 px-4 justify-center;
+  @apply bg-green-100 xl:py-3 lg:py-3 py-2 justify-center;
+}
+
+.container {
+  @apply h-[70px] flex items-center w-full justify-between xl:space-x-10 lg:space-x-6 space-x-4 xl:rounded-2xl lg:rounded-2xl bg-white;
+  @apply xl:px-8 lg:px-8 px-4;
 }

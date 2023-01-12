@@ -19,7 +19,7 @@ export default function PostDetail({ post }: PostDetailProps) {
       />
 
       <div className="grid grid-cols-12 gap-5">
-        <div className="col-span-3 w-full bg-gray-200 h-full rounded-lg hidden xl:block lg:block" />
+        <div className="col-span-3 w-full  h-full rounded-lg hidden xl:block lg:block" />
         <div className="xl:col-span-6 lg:col-span-6 col-span-12">
           <Container size="large">
             <div className="mb-10">
@@ -39,7 +39,7 @@ export default function PostDetail({ post }: PostDetailProps) {
             />
           </Container>
         </div>
-        <div className="col-span-3 w-full bg-gray-200 h-full rounded-lg hidden xl:block lg:block" />
+        <div className="col-span-3 w-full h-full rounded-lg hidden xl:block lg:block" />
       </div>
     </Container>
   )

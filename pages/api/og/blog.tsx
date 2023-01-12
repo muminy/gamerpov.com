@@ -1,3 +1,4 @@
+import Logo from "@/components/Logo"
 import { ImageResponse } from "@vercel/og"
 import { NextRequest } from "next/server"
 
@@ -27,21 +28,16 @@ export default async function handler(req: NextRequest) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "white",
+          backgroundImage:
+            "linear-gradient(225.1deg, #00FFA3 1.42%, #3045FF 56.31%, #00FFA3 112.36%)",
           fontFamily: "Inter",
         }}
       >
-        <div tw="flex items-center uppercase text-3xl space-x-4 p-10">
-          <div tw="flex w-20 h-14 font-black bg-slate-900 text-blue-100 items-center justify-center">
-            G
+        <div tw="p-10 flex flex-col h-full justify-between">
+          <Logo size={73} color="white" />
+          <div tw="text-6xl text-black font-black uppercase leading-[70px]">
+            {title}
           </div>
-          <div tw="flex items-center tracking-wider ml-4">
-            <span tw="font-black">GAMER</span>
-            <span tw="font-black text-indigo-500">pov</span>
-          </div>
-        </div>
-        <div tw="p-10 text-6xl font-black uppercase leading-[70px]">
-          {title}
         </div>
       </div>
     ),
