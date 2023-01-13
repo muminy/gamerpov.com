@@ -19,7 +19,7 @@ export default function Drawer({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-40 transition-opacity" />
+          <div className="fixed inset-0 bg-white bg-opacity-20 transition-opacity" />
         </Transition.Child>
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
@@ -34,7 +34,7 @@ export default function Drawer({
                 leaveTo="translate-x-full"
               >
                 <Dialog.Panel className="pointer-events-auto relative w-screen max-w-xs">
-                  <div className="flex flex-col overflow-y-auto bg-white py-6 px-10 h-screen shadow-xl">
+                  <div className="flex flex-col overflow-y-auto bg-black py-6 px-10 h-screen shadow-xl">
                     {renderContent()}
                   </div>
                 </Dialog.Panel>

@@ -1,12 +1,14 @@
-import App, { AppContext, AppProps } from "next/app"
+import { AppContext, AppProps } from "next/app"
 import Layout from "@/components/Layout/Layout"
 
 import "@/styles/tailwind.css"
 import "@/styles/style.css"
+
 import Seo from "@/components/Seo"
 import { initialSeo } from "@/constants/seo"
 import { getSiteContent } from "@/libs/site"
 import { SiteContext, SiteContextType } from "context/site"
+import { ThemeProvider } from "next-themes"
 
 export default function MyCustomApp({
   Component,
@@ -15,12 +17,14 @@ export default function MyCustomApp({
   menu,
 }: AppProps & SiteContextType) {
   return (
-    <SiteContext.Provider value={{ categories, menu }}>
-      <Layout>
-        <Seo {...initialSeo} />
-        <Component {...pageProps} />
-      </Layout>
-    </SiteContext.Provider>
+    <ThemeProvider attribute="class" defaultTheme="dark">
+      <SiteContext.Provider value={{ categories, menu }}>
+        <Layout>
+          <Seo {...initialSeo} />
+          <Component {...pageProps} />
+        </Layout>
+      </SiteContext.Provider>
+    </ThemeProvider>
   )
 }
 

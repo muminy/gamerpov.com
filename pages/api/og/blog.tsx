@@ -28,14 +28,13 @@ export default async function handler(req: NextRequest) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundImage:
-            "linear-gradient(225.1deg, #00FFA3 1.42%, #3045FF 56.31%, #00FFA3 112.36%)",
+          backgroundColor: "black",
           fontFamily: "Inter",
         }}
       >
-        <div tw="p-10 flex flex-col h-full justify-between">
+        <div tw="p-20 flex flex-col h-full justify-between">
           <Logo size={73} color="white" />
-          <div tw="text-6xl text-black font-black uppercase leading-[70px]">
+          <div tw="text-6xl text-white font-black uppercase leading-[70px]">
             {title}
           </div>
         </div>

@@ -1,71 +1,48 @@
 import Container from "../Container"
 import Logo from "../Logo"
-import Permalink from "../Permalink"
 import style from "./header.module.css"
-import { usePathname } from "next/navigation"
 import classNames from "classnames"
-import Repeater from "../Repeater"
 import IconButton from "../IconButton/IconButton"
-import { useSiteContent } from "context/site"
-import { CategoryType } from "@/types/site"
 import Drawer from "../Drawer"
-import { useState } from "react"
+import React, { useState } from "react"
+import MenuList from "../MenuList"
 
 export default function Header() {
-  const pathname = usePathname()
-  const { categories } = useSiteContent()
   const [isActive, setIsActive] = useState(false)
   const toggle = () => setIsActive(!isActive)
 
-  const renderMenu = (item: CategoryType, isResponsive?: boolean) => (
-    <li key={item.slug}>
-      <Permalink
-        className={classNames(style.permalink, {
-          [style["active-permalink"]]: pathname === `/category/${item.slug}`,
-          "text-lg": isResponsive,
-        })}
-        href={`/category/${item.slug}`}
-        title={item.name}
-      />
-    </li>
-  )
-
   return (
-    <div className={classNames(style.header, "flex items-center mb-5")}>
-      <Container className={style.container}>
-        <Logo size={28} />
-        <div className="flex ml-4 space-x-2 items-center">
-          <Repeater<CategoryType>
-            items={categories}
-            as="ul"
-            renderItem={(item) => renderMenu(item)}
-            className="items-center ml-auto hidden xl:flex lg:flex"
-          />
-          <input
-            placeholder="Arama Yap"
-            className="px-5 h-10 rounded-2xl w-[200px] xl:block lg:block hidden bg-gray-100 outline-none text-sm"
-          />
-          <IconButton
-            icon="menu"
-            id="responsive-menu"
-            size={18}
-            onClick={toggle}
-            className="h-10 w-10 rounded-full xl:hidden lg:hidden flex"
-          />
+    <div
+      className={classNames(
+        style.header,
+        "flex items-center mb-5 border-b border-dark-border"
+      )}
+    >
+      <Container size="big" className={style.container}>
+        <Logo
+          className="xl:border-r lg:border-r xl:-ml-8 lg:-ml-8 border-white pr-4 border-opacity-10 h-[70px] flex items-center"
+          size={18}
+          color="#ffffff"
+        />
+        <div className="flex items-center text-white justify-between w-full">
+          <MenuList />
+          <div className="flex items-center ml-auto space-x-2">
+            <IconButton icon="search" />
+            <IconButton
+              icon="menu"
+              id="responsive-menu"
+              size={18}
+              onClick={toggle}
+              className="xl:hidden lg:hidden flex"
+            />
+          </div>
         </div>
       </Container>
 
       <Drawer
         isActive={isActive}
         onClose={toggle}
-        renderContent={() => (
-          <Repeater<CategoryType>
-            items={categories}
-            as="ul"
-            renderItem={(item) => renderMenu(item, true)}
-            className="items-center block"
-          />
-        )}
+        renderContent={() => <MenuList isResponsive />}
       />
     </div>
   )

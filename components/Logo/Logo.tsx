@@ -1,9 +1,18 @@
+import cn from "classnames"
 import { LogoProps } from "."
 import Permalink from "../Permalink"
 
-export default function Logo({ color = "black", size = 24 }: LogoProps) {
+export default function Logo({
+  color = "black",
+  size = 24,
+  className,
+}: LogoProps) {
   return (
-    <Permalink href={"/"} className="block rounded-sm py-1.5 text-lg uppercase">
+    <Permalink
+      href={"/"}
+      className={cn("block rounded-sm py-1.5 text-lg uppercase", className)}
+      aria-label="logo"
+    >
       <svg
         width={size * 5.33}
         height={size}

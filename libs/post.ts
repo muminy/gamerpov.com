@@ -57,7 +57,7 @@ export async function getPostBySlug(slug: string) {
 export async function getPostsByCategoryId({
   categoryId,
 }: {
-  categoryId: string
+  categoryId: number
 }) {
   const apolloClient = getApolloClient()
 

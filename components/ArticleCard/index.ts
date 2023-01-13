@@ -1,4 +1,4 @@
-import TextCard from "./Text"
+import Text from "./Text"
 import ImageCard from "./ArticleCard"
 
 export type ArticleCardProps = {
@@ -7,7 +7,7 @@ export type ArticleCardProps = {
 }
 
 const Article = {
-  Text: TextCard,
+  Text,
   Image: ImageCard,
 }
 

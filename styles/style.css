@@ -6,25 +6,25 @@ body {
   font-family: "Inter", sans-serif;
   min-height: 100vh;
   position: relative;
+  @apply dark:bg-dark-bg dark:text-white;
 }
 
 .article-content p {
   @apply mt-3 text-gray-900;
   line-height: 150%;
   font-size: 16px;
-  color: #0a0a0d;
-  opacity: 0.8;
+  @apply dark:text-gray-300;
 }
 
 .article-content b {
   @apply text-black;
+  @apply dark:text-white;
 }
 
 .article-content :is(h1, h2, h3, h4, h5, h6) {
   @apply text-lg mt-10 font-extrabold;
   font-size: 14px;
-  color: rgba(74, 87, 111, 0.6);
+  @apply dark:text-gray-600;
   text-transform: uppercase;
   letter-spacing: 2px;
-  opacity: 0.7;
 }

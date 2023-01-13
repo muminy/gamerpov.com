@@ -14,7 +14,8 @@ import InfoIcon from "./Info.icon"
 import ExternalIcon from "./External.icon"
 import BookMarkIcon, { BookMarkFillIcon } from "./BookMark.icon"
 import { FlashIcon } from "./Remix.icon"
-import { CloseIcon } from "./Radix.icons"
+import { CloseIcon, SearchIcon, ChevronDownIcon } from "./Radix.icons"
+import { MoonFillIcon, SunFillIcon } from "./Figma.icons"
 import PinIcon from "./Pin.icon"
 
 const icons = {
@@ -29,13 +30,17 @@ const icons = {
   arrowLeft: ArrowLeftIcon,
   arrowRight: ArrowRightIcon,
   arrowDown: ArrowDownIcon,
+  arrowChevronDown: ChevronDownIcon,
   info: InfoIcon,
   external: ExternalIcon,
+  search: SearchIcon,
   bookmark: BookMarkIcon,
   bookmarkFill: BookMarkFillIcon,
   flash: FlashIcon,
   close: CloseIcon,
   pin: PinIcon,
+  moonFill: MoonFillIcon,
+  sunFill: SunFillIcon,
 }
 
 export type IconTypes = keyof typeof icons

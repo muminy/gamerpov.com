@@ -3,6 +3,7 @@ import Container from "@/components/Container"
 import Hero from "@/components/Hero"
 import Repeater from "@/components/Repeater"
 import Title from "@/components/Title"
+import Widgets from "@/components/Widgets"
 import { getAllPosts } from "@/libs/post"
 import { PostType } from "@/types/post"
 
@@ -18,13 +19,7 @@ export default function Home({
       <Hero.HomeHero items={posts} />
       <div className="grid grid-cols-12 xl:gap-10 gap-5 mt-10">
         <div className="xl:col-span-3 lg:col-span-4 col-span-12">
-          <Title icon="menu" title="Fifa" />
-          <Repeater<PostType>
-            items={left}
-            renderItem={(item, index) => (
-              <ArticleCard.Text key={index} {...item} />
-            )}
-          />
+          <Widgets.TextList items={left} title="Fifa" icon="flash" />
         </div>
         <div className="xl:col-span-6 lg:col-span-4 col-span-12">
           <Title icon="flash" title="Oyunlar" />
@@ -34,20 +29,13 @@ export default function Home({
               <ArticleCard.Image key={index} {...item} />
             )}
           />
-          <Repeater<PostType>
-            items={posts.slice(1, posts.length)}
-            renderItem={(item, index) => (
-              <ArticleCard.Text key={index} {...item} />
-            )}
-          />
+          <Widgets.TextList items={posts} />
         </div>
         <div className="xl:col-span-3 lg:col-span-4 col-span-12">
-          <Title icon="menu" title="Haber Kaynağı" />
-          <Repeater<PostType>
+          <Widgets.TextList
             items={posts}
-            renderItem={(item, index) => (
-              <ArticleCard.Text key={index} {...item} />
-            )}
+            title="Haber Kaynağı"
+            icon="arrowChevronDown"
           />
         </div>
       </div>

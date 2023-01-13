@@ -1,14 +1,20 @@
-import { getAllPosts, getPostBySlug } from "@/libs/post"
+import { getAllPosts, getPostBySlug, getPostsByCategoryId } from "@/libs/post"
 import { PostType } from "@/types/post"
 import { GetStaticPropsContext } from "next"
 import Container from "@/components/Container"
 import Seo from "@/components/Seo"
 import { BASE_URL } from "@/constants/website"
+import Title from "@/components/Title"
+import Widgets from "@/components/Widgets"
 
 export interface PostDetailProps {
   post: PostType
+  mostPopularPosts: PostType[]
 }
-export default function PostDetail({ post }: PostDetailProps) {
+export default function PostDetail({
+  post,
+  mostPopularPosts,
+}: PostDetailProps) {
   return (
     <Container className="relative">
       <Seo
@@ -17,9 +23,14 @@ export default function PostDetail({ post }: PostDetailProps) {
         image={`${BASE_URL}/api/og/blog?title=${post.title}`}
         twitter={{ site: "@gamewod", cardType: "summary_large_image" }}
       />
-
       <div className="grid grid-cols-12 gap-5">
-        <div className="col-span-3 w-full  h-full rounded-lg hidden xl:block lg:block" />
+        <div className="col-span-3 w-full h-full rounded-lg hidden xl:block lg:block">
+          <Widgets.TextList
+            icon="flash"
+            title="Most Popular"
+            items={mostPopularPosts}
+          />
+        </div>
         <div className="xl:col-span-6 lg:col-span-6 col-span-12">
           <Container size="large">
             <div className="mb-10">
@@ -52,6 +63,9 @@ export type ParamsType = {
 export async function getStaticProps(props: GetStaticPropsContext) {
   const { slug } = props.params as ParamsType
   const { post } = await getPostBySlug(slug)
+  const { posts: mostPopularPosts } = await getPostsByCategoryId({
+    categoryId: 16,
+  })
 
   if (!post) {
     return {
@@ -63,17 +77,12 @@ export async function getStaticProps(props: GetStaticPropsContext) {
   return {
     props: {
       post,
+      mostPopularPosts,
     },
   }
 }
 
 export async function getStaticPaths() {
-  // Only render the most recent posts to avoid spending unecessary time
-  // querying every single post from WordPress
-
-  // Tip: this can be customized to use data or analytitcs to determine the
-  // most popular posts and render those instead
-
   const { posts } = await getAllPosts()
 
   const paths = posts

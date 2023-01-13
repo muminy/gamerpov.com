@@ -8,10 +8,16 @@ export default function IconButton({
   className,
   size = 16,
   color,
+  bgType = "secondary",
   ...remaining
 }: IconButtonProps) {
+  const types = { none: style.none, secondary: style.secondary }
   return (
-    <button {...remaining} className={cn(style.container, className)}>
+    <button
+      {...remaining}
+      className={cn(style.container, types[bgType], className)}
+      aria-label={icon}
+    >
       <Icon size={size} color={color} icon={icon} />
     </button>
   )
