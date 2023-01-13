@@ -1,5 +1,6 @@
 import { TitleProps } from "."
 import Icon from "../Icon"
+import style from "./style.module.css"
 
 export default function Title({ title, icon }: TitleProps) {
   return (
@@ -9,7 +10,10 @@ export default function Title({ title, icon }: TitleProps) {
           <Icon size={16} icon={icon} />
         </span>
       )}
-      <span className="font-bold">{title}</span>
+      <span
+        className={style.title}
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
     </div>
   )
 }

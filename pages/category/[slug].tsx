@@ -3,6 +3,7 @@ import Container from "@/components/Container"
 import Permalink from "@/components/Permalink"
 import Repeater from "@/components/Repeater"
 import Seo from "@/components/Seo"
+import Widgets from "@/components/Widgets"
 import { BASE_URL } from "@/constants/website"
 import { getPostsByCategoryId } from "@/libs/post"
 import { getCategoryBySlug } from "@/libs/site"
@@ -24,18 +25,20 @@ export default function CategoryPost({ posts, category }: PageProps) {
         image={`${BASE_URL}/api/og/blog?title=${category.name}`}
       />
       <Container size="small">
-        <div className="mb-10">
-          <h1 className="text-4xl font-black uppercase text-center mb-6">
+        <div className="mb-14 mt-6">
+          <h1 className="text-2xl text-center font-black uppercase mb-3">
             {category.name}
           </h1>
-          <p className="text-center text-sm text-gray-600">
-            {category.description}
+          <p className="text-sm text-gray-600 text-center">
+            {category.description
+              ? `${category.description?.substring(0, 200)}...`
+              : category.name}
           </p>
         </div>
-        <Repeater<PostType>
+        <Widgets.TextList
+          icon="flash"
+          title={`<b>${category.name}</b> Son Paylaşımlar`}
           items={posts}
-          renderItem={(item, index) => <Article.Text key={index} {...item} />}
-          renderNotFound={() => <div>NotFound</div>}
         />
       </Container>
     </Container>

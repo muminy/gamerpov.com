@@ -23,8 +23,7 @@ export default function MenuList({ isResponsive }: MenuListProps) {
         title={item.name}
       >
         <span>{item.name}</span>
-        {/* <Icon size={14} icon="arrowChevronDown" /> */}
-        <span className="text-gray-600 text-xs font-black">/</span>
+        <Icon size={14} icon="external" />
       </Permalink>
     </li>
   )
