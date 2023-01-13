@@ -6,16 +6,26 @@ import Article from "../ArticleCard"
 import Repeater from "../Repeater"
 import Title from "../Title"
 
-export default function TextList({ items, title, icon }: TextListProps) {
+export default function TextList({
+  items,
+  title,
+  icon,
+  renderNotFound,
+}: TextListProps) {
   return (
     <Fragment>
       {title && <Title icon={icon} title={title} />}
+
       <div className="px-4 py-4 bg-gray-100 dark:bg-dark-secondary rounded-xl">
-        <Repeater<PostType>
-          items={items}
-          className="space-y-5"
-          renderItem={(item, index) => <Article.Text key={index} {...item} />}
-        />
+        {items.length === 0 ? (
+          <div>Henüz Paylaşım Yapılmadı</div>
+        ) : (
+          <Repeater<PostType>
+            items={items}
+            className="space-y-5"
+            renderItem={(item, index) => <Article.Text key={index} {...item} />}
+          />
+        )}
       </div>
     </Fragment>
   )

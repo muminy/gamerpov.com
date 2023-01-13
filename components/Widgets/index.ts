@@ -1,5 +1,6 @@
 import { IconTypes } from "@/icons/index"
 import { PostType } from "@/types/post"
+import { ReactNode } from "react"
 import TextList from "./TextList"
 
 const Widgets = {
@@ -10,6 +11,7 @@ export type TextListProps = {
   items: PostType[]
   title?: string
   icon?: IconTypes
+  renderNotFound?: ReactNode
 }
 
 export default Widgets
