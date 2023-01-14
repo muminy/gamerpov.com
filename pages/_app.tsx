@@ -20,7 +20,7 @@ export default function MyCustomApp({
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=UA-71914973-1"
+        src="https://www.googletagmanager.com/gtag/js?id=G-JYX9TG6V24"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -29,7 +29,7 @@ export default function MyCustomApp({
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
         
-          gtag('config', 'UA-71914973-1');
+          gtag('config', 'G-JYX9TG6V24');
         `}
       </Script>
       <SiteContext.Provider value={{ categories, menu }}>
