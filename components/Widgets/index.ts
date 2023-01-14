@@ -11,7 +11,6 @@ export type TextListProps = {
   items: PostType[]
   title?: string
   icon?: IconTypes
-  renderNotFound?: ReactNode
 }
 
 export default Widgets
