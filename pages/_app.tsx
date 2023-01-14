@@ -9,7 +9,7 @@ import { initialSeo } from "@/constants/seo"
 import { getSiteContent } from "@/libs/site"
 import { SiteContext, SiteContextType } from "context/site"
 import { ThemeProvider } from "next-themes"
-import Script from "next/script"
+import GoogleAnalytics from "@/components/GoogleAnalytics"
 
 export default function MyCustomApp({
   Component,
@@ -19,17 +19,7 @@ export default function MyCustomApp({
 }: AppProps & SiteContextType) {
   return (
     <>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-JYX9TG6V24"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">{`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-JYX9TG6V24');
-      `}</Script>
+      <GoogleAnalytics />
       <ThemeProvider attribute="class" defaultTheme="dark">
         <SiteContext.Provider value={{ categories, menu }}>
           <Layout>
