@@ -1,10 +1,10 @@
-import Article from "@/components/ArticleCard"
+import Breadcrumb from "@/components/Breadcrumb"
+import Card from "@/components/Card"
 import Container from "@/components/Container"
-import Permalink from "@/components/Permalink"
-import Repeater from "@/components/Repeater"
 import Seo from "@/components/Seo"
 import Widgets from "@/components/Widgets"
 import { BASE_URL } from "@/constants/website"
+import { threeDots } from "@/helpers/string"
 import { getPostsByCategoryId } from "@/libs/post"
 import { getCategoryBySlug } from "@/libs/site"
 import { PostType } from "@/types/post"
@@ -25,16 +25,10 @@ export default function CategoryPost({ posts, category }: PageProps) {
         image={`${BASE_URL}/api/og/blog?title=${category.name}`}
       />
       <Container size="small">
-        <div className="mb-14 mt-6">
-          <h1 className="text-2xl text-center font-black uppercase mb-3">
-            {category.name}
-          </h1>
-          <p className="text-sm text-gray-600 text-center">
-            {category.description
-              ? `${category.description?.substring(0, 200)}...`
-              : category.name}
-          </p>
-        </div>
+        <Breadcrumb items={[{ title: "Home", to: "/" }, { title: "Fifa" }]} />
+        <Card className="text-sm text-gray-500 mb-14">
+          {threeDots(category.description, 200, category.name)}
+        </Card>
         <Widgets.TextList
           icon="flash"
           title={`<b>${category.name}</b> Son Paylaşımlar`}

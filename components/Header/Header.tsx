@@ -6,10 +6,11 @@ import IconButton from "../IconButton/IconButton"
 import Drawer from "../Drawer"
 import React, { useState } from "react"
 import MenuList from "../MenuList"
+import Button from "../Button"
+import Icon from "../Icon"
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false)
-  const toggle = () => setIsActive(!isActive)
 
   return (
     <div
@@ -27,21 +28,24 @@ export default function Header() {
         <div className="flex items-center text-white justify-between w-full">
           <MenuList />
           <div className="flex items-center ml-auto space-x-2">
+            <Button.Gradient className="space-x-2">
+              <Icon icon="twitch" />
+              <span>Streamers</span>
+            </Button.Gradient>
             <IconButton icon="search" />
             <IconButton
               icon="menu"
               id="responsive-menu"
               size={18}
-              onClick={toggle}
+              onClick={() => setIsActive(true)}
               className="xl:hidden lg:hidden flex"
             />
           </div>
         </div>
       </Container>
-
       <Drawer
         isActive={isActive}
-        onClose={toggle}
+        onClose={() => setIsActive(false)}
         renderContent={() => <MenuList isResponsive />}
       />
     </div>

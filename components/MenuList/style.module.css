@@ -1,7 +1,7 @@
 .permalink {
-  @apply font-bold text-sm text-gray-500 h-[70px] flex items-center px-4 duration-200 space-x-2;
-  @apply hover:text-[#d6deff] hover:bg-opacity-10 w-full;
+  @apply font-bold text-sm text-gray-300 h-[70px] flex items-center px-5 duration-200 space-x-2;
+  @apply hover:text-primary hover:bg-opacity-10 w-full;
 }
 .active-permalink {
-  @apply text-[#d6deff];
+  @apply text-primary;
 }

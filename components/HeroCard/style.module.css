@@ -1,5 +1,5 @@
 .container {
-  @apply block xl:h-[400px] lg:h-[300px] h-[200px] xl:rounded-md lg:rounded-md overflow-hidden relative;
+  @apply block bg-dark-secondary xl:h-[200px] lg:h-[200px] h-[200px] rounded-xl overflow-hidden relative;
 }
 
 .container::before {
@@ -10,5 +10,5 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-image: linear-gradient(to bottom, #000000, transparent);
+  background-image: linear-gradient(to top, #000000, transparent);
 }

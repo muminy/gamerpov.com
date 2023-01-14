@@ -11,6 +11,7 @@ module.exports = {
         "dark-border": "#ffffff1a",
         "dark-bg": "#050509",
         "dark-secondary": "#0f0f13",
+        primary: "#7994ff",
       },
     },
   },

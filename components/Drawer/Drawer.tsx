@@ -1,12 +1,16 @@
 import { DrawerProps } from "."
 import { Dialog, Transition } from "@headlessui/react"
+import { useEffect } from "react"
+import { useRouter } from "next/router"
 
 export default function Drawer({
-  width = 500,
   isActive = false,
   renderContent,
   onClose,
 }: DrawerProps) {
+  const { asPath } = useRouter()
+  useEffect(onClose, [asPath])
+
   return (
     <Transition.Root show={isActive} as={"div"}>
       <Dialog as="div" className="relative z-10" onClose={onClose}>
@@ -19,7 +23,7 @@ export default function Drawer({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-white bg-opacity-20 transition-opacity" />
+          <div className="fixed inset-0 bg-white dark:bg-dark-secondary dark:bg-opacity-70 bg-opacity-20 transition-opacity" />
         </Transition.Child>
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
@@ -34,7 +38,7 @@ export default function Drawer({
                 leaveTo="translate-x-full"
               >
                 <Dialog.Panel className="pointer-events-auto relative w-screen max-w-xs">
-                  <div className="flex flex-col overflow-y-auto bg-black py-6 px-10 h-screen shadow-xl">
+                  <div className="flex flex-col overflow-y-auto bg-black py-6 px-8 h-screen shadow-xl">
                     {renderContent()}
                   </div>
                 </Dialog.Panel>

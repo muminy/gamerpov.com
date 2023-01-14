@@ -1,11 +1,15 @@
 import { getAllPosts, getPostBySlug, getPostsByCategoryId } from "@/libs/post"
-import { PostType } from "@/types/post"
+import { CategoriesTypes, PostType } from "@/types/post"
 import { GetStaticPropsContext } from "next"
 import Container from "@/components/Container"
 import Seo from "@/components/Seo"
 import { BASE_URL } from "@/constants/website"
-import Title from "@/components/Title"
 import Widgets from "@/components/Widgets"
+import { defaultImage } from "@/constants/default"
+import Image from "next/image"
+import Breadcrumb from "@/components/Breadcrumb"
+import Repeater from "@/components/Repeater"
+import Permalink from "@/components/Permalink"
 
 export interface PostDetailProps {
   post: PostType
@@ -23,7 +27,45 @@ export default function PostDetail({
         image={`${BASE_URL}/api/og/blog?title=${post.title}`}
         twitter={{ site: "@gamewod", cardType: "summary_large_image" }}
       />
-      <div className="grid grid-cols-12 gap-5">
+      <Breadcrumb
+        items={[
+          { title: "Home", to: "/" },
+          { title: "Blog", to: "/" },
+          { title: post.title },
+        ]}
+      />
+      <div className="grid grid-cols-12 xl:gap-10 gap-5">
+        <div className="col-span-3 w-full h-full rounded-lg hidden xl:block lg:block">
+          <Widgets.Author
+            name={post.author?.name}
+            description={post.author?.description}
+          />
+          <Widgets.Share />
+        </div>
+        <div className="xl:col-span-6 lg:col-span-6 col-span-12">
+          <Container size="large">
+            <h1 className="text-3xl font-black mb-4">{post.title}</h1>
+            <div className="flex items-center mb-10 space-x-2 font-medium text-sm dark:text-gray-300 text-gray-900">
+              <Repeater<CategoriesTypes>
+                items={post.categories}
+                className="space-x-2"
+                renderItem={(item, index) => (
+                  <Permalink
+                    key={index}
+                    href={`/category/${item.slug}`}
+                    title={item.name}
+                    className="px-3 py-1.5 rounded-xl dark:bg-dark-secondary bg-yellow-100"
+                  />
+                )}
+              />
+              <span>{post.readingTime} Min Read</span>
+            </div>
+            <div
+              className="article-content"
+              dangerouslySetInnerHTML={{ __html: post.content ?? "" }}
+            />
+          </Container>
+        </div>
         <div className="col-span-3 w-full h-full rounded-lg hidden xl:block lg:block">
           <Widgets.TextList
             icon="flash"
@@ -31,26 +73,6 @@ export default function PostDetail({
             items={mostPopularPosts}
           />
         </div>
-        <div className="xl:col-span-6 lg:col-span-6 col-span-12">
-          <Container size="large">
-            <div className="mb-10">
-              <img
-                className="xl:h-[300px] lg:h-[240px] h-[180px] w-full object-cover"
-                src={post.image?.sourceUrl}
-                alt={post.image?.altText}
-              />
-            </div>
-            <div className="text-3xl uppercase font-black mb-10">
-              {post.title}
-            </div>
-
-            <div
-              className="article-content"
-              dangerouslySetInnerHTML={{ __html: post.content ?? "" }}
-            />
-          </Container>
-        </div>
-        <div className="col-span-3 w-full h-full rounded-lg hidden xl:block lg:block" />
       </div>
     </Container>
   )

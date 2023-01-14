@@ -1,0 +1,4 @@
+.gradient {
+  background: linear-gradient(266.42deg, #e5a9ea, #bc79f4 48.44%, #9146ff);
+  @apply flex items-center h-8 text-sm px-3 rounded-xl text-black font-bold;
+}

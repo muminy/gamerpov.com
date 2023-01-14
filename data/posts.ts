@@ -4,13 +4,11 @@ export const POST_FIELDS = gql`
   fragment PostFields on Post {
     id
     categories {
-      edges {
-        node {
-          databaseId
-          id
-          name
-          slug
-        }
+      nodes {
+        databaseId
+        id
+        name
+        slug
       }
     }
     excerpt(format: RAW)
@@ -20,6 +18,31 @@ export const POST_FIELDS = gql`
     postId
     slug
     title
+    readingTime
+    featuredImage {
+      node {
+        altText
+        caption
+        sourceUrl
+        srcSet
+        sizes
+        id
+      }
+    }
+    author {
+      node {
+        avatar {
+          height
+          url
+          width
+        }
+        description
+        email
+        id
+        name
+        slug
+      }
+    }
   }
 `
 
@@ -43,16 +66,6 @@ export const QUERY_GET_HOME_POSTS = gql`
       edges {
         node {
           ...PostFields
-          featuredImage {
-            node {
-              altText
-              caption
-              sourceUrl
-              srcSet
-              sizes
-              id
-            }
-          }
         }
       }
     }
@@ -61,16 +74,6 @@ export const QUERY_GET_HOME_POSTS = gql`
       edges {
         node {
           ...PostFields
-          featuredImage {
-            node {
-              altText
-              caption
-              sourceUrl
-              srcSet
-              sizes
-              id
-            }
-          }
         }
       }
     }
@@ -84,19 +87,6 @@ export const QUERY_ALL_POSTS_ARCHIVE = gql`
       edges {
         node {
           ...PostFields
-          author {
-            node {
-              avatar {
-                height
-                url
-                width
-              }
-              id
-              name
-              slug
-            }
-          }
-          excerpt
         }
       }
     }
@@ -110,30 +100,7 @@ export const QUERY_ALL_POSTS = gql`
       edges {
         node {
           ...PostFields
-          author {
-            node {
-              avatar {
-                height
-                url
-                width
-              }
-              id
-              name
-              slug
-            }
-          }
           content
-          excerpt
-          featuredImage {
-            node {
-              altText
-              caption
-              sourceUrl
-              srcSet
-              sizes
-              id
-            }
-          }
           modified
         }
       }
@@ -142,49 +109,11 @@ export const QUERY_ALL_POSTS = gql`
 `
 
 export const QUERY_POST_BY_SLUG = gql`
+  ${POST_FIELDS}
   query PostBySlug($slug: ID!) {
     post(id: $slug, idType: SLUG) {
-      author {
-        node {
-          avatar {
-            height
-            url
-            width
-          }
-          id
-          name
-          slug
-        }
-      }
-      id
-      categories {
-        edges {
-          node {
-            databaseId
-            id
-            name
-            slug
-          }
-        }
-      }
+      ...PostFields
       content
-      date
-      excerpt
-      featuredImage {
-        node {
-          altText
-          caption
-          sourceUrl
-          srcSet
-          sizes
-          id
-        }
-      }
-      modified
-      databaseId
-      title
-      slug
-      isSticky
     }
   }
 `

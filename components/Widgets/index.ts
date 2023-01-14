@@ -1,10 +1,13 @@
 import { IconTypes } from "@/icons/index"
 import { PostType } from "@/types/post"
-import { ReactNode } from "react"
+import Author from "./Author"
+import Share from "./Share"
 import TextList from "./TextList"
 
 const Widgets = {
   TextList,
+  Author,
+  Share,
 }
 
 export type TextListProps = {
@@ -12,5 +15,12 @@ export type TextListProps = {
   title?: string
   icon?: IconTypes
 }
+
+export type AuthorProps = {
+  name?: string
+  description?: string
+} & JSX.IntrinsicElements["div"]
+
+export type ShareProps = JSX.IntrinsicElements["div"]
 
 export default Widgets

@@ -22,14 +22,11 @@ export default function Home({
           <Widgets.TextList items={left} title="Fifa" icon="flash" />
         </div>
         <div className="xl:col-span-6 lg:col-span-4 col-span-12">
-          <Title icon="flash" title="Oyunlar" />
-          <Repeater<PostType>
-            items={posts.slice(0, 1)}
-            renderItem={(item, index) => (
-              <ArticleCard.Image key={index} {...item} />
-            )}
+          <Widgets.TextList
+            icon="flash"
+            title="Son Paylaşılanlar"
+            items={posts}
           />
-          <Widgets.TextList items={posts} />
         </div>
         <div className="xl:col-span-3 lg:col-span-4 col-span-12">
           <Widgets.TextList

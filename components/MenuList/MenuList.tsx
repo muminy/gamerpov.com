@@ -17,7 +17,7 @@ export default function MenuList({ isResponsive }: MenuListProps) {
       <Permalink
         className={cn(style.permalink, {
           [style["active-permalink"]]: asPath === `/category/${item.slug}`,
-          "h-[40px]": isResponsive,
+          "h-[40px] px-0": isResponsive,
         })}
         href={`/category/${item.slug}`}
         title={item.name}

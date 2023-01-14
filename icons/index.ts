@@ -1,6 +1,4 @@
 import MenuIcon from "./Menu.icon"
-import FBIcon from "./Facebook.icon"
-import TwitterIcon from "./Twitter.icon"
 import LinkIcon from "./Link.icon"
 import CommentIcon, { CommentFillIcon } from "./Comment.icon"
 import PenIcon from "./Pen.icon"
@@ -16,11 +14,17 @@ import BookMarkIcon, { BookMarkFillIcon } from "./BookMark.icon"
 import { FlashIcon } from "./Remix.icon"
 import { CloseIcon, SearchIcon, ChevronDownIcon } from "./Radix.icons"
 import { MoonFillIcon, SunFillIcon } from "./Figma.icons"
+import {
+  TwitchIcon,
+  FacebookIcon,
+  Twitch2Icon,
+  TwitterIcon,
+} from "./Socials.icons"
 import PinIcon from "./Pin.icon"
 
 const icons = {
   menu: MenuIcon,
-  facebook: FBIcon,
+  facebook: FacebookIcon,
   twitter: TwitterIcon,
   link: LinkIcon,
   comment: CommentIcon,
@@ -41,6 +45,8 @@ const icons = {
   pin: PinIcon,
   moonFill: MoonFillIcon,
   sunFill: SunFillIcon,
+  twitch: TwitchIcon,
+  twitch2: Twitch2Icon,
 }
 
 export type IconTypes = keyof typeof icons

@@ -1,19 +1,18 @@
 import classNames from "classnames"
 import { useTheme } from "next-themes"
-import { useMemo } from "react"
 import { FooterProps } from "."
 import Container from "../Container"
-import Icon from "../Icon"
 import Logo from "../Logo"
 
 export default function Footer({ className, ...remainingProps }: FooterProps) {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
-  const isDark = useMemo(() => theme !== "light", [theme])
+  const isDark = resolvedTheme === "dark"
 
   const handleChangeTheme = () => {
     setTheme(isDark ? "light" : "dark")
   }
+
   return (
     <Container
       {...remainingProps}
@@ -34,8 +33,7 @@ export default function Footer({ className, ...remainingProps }: FooterProps) {
           onClick={handleChangeTheme}
           className="flex items-center space-x-2 text-gray-400 bg-white bg-opacity-10 px-3 py-2 rounded-xl"
         >
-          <Icon icon={isDark ? "moonFill" : "sunFill"} />
-          <span className="">{isDark ? "Dark" : "Light"}</span>
+          Switch Theme
         </button>
       </div>
     </Container>

@@ -1,0 +1,11 @@
+.breadcrumbs {
+  @apply mb-5 py-2 flex flex-wrap whitespace-pre-wrap items-center text-sm font-semibold;
+}
+
+.breadcrumbs a:not(:last-child):after {
+  content: "›";
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  display: inline-block;
+  opacity: 0.5;
+}
