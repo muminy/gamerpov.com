@@ -19,7 +19,7 @@ export default function Sidebar({ className, ...props }: SidebarProps) {
   const renderSidebarMenu = (item: SidebarMenuType, index: number) => {
     return (
       <Permalink
-        className="duration-200 dark:bg-dark-secondary bg-gray-100 dark:hover:bg-opacity-60 hover:bg-opacity-60 py-2 px-3 rounded-xl text-sm font-semibold"
+        className="duration-200 w-1/4 dark:bg-dark-secondary truncate bg-gray-100 dark:hover:bg-opacity-60 hover:bg-opacity-60 py-2 px-3 rounded-xl xl:text-sm text-xs font-semibold"
         key={index}
         href={"/"}
       >
