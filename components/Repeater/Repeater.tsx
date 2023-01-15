@@ -7,6 +7,7 @@ export default function Repeater<T>({
   renderItem,
   renderHeader,
   renderNotFound,
+  renderBottom,
   as: Wrapper = "div",
 }: RepeaterProps<T>) {
   return (
@@ -16,6 +17,7 @@ export default function Repeater<T>({
         {items.length === 0
           ? renderNotFound && renderNotFound()
           : items.map(renderItem)}
+        {renderBottom && renderBottom}
       </Wrapper>
     </Fragment>
   )

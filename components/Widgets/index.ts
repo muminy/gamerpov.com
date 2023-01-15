@@ -14,6 +14,8 @@ export type TextListProps = {
   items: PostType[]
   title?: string
   icon?: IconTypes
+  onClick?(): void
+  moreText?: string
 }
 
 export type AuthorProps = {
@@ -21,6 +23,8 @@ export type AuthorProps = {
   description?: string
 } & JSX.IntrinsicElements["div"]
 
-export type ShareProps = JSX.IntrinsicElements["div"]
+export type ShareProps = JSX.IntrinsicElements["div"] & {
+  text: string
+}
 
 export default Widgets

@@ -1,3 +1,4 @@
+import { APOLLO_URL } from "@/constants/website"
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client"
 
 import { removeLastTrailingSlash } from "./utils"
@@ -21,9 +22,7 @@ export function getApolloClient() {
 export function _createApolloClient() {
   return new ApolloClient({
     link: new HttpLink({
-      uri: removeLastTrailingSlash(
-        process.env.WORDPRESS_GRAPHQL_ENDPOINT ?? ""
-      ),
+      uri: removeLastTrailingSlash(APOLLO_URL),
     }),
     cache: new InMemoryCache({
       typePolicies: {

@@ -16,9 +16,9 @@ body {
   @apply dark:text-gray-300;
 }
 
-.article-content b {
-  @apply text-black;
-  @apply dark:text-white;
+.article-content b,
+.article-content strong {
+  @apply text-green-500;
 }
 
 .article-content :is(h1, h2, h3, h4, h5, h6) {
@@ -27,4 +27,15 @@ body {
   @apply dark:text-gray-600;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+.article-content img {
+  @apply rounded-3xl;
+}
+
+.article-content figure {
+  @apply mt-10 mb-6 rounded-3xl relative;
+}
+.article-content figure figcaption {
+  @apply text-center text-sm absolute top-2 left-2 px-4 py-2;
+  @apply bg-primary text-black rounded-3xl;
 }

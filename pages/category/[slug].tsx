@@ -25,7 +25,9 @@ export default function CategoryPost({ posts, category }: PageProps) {
         image={`${BASE_URL}/api/og/blog?title=${category.name}`}
       />
       <Container size="small">
-        <Breadcrumb items={[{ title: "Home", to: "/" }, { title: "Fifa" }]} />
+        <Breadcrumb
+          items={[{ title: "Home", to: "/" }, { title: category.name }]}
+        />
         <Card className="text-sm text-gray-500 mb-14">
           {threeDots(category.description, 200, category.name)}
         </Card>

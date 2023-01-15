@@ -10,6 +10,7 @@ import Image from "next/image"
 import Breadcrumb from "@/components/Breadcrumb"
 import Repeater from "@/components/Repeater"
 import Permalink from "@/components/Permalink"
+import { useRouter } from "next/router"
 
 export interface PostDetailProps {
   post: PostType
@@ -19,6 +20,12 @@ export default function PostDetail({
   post,
   mostPopularPosts,
 }: PostDetailProps) {
+  const router = useRouter()
+
+  const readMoreClick = () => {
+    router.push(`/category/${post.categories[0].slug}`)
+  }
+
   return (
     <Container className="relative">
       <Seo
@@ -40,7 +47,7 @@ export default function PostDetail({
             name={post.author?.name}
             description={post.author?.description}
           />
-          <Widgets.Share />
+          <Widgets.Share text={post.title} />
         </div>
         <div className="xl:col-span-6 lg:col-span-6 col-span-12">
           <Container size="large">
@@ -70,7 +77,8 @@ export default function PostDetail({
           <Widgets.TextList
             icon="flash"
             title="Most Popular"
-            items={mostPopularPosts}
+            items={mostPopularPosts.slice(0, 5)}
+            {...(mostPopularPosts.length && { onClick: readMoreClick })}
           />
         </div>
       </div>
@@ -85,9 +93,17 @@ export type ParamsType = {
 export async function getStaticProps(props: GetStaticPropsContext) {
   const { slug } = props.params as ParamsType
   const { post } = await getPostBySlug(slug)
-  const { posts: mostPopularPosts } = await getPostsByCategoryId({
-    categoryId: 16,
-  })
+
+  let mostPopularPosts
+
+  if (post && post.categories.length > 0) {
+    const categoryPosts = await getPostsByCategoryId({
+      categoryId: post.categories[0].categoryId,
+    })
+    mostPopularPosts = categoryPosts.posts.filter(
+      (item) => item.slug !== post.slug
+    )
+  }
 
   if (!post) {
     return {

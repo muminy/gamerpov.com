@@ -16,6 +16,7 @@ export type CategoriesTypes = {
   name: string
   slug: string
   id: string
+  categoryId: number
 }
 
 export type WPPostTypes = {

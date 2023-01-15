@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client"
 
 export const QUERY_ALL_CATEGORIES = gql`
   query AllCategories {
@@ -10,11 +10,12 @@ export const QUERY_ALL_CATEGORIES = gql`
           id
           name
           slug
+          categoryId
         }
       }
     }
   }
-`;
+`
 
 export const QUERY_CATEGORY_BY_SLUG = gql`
   query CategoryBySlug($slug: ID!) {
@@ -26,7 +27,7 @@ export const QUERY_CATEGORY_BY_SLUG = gql`
       slug
     }
   }
-`;
+`
 
 export const QUERY_CATEGORY_SEO_BY_SLUG = gql`
   query CategorySEOBySlug($slug: ID!) {
@@ -66,4 +67,4 @@ export const QUERY_CATEGORY_SEO_BY_SLUG = gql`
       }
     }
   }
-`;
+`
