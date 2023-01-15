@@ -81,7 +81,7 @@ export default function Chat({ className, ...props }: ChatProps) {
           </button>
           <button
             onClick={handleSendMessage}
-            className="text-xs text-black font-medium bg-primary  px-3 py-2 rounded-xl"
+            className="text-xs text-black font-medium bg-primary px-3 py-2 rounded-xl"
           >
             Gönder
           </button>

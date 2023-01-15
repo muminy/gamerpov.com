@@ -17,13 +17,13 @@ export default function Footer({ className, ...remainingProps }: FooterProps) {
     <Container
       {...remainingProps}
       className={classNames(
-        "bg-black dark:bg-dark-secondary p-10 grid grid-cols-12 gap-5 justify-center mt-auto",
+        "bg-black dark:bg-dark-secondary p-10 xl:grid flex flex-col items-center grid-cols-12 gap-5 justify-center mt-auto",
         "xl:mb-10 xl:rounded-3xl"
       )}
     >
-      <div className="col-span-6 space-y-2">
+      <div className="col-span-6 space-y-2 xl:block flex flex-col items-center">
         <Logo size={18} color="#ffffff" />
-        <p className="text-gray-300 text-sm xl:w-2/4 lg:w-2/4">
+        <p className="text-gray-300 text-sm xl:w-2/4 lg:w-2/4 xl:text-left text-center">
           Gamerpov 2023 Yılını ilk ayında, oyunlara yönelik kurulmuş bir içerik
           paylaşım sitesidir.
         </p>
