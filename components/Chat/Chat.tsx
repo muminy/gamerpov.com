@@ -4,7 +4,7 @@ import { ChatProps } from "."
 import io from "socket.io-client"
 import Repeater from "../Repeater"
 
-const socket = io("ws://localhost:3000")
+const socket = io()
 
 type MessageType = {
   name: string
@@ -17,7 +17,6 @@ export default function Chat({ className, ...props }: ChatProps) {
   socket.on("connect", () => {
     socket.on("read:messages", (value) => {
       setMessages(value)
-      console.log("render")
     })
   })
 

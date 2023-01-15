@@ -31,7 +31,7 @@ export default function Sidebar({ className, ...props }: SidebarProps) {
   return (
     <div className={classNames(className, "mb-5")} {...props}>
       <Repeater<SidebarMenuType>
-        className="xl:space-y-2 space-x-2 flex xl:flex-col"
+        className="xl:space-y-2 xl:space-x-0 space-x-2 flex xl:flex-col"
         items={menu}
         renderItem={renderSidebarMenu}
       />
