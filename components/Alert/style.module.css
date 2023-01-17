@@ -1,0 +1,11 @@
+.message {
+  @apply text-sm;
+}
+
+.content {
+  @apply flex items-center text-black shadow-lg bg-white font-semibold backdrop-blur-xl px-3.5 py-2 rounded-xl space-x-2;
+}
+
+.container {
+  @apply fixed w-full top-0 flex justify-center z-50;
+}

@@ -16,3 +16,10 @@ export default function Mate() {
     </Container>
   )
 }
+
+export async function getStaticProps() {
+  return {
+    props: {},
+    notFound: true,
+  }
+}

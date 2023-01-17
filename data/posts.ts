@@ -1,6 +1,8 @@
 import { gql } from "@apollo/client"
+import { COMMENT_FRAGMENTS } from "./comment"
 
 export const POST_FIELDS = gql`
+  ${COMMENT_FRAGMENTS}
   fragment PostFields on Post {
     id
     categories {
@@ -12,6 +14,7 @@ export const POST_FIELDS = gql`
         categoryId
       }
     }
+    postId
     excerpt(format: RAW)
     databaseId
     date
@@ -20,6 +23,12 @@ export const POST_FIELDS = gql`
     slug
     title
     readingTime
+    commentCount
+    comments {
+      nodes {
+        ...CommentFields
+      }
+    }
     featuredImage {
       node {
         altText
@@ -284,6 +293,31 @@ export const QUERY_POST_SEO_BY_SLUG = gql`
             width
           }
         }
+      }
+    }
+  }
+`
+
+export const MUTATION_CREATE_COMMENT = gql`
+  ${COMMENT_FRAGMENTS}
+  mutation CreateComment(
+    $author: String
+    $authorEmail: String
+    $content: String!
+    $commentOn: Int!
+    $status: CommentStatusEnum = APPROVE
+  ) {
+    createComment(
+      input: {
+        author: $author
+        authorEmail: $authorEmail
+        content: $content
+        commentOn: $commentOn
+        status: $status
+      }
+    ) {
+      comment {
+        ...CommentFields
       }
     }
   }

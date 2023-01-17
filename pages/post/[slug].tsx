@@ -5,12 +5,11 @@ import Container from "@/components/Container"
 import Seo from "@/components/Seo"
 import { BASE_URL } from "@/constants/website"
 import Widgets from "@/components/Widgets"
-import { defaultImage } from "@/constants/default"
-import Image from "next/image"
 import Breadcrumb from "@/components/Breadcrumb"
 import Repeater from "@/components/Repeater"
 import Permalink from "@/components/Permalink"
 import { useRouter } from "next/router"
+import Comment from "@/components/Comment"
 
 export interface PostDetailProps {
   post: PostType
@@ -27,7 +26,7 @@ export default function PostDetail({
   }
 
   return (
-    <Container className="relative">
+    <Container size="big" className="relative">
       <Seo
         title={post.title}
         description={post.excerpt}
@@ -41,15 +40,21 @@ export default function PostDetail({
           { title: post.title },
         ]}
       />
-      <div className="grid grid-cols-12 xl:gap-10 gap-5">
-        <div className="col-span-3 w-full h-full rounded-lg hidden xl:block lg:block">
+      <div className="grid grid-cols-12 xl:gap-20 lg:gap-10 gap-5">
+        <div className="col-span-3 w-full h-full rounded-lg hidden xl:block">
           <Widgets.Author
             name={post.author?.name}
             description={post.author?.description}
           />
           <Widgets.Share text={post.title} />
+          <Widgets.TextList
+            icon="flash"
+            title="Most Popular"
+            items={mostPopularPosts.slice(0, 5)}
+            {...(mostPopularPosts.length && { onClick: readMoreClick })}
+          />
         </div>
-        <div className="xl:col-span-6 lg:col-span-6 col-span-12">
+        <div className="xl:col-span-6 col-span-12">
           <Container size="large">
             <h1 className="text-3xl font-black mb-4">{post.title}</h1>
             <div className="flex items-center mb-10 space-x-2 font-medium text-sm dark:text-gray-300 text-gray-900">
@@ -73,14 +78,11 @@ export default function PostDetail({
             />
           </Container>
         </div>
-        <div className="col-span-3 w-full h-full rounded-lg hidden xl:block lg:block">
-          <Widgets.TextList
-            icon="flash"
-            title="Most Popular"
-            items={mostPopularPosts.slice(0, 5)}
-            {...(mostPopularPosts.length && { onClick: readMoreClick })}
-          />
-        </div>
+        <Comment
+          items={post.comments}
+          postId={post.postId}
+          className="xl:col-span-3 col-span-12 h-full rounded-lg"
+        />
       </div>
     </Container>
   )

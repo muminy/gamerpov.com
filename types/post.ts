@@ -1,3 +1,5 @@
+import { CommentType, WPCommentType } from "./comment"
+
 export type WPImageTypes = {
   altText: string
   caption?: string
@@ -33,18 +35,24 @@ export type WPPostTypes = {
   content: string
   slug: string
   excerpt: string
+  comments: {
+    nodes: WPCommentType[]
+  }
+  postId: number
   date: string
   readingTime: string
 }
 
 export type PostType = {
   title: string
+  postId: number
   content?: string
   author?: WPAuthor
   image?: WPImageTypes
   slug: string
   excerpt: string
   date: string
+  comments: CommentType[]
   categories: CategoriesTypes[]
   readingTime: string
 }
