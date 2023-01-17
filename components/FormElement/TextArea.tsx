@@ -2,7 +2,7 @@ import classNames from "classnames"
 import { forwardRef } from "react"
 import { TextAreaProps } from "."
 
-export default forwardRef<any, TextAreaProps>(
+const TextArea = forwardRef<any, TextAreaProps>(
   ({ className, rows = 2, ...props }, ref) => {
     return (
       <textarea
@@ -14,3 +14,5 @@ export default forwardRef<any, TextAreaProps>(
     )
   }
 )
+TextArea.displayName = "TextArea"
+export default TextArea

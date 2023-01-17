@@ -9,7 +9,7 @@ export default function Drawer({
   onClose,
 }: DrawerProps) {
   const { asPath } = useRouter()
-  useEffect(onClose, [asPath])
+  useEffect(onClose, [asPath, onClose])
 
   return (
     <Transition.Root show={isActive} as={"div"}>

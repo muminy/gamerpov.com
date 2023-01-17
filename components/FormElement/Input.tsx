@@ -2,7 +2,7 @@ import classNames from "classnames"
 import { forwardRef } from "react"
 import { InputProps } from "."
 
-export default forwardRef<any, InputProps>(({ className, ...props }, ref) => {
+const Input = forwardRef<any, InputProps>(({ className, ...props }, ref) => {
   return (
     <input
       {...props}
@@ -11,3 +11,5 @@ export default forwardRef<any, InputProps>(({ className, ...props }, ref) => {
     />
   )
 })
+Input.displayName = "Input"
+export default Input
