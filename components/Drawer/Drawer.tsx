@@ -10,7 +10,7 @@ export default function Drawer({
 }: DrawerProps) {
   const { asPath } = useRouter()
   useEffect(onClose, [asPath])
-  console.log(isActive)
+
   return (
     <Transition.Root show={isActive} as={"div"}>
       <Dialog as="div" className="relative z-10" onClose={onClose}>
