@@ -119,6 +119,7 @@ export async function getStaticProps(props: GetStaticPropsContext) {
       post,
       mostPopularPosts,
     },
+    revalidate: 10,
   }
 }
 

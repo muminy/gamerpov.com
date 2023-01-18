@@ -65,6 +65,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
       category,
       posts,
     },
+    revalidate: 10,
   }
 }
 

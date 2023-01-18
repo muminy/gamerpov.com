@@ -9,6 +9,7 @@ import MenuList from "../MenuList"
 import Button from "../Button"
 import Icon from "../Icon"
 import { useRouter } from "next/router"
+import { showSearch } from "../Search/helper"
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false)
@@ -37,7 +38,7 @@ export default function Header() {
               <Icon size={18} icon="commentFill" />
               <span>Find Mate</span>
             </Button.Gradient>
-            <IconButton icon="search" />
+            <IconButton onClick={showSearch} icon="search" />
             <IconButton
               icon="menu"
               id="responsive-menu"
