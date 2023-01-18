@@ -63,3 +63,5 @@ export const Search = forwardRef<SearchRefType>((props, ref) => {
     </AnimatePresence>
   )
 })
+
+Search.displayName = "Search"
