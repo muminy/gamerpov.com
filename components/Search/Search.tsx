@@ -13,7 +13,7 @@ export const Search = forwardRef<SearchRefType>((props, ref) => {
   }))
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "auto" : "hidden"
+    document.body.style.overflow = isOpen ? "hidden" : "auto"
   }, [isOpen])
 
   return (
