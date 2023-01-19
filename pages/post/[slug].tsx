@@ -13,11 +13,11 @@ import Comment from "@/components/Comment"
 
 export interface PostDetailProps {
   post: PostType
-  mostPopularPosts: PostType[]
+  similarPosts: PostType[]
 }
 export default function PostDetail({
   post,
-  mostPopularPosts,
+  similarPosts = [],
 }: PostDetailProps) {
   const router = useRouter()
 
@@ -31,7 +31,6 @@ export default function PostDetail({
         title={post.title}
         description={post.excerpt}
         image={`${BASE_URL}/api/og/blog?title=${post.title}`}
-        twitter={{ site: "@gamewod", cardType: "summary_large_image" }}
       />
       <Breadcrumb
         items={[
@@ -49,9 +48,9 @@ export default function PostDetail({
           <Widgets.Share text={post.title} />
           <Widgets.TextList
             icon="flash"
-            title="Most Popular"
-            items={mostPopularPosts.slice(0, 5)}
-            {...(mostPopularPosts.length && { onClick: readMoreClick })}
+            title="Similar Posts"
+            items={similarPosts.slice(0, 5)}
+            {...(similarPosts.length && { onClick: readMoreClick })}
           />
         </div>
         <div className="xl:col-span-6 col-span-12">
@@ -96,17 +95,6 @@ export async function getStaticProps(props: GetStaticPropsContext) {
   const { slug } = props.params as ParamsType
   const { post } = await getPostBySlug(slug)
 
-  let mostPopularPosts
-
-  if (post && post.categories.length > 0) {
-    const categoryPosts = await getPostsByCategoryId({
-      categoryId: post.categories[0].categoryId,
-    })
-    mostPopularPosts = categoryPosts.posts.filter(
-      (item) => item.slug !== post.slug
-    )
-  }
-
   if (!post) {
     return {
       props: {},
@@ -114,10 +102,14 @@ export async function getStaticProps(props: GetStaticPropsContext) {
     }
   }
 
+  const similarPosts = await getPostsByCategoryId({
+    categoryId: post.categories[0].categoryId,
+  })
+
   return {
     props: {
       post,
-      mostPopularPosts,
+      similarPosts: similarPosts.posts,
     },
     revalidate: 10,
   }

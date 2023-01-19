@@ -31,12 +31,12 @@ export default function Comment({ className, items, postId }: CommentProps) {
       commentOn: postId,
     })
       .then(() => {
-        showAlert({ message: "Yorumunuz Onay'a gönderildi" })
+        showAlert({ message: "Your comment has been sent to Approval" })
         reset()
       })
       .catch(() => {
         showAlert({
-          message: "Yorumunuz gönderilirken hata oluştu",
+          message: "An error occurred while submitting your comment.",
         })
       })
       .finally(() => {
@@ -63,18 +63,18 @@ export default function Comment({ className, items, postId }: CommentProps) {
               pattern: emailPattern,
             })}
             className="mb-2"
-            placeholder="Email Adresiniz"
+            placeholder="Your E-mail Address"
           />
         </div>
         <Form.TextArea
           {...register("content", { required: true })}
-          placeholder="Yorum yapmak ister misin?"
+          placeholder="Do you want to comment?"
         />
         <Button.Gradient disabled={loading} className="mb-10">
-          {loading ? "Gönderiliyor.." : "Gönder"}
+          {loading ? "Sending..." : "Send"}
         </Button.Gradient>
       </form>
-      <Title title="Yorumlar" icon="pen" />
+      <Title title="Comments" icon="comment" />
       <Repeater<CommentType>
         items={items}
         className="space-y-3"

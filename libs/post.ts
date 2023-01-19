@@ -21,11 +21,13 @@ export async function getAllPosts() {
   })
 
   const posts = data?.data.posts.edges.map(({ node = {} }) => node)
-  const left = data?.data.left.edges.map(({ node = {} }) => node)
+  const left = data?.data.leftSidebar.edges.map(({ node = {} }) => node)
+  const right = data?.data.rightSidebar.edges.map(({ node = {} }) => node)
 
   return {
     posts: toPostData(posts),
     left: toPostData(left),
+    right: toPostData(right),
   }
 }
 

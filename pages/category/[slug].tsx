@@ -20,7 +20,7 @@ export default function CategoryPost({ posts, category }: PageProps) {
   return (
     <Container>
       <Seo
-        title={`${category.name} | Gamerpov`}
+        title={`${category.name} | Gamerpov E-sport`}
         description={category.description}
         image={`${BASE_URL}/api/og/blog?title=${category.name}`}
       />
@@ -33,7 +33,7 @@ export default function CategoryPost({ posts, category }: PageProps) {
         </Card>
         <Widgets.TextList
           icon="flash"
-          title={`<b>${category.name}</b> Son Paylaşımlar`}
+          title={`Latest Post by <b>${category.name}</b>`}
           items={posts}
         />
       </Container>

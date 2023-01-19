@@ -2,12 +2,11 @@ import { SeoProps } from "@/components/Seo"
 
 export const initialSeo: SeoProps = {
   image: "https://gamerpov.com/api/og/default",
-  title:
-    "Anasayfa | Gamerpov.com E-sport haberler, son dakika gelişmeleri ve önemli anlar",
+  title: "Gamerpov.com E-sports news, breaking news and highlights",
   description:
-    "Gamerpov.com E-sport haberler, son dakika gelişmeleri ve önemli anları size sunar.",
+    "Gamerpov.com brings you E-sports news, breaking news and highlights.",
   twitter: {
-    site: "@Gamerpov",
+    site: "@Gamerpovcom",
     cardType: "summary_large_image",
   },
 }

@@ -72,7 +72,21 @@ export const QUERY_ALL_POSTS_INDEX = gql`
 export const QUERY_GET_HOME_POSTS = gql`
   ${POST_FIELDS}
   query NewQuery {
-    left: posts(where: { categoryId: 16, hasPassword: false }, first: 1) {
+    leftSidebar: posts(
+      where: { categoryId: 16, hasPassword: false }
+      first: 5
+    ) {
+      edges {
+        node {
+          ...PostFields
+        }
+      }
+    }
+
+    rightSidebar: posts(
+      where: { categoryId: 1, hasPassword: false }
+      first: 5
+    ) {
       edges {
         node {
           ...PostFields

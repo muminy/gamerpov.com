@@ -21,6 +21,7 @@ import {
   TwitterIcon,
 } from "./Socials.icons"
 import PinIcon from "./Pin.icon"
+import ValorantIcon from "./Valorant.icon"
 
 const icons = {
   menu: MenuIcon,
@@ -46,6 +47,7 @@ const icons = {
   moonFill: MoonFillIcon,
   sunFill: SunFillIcon,
   twitch: TwitchIcon,
+  valorant: ValorantIcon,
   twitch2: Twitch2Icon,
 }
 

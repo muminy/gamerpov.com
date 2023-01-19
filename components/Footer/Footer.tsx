@@ -24,8 +24,8 @@ export default function Footer({ className, ...remainingProps }: FooterProps) {
       <div className="col-span-6 space-y-2 xl:block flex flex-col items-center">
         <Logo size={18} color="#ffffff" />
         <p className="text-gray-300 text-sm xl:w-2/4 lg:w-2/4 xl:text-left text-center">
-          Gamerpov 2023 Yılını ilk ayında, oyunlara yönelik kurulmuş bir içerik
-          paylaşım sitesidir.
+          Gamerpov is a content sharing site established for games in the first
+          month of 2023.
         </p>
       </div>
       <div className="col-span-6 flex justify-end items-center">

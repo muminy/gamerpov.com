@@ -4,35 +4,43 @@ import Hero from "@/components/Hero"
 import Repeater from "@/components/Repeater"
 import Title from "@/components/Title"
 import Widgets from "@/components/Widgets"
-import { getAllPosts } from "@/libs/post"
+import { getAllPosts, getPostsByCategoryId } from "@/libs/post"
 import { PostType } from "@/types/post"
+import { useRouter } from "next/router"
 
-export default function Home({
-  posts,
-  left,
-}: {
+type HomeProps = {
   posts: PostType[]
   left: PostType[]
-}) {
+  right: PostType[]
+}
+
+export default function Home({ posts, left, right }: HomeProps) {
+  const { push } = useRouter()
   return (
     <Container>
-      <Hero.HomeHero items={posts} />
+      <Hero.HomeHero items={posts.slice(0, 4)} />
       <div className="grid grid-cols-12 xl:gap-10 gap-5 mt-10">
         <div className="xl:col-span-3 lg:col-span-4 col-span-12">
-          <Widgets.TextList items={left} title="Fifa" icon="flash" />
+          <Widgets.TextList
+            onClick={() => push(`/category/fifa`)}
+            items={left}
+            title="Fifa"
+            icon="flash"
+          />
         </div>
         <div className="xl:col-span-6 lg:col-span-4 col-span-12">
           <Widgets.TextList
             icon="flash"
-            title="Son Paylaşılanlar"
+            title="Latest articles"
             items={posts}
           />
         </div>
         <div className="xl:col-span-3 lg:col-span-4 col-span-12">
           <Widgets.TextList
-            items={posts}
-            title="Haber Kaynağı"
-            icon="arrowChevronDown"
+            onClick={() => push(`/category/valorant`)}
+            items={right}
+            title="Valorant"
+            icon="valorant"
           />
         </div>
       </div>
@@ -41,12 +49,13 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-  const { posts, left } = await getAllPosts()
+  const { posts, left, right } = await getAllPosts()
 
   return {
     props: {
       posts,
       left,
+      right,
     },
     revalidate: 10,
   }
