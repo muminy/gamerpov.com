@@ -5,9 +5,9 @@ import Seo from "@/components/Seo"
 import Widgets from "@/components/Widgets"
 import { BASE_URL } from "@/constants/website"
 import { threeDots } from "@/helpers/string"
-import { getPostsByCategoryId } from "@/libs/post"
-import { getCategoryBySlug } from "@/libs/site"
-import { PostType } from "@/types/post"
+import { getPostsByCategory } from "@/services/post"
+import { getCategoryBySlug } from "@/services/category"
+import { PostType } from "@/types/index"
 import { CategoryType } from "@/types/site"
 import { GetStaticPropsContext } from "next"
 
@@ -47,7 +47,7 @@ export type ParamsType = {
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   const { slug } = params as ParamsType
-  const { category } = await getCategoryBySlug(slug)
+  const category = await getCategoryBySlug(slug)
 
   if (!category) {
     return {
@@ -56,9 +56,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
     }
   }
 
-  const { posts } = await getPostsByCategoryId({
-    categoryId: category.databaseId,
-  })
+  const posts = await getPostsByCategory(category.id)
 
   return {
     props: {

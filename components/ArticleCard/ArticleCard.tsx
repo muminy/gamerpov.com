@@ -1,4 +1,4 @@
-import { PostType } from "@/types/post"
+import { PostType } from "@/types/index"
 import Permalink from "../Permalink"
 import style from "./style.module.css"
 import Image from "next/image"
@@ -10,7 +10,7 @@ export default function ArticleCard({ image, title, slug }: PostType) {
     <Permalink href={`/post/${slug}`} className={style.container}>
       <Image
         src={image?.sourceUrl ?? defaultImage}
-        alt={image?.altText ?? title}
+        alt={image?.title ?? title}
         blurDataURL={defaultImage}
         width={190}
         height={260}

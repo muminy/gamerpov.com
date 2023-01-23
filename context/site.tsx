@@ -3,7 +3,7 @@ import { createContext, useContext } from "react"
 
 export type SiteContextType = {
   categories: CategoryType[]
-  menu: MenuType[]
+  menu: CategoryType[]
 }
 export const SiteContext = createContext<SiteContextType>({} as SiteContextType)
 export const useSiteContent = () => useContext(SiteContext)

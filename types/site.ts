@@ -3,6 +3,10 @@ export type CategoryType = {
   name: string
   slug: string
   description: string
+  image: {
+    sourceUrl: string
+    title: string
+  }
 }
 
 export type WPCategoryType = {

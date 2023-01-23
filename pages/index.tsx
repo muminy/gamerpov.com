@@ -1,24 +1,18 @@
-import ArticleCard from "@/components/ArticleCard"
 import Container from "@/components/Container"
 import Hero from "@/components/Hero"
-import Repeater from "@/components/Repeater"
-import Title from "@/components/Title"
 import Widgets from "@/components/Widgets"
-import { getAllPosts, getPostsByCategoryId } from "@/libs/post"
-import { PostType } from "@/types/post"
+import { getAllPosts } from "@/services/post"
+import { PostType } from "@/types/index"
 import { useRouter } from "next/router"
 
-type HomeProps = {
-  posts: PostType[]
-  left: PostType[]
-  right: PostType[]
-}
+export type PropList = "posts" | "hero" | "right" | "left"
+export type HomeProps = Record<PropList, PostType[]>
 
-export default function Home({ posts, left, right }: HomeProps) {
+export default function Home({ posts, left, right, hero }: HomeProps) {
   const { push } = useRouter()
   return (
     <Container>
-      <Hero.HomeHero items={posts.slice(0, 4)} />
+      <Hero.HomeHero items={hero} />
       <div className="grid grid-cols-12 xl:gap-10 gap-5 mt-10">
         <div className="xl:col-span-3 lg:col-span-4 col-span-12">
           <Widgets.TextList
@@ -49,13 +43,28 @@ export default function Home({ posts, left, right }: HomeProps) {
 }
 
 export async function getStaticProps() {
-  const { posts, left, right } = await getAllPosts()
+  const posts = await getAllPosts()
+
+  // pinned post list
+  const hero = posts.filter((item) => item.pinned).slice(0, 4)
+
+  const leftSidebarCategoryId = 16
+  const rightSidebarCategoryId = 1
 
   return {
     props: {
       posts,
-      left,
-      right,
+      hero,
+      left: posts.filter((item) =>
+        item.categories
+          .map((item) => item.id)
+          .includes(leftSidebarCategoryId)
+      ),
+      right: posts.filter((item) =>
+        item.categories
+          .map((item) => item.id)
+          .includes(rightSidebarCategoryId)
+      ),
     },
     revalidate: 10,
   }

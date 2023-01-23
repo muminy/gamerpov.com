@@ -5,7 +5,7 @@ import Repeater from "../Repeater"
 export default function HomeHero({ items }: HeroProps) {
   return (
     <Repeater<HeroCardType>
-      items={items.slice(0, 4)}
+      items={items}
       className="grid grid-cols-12 xl:gap-2 lg:gap-2 gap-4"
       renderItem={(item, index) => (
         <div

@@ -9,7 +9,7 @@ import Repeater from "../Repeater"
 import style from "./style.module.css"
 
 export default function MenuList({ isResponsive }: MenuListProps) {
-  const { categories } = useSiteContent()
+  const { menu } = useSiteContent()
   const { asPath } = useRouter()
 
   const renderMenu = (item: CategoryType, isResponsive = false) => (
@@ -30,7 +30,7 @@ export default function MenuList({ isResponsive }: MenuListProps) {
 
   return (
     <Repeater<CategoryType>
-      items={categories}
+      items={menu}
       as="ul"
       renderItem={(item) => renderMenu(item, isResponsive)}
       className={cn({

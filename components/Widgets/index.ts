@@ -1,5 +1,5 @@
 import { IconTypes } from "@/icons/index"
-import { PostType } from "@/types/post"
+import { PostType } from "@/types/index"
 import Author from "./Author"
 import Share from "./Share"
 import TextList from "./TextList"

@@ -1,10 +1,14 @@
 import classNames from "classnames"
 import { useTheme } from "next-themes"
 import { FooterProps } from "."
+import Button from "../Button"
 import Container from "../Container"
 import Logo from "../Logo"
 
-export default function Footer({ className, ...remainingProps }: FooterProps) {
+export default function Footer({
+  className,
+  ...remainingProps
+}: FooterProps) {
   const { resolvedTheme, setTheme } = useTheme()
 
   const isDark = resolvedTheme === "dark"
@@ -17,24 +21,24 @@ export default function Footer({ className, ...remainingProps }: FooterProps) {
     <Container
       {...remainingProps}
       className={classNames(
-        "bg-black dark:bg-dark-secondary p-10 xl:grid flex flex-col items-center grid-cols-12 gap-5 justify-center mt-auto",
+        "bg-dark-secondary p-10 flex flex-col items-center grid-cols-12 space-y-5 justify-center mt-auto",
         "xl:mb-10 xl:rounded-3xl"
       )}
     >
-      <div className="col-span-6 space-y-2 xl:block flex flex-col items-center">
-        <Logo size={18} color="#ffffff" />
-        <p className="text-gray-300 text-sm xl:w-2/4 lg:w-2/4 xl:text-left text-center">
-          Gamerpov is a content sharing site established for games in the first
-          month of 2023.
+      <div className="space-y-2 flex flex-col justify-center items-center">
+        <Logo size={18} color={"#ffffff"} />
+        <p className="text-gray-600 text-sm xl:w-2/4 mx-auto text-center">
+          Gamerpov is a content sharing site established for games in the
+          first month of 2023.
         </p>
       </div>
       <div className="col-span-6 flex justify-end items-center">
-        <button
+        <Button.Gradient
           onClick={handleChangeTheme}
-          className="flex items-center space-x-2 text-gray-400 bg-white bg-opacity-10 px-3 py-2 rounded-xl"
+          className="flex items-center space-x-2 text-black bg-opacity-10 px-3 py-2 rounded-xl"
         >
           Switch Theme
-        </button>
+        </Button.Gradient>
       </div>
     </Container>
   )

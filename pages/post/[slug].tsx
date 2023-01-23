@@ -1,5 +1,9 @@
-import { getAllPosts, getPostBySlug, getPostsByCategoryId } from "@/libs/post"
-import { CategoriesTypes, PostType } from "@/types/post"
+import {
+  getAllPosts,
+  getPostBySlug,
+  getPostsByCategory,
+} from "@/services/post"
+import { PostType, CategoryType } from "@/types/index"
 import { GetStaticPropsContext } from "next"
 import Container from "@/components/Container"
 import Seo from "@/components/Seo"
@@ -57,7 +61,7 @@ export default function PostDetail({
           <Container size="large">
             <h1 className="text-3xl font-black mb-4">{post.title}</h1>
             <div className="flex items-center mb-10 space-x-2 font-medium text-sm dark:text-gray-300 text-gray-900">
-              <Repeater<CategoriesTypes>
+              <Repeater<CategoryType>
                 items={post.categories}
                 className="space-x-2"
                 renderItem={(item, index) => (
@@ -93,7 +97,7 @@ export type ParamsType = {
 
 export async function getStaticProps(props: GetStaticPropsContext) {
   const { slug } = props.params as ParamsType
-  const { post } = await getPostBySlug(slug)
+  const post = await getPostBySlug(slug)
 
   if (!post) {
     return {
@@ -102,21 +106,19 @@ export async function getStaticProps(props: GetStaticPropsContext) {
     }
   }
 
-  const similarPosts = await getPostsByCategoryId({
-    categoryId: post.categories[0].categoryId,
-  })
+  const similarPosts = await getPostsByCategory(post.categories[0].id)
 
   return {
     props: {
       post,
-      similarPosts: similarPosts.posts,
+      similarPosts,
     },
     revalidate: 10,
   }
 }
 
 export async function getStaticPaths() {
-  const { posts } = await getAllPosts()
+  const posts = await getAllPosts()
 
   const paths = posts
     .filter(({ slug }) => typeof slug === "string")

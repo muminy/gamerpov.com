@@ -21,6 +21,7 @@
     "@vercel/og": "^0.0.25",
     "axios": "^1.2.2",
     "classnames": "^2.3.2",
+    "dayjs": "^1.11.7",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
     "express": "^4.18.2",
@@ -36,6 +37,7 @@
     "socket-io": "^1.0.0",
     "socket.io": "^4.5.4",
     "socket.io-client": "^4.5.4",
+    "swiper": "^8.4.6",
     "typescript": "4.9.4"
   },
   "devDependencies": {

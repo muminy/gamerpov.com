@@ -1,4 +1,4 @@
-import { PostType } from "@/types/post"
+import { PostType } from "@/types/index"
 import Icon from "../Icon"
 import Permalink from "../Permalink"
 import { dateString } from "@/helpers/date"

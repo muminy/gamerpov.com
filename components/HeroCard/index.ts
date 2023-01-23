@@ -1,4 +1,4 @@
-import { PostType } from "@/types/post"
+import { PostType } from "@/types/index"
 
 export type HeroCardType = PostType & {}
 

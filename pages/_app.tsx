@@ -6,7 +6,7 @@ import "@/styles/style.css"
 
 import Seo from "@/components/Seo"
 import { initialSeo } from "@/constants/seo"
-import { getSiteContent } from "@/libs/site"
+import { getCategories } from "@/services/category"
 import { SiteContext, SiteContextType } from "context/site"
 import { ThemeProvider } from "next-themes"
 import GoogleAnalytics from "@/components/GoogleAnalytics"
@@ -36,8 +36,8 @@ export default function MyCustomApp({
   )
 }
 
-MyCustomApp.getInitialProps = async (context: AppContext) => {
-  const categories = await getSiteContent()
+MyCustomApp.getInitialProps = async () => {
+  const categories = await getCategories()
 
-  return { categories, menu: [] }
+  return { categories, menu: categories.filter((item) => item.showmenu) }
 }

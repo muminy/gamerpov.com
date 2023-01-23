@@ -24,6 +24,7 @@
       "@/types/*": ["types/*"],
       "@/libs/*": ["libs/*"],
       "@/hooks/*": ["hooks/*"],
+      "@/data/*": ["data/*"],
       "@/store/*": ["store/*", "store/index"],
       "@/services/*": ["services/*"],
       "@/assets/*": ["assets/*"]

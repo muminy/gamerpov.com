@@ -1,4 +1,4 @@
-import { PostType } from "@/types/post"
+import { PostType } from "@/types/index"
 import { TextListProps } from "."
 import Article from "../ArticleCard"
 import Card from "../Card"
@@ -23,7 +23,9 @@ export default function TextList({
           <Repeater<PostType>
             items={items}
             className="space-y-5"
-            renderItem={(item, index) => <Article.Text key={index} {...item} />}
+            renderItem={(item, index) => (
+              <Article.Text key={index} {...item} />
+            )}
             renderBottom={
               onClick && (
                 <button
