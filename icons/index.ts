@@ -11,7 +11,7 @@ import {
 import InfoIcon from "./Info.icon"
 import ExternalIcon from "./External.icon"
 import BookMarkIcon, { BookMarkFillIcon } from "./BookMark.icon"
-import { FlashIcon } from "./Remix.icon"
+import { FlashIcon, SpinIcon } from "./Remix.icon"
 import { CloseIcon, SearchIcon, ChevronDownIcon } from "./Radix.icons"
 import { MoonFillIcon, SunFillIcon } from "./Figma.icons"
 import {
@@ -44,6 +44,7 @@ const icons = {
   flash: FlashIcon,
   close: CloseIcon,
   pin: PinIcon,
+  spin: SpinIcon,
   moonFill: MoonFillIcon,
   sunFill: SunFillIcon,
   twitch: TwitchIcon,

@@ -9,7 +9,7 @@ import MenuList from "../MenuList"
 import Button from "../Button"
 import Icon from "../Icon"
 import { useRouter } from "next/router"
-import { showSearch } from "../Search/helper"
+import { showModal } from "@/helpers/modal"
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false)
@@ -38,7 +38,10 @@ export default function Header() {
               <Icon size={18} icon="commentFill" />
               <span>Find Mate</span>
             </Button.Gradient>
-            <IconButton onClick={showSearch} icon="search" />
+            <IconButton
+              onClick={() => showModal("search-modal")}
+              icon="search"
+            />
             <IconButton
               icon="menu"
               id="responsive-menu"

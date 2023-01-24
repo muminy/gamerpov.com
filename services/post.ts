@@ -5,6 +5,7 @@ import {
   QUERY_GET_POST_BY_SLUG,
   QUERY_POSTS,
   QUERY_POSTS_BY_CATEGORY_ID,
+  QUERY_SEARCH_POSTS,
 } from "data/post"
 
 export type WPPList = {
@@ -55,5 +56,24 @@ export async function getPostsByCategory(id: number) {
     return response.data.posts.nodes.map(toPost)
   } catch (e) {
     return null
+  }
+}
+
+export async function getSearchPosts(search: string) {
+  try {
+    if (search.length < 3) {
+      return []
+    }
+
+    const response = await client.query<WPPList>({
+      query: QUERY_SEARCH_POSTS,
+      variables: {
+        search,
+      },
+    })
+
+    return response.data.posts.nodes.map(toPost)
+  } catch (e) {
+    return []
   }
 }

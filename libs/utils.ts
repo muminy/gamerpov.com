@@ -37,3 +37,5 @@ export function removeExtraSpaces(text: string) {
 
 
 export const isBiggestZero = (number: number) => number > 0
+
+export const itemsLength = (items: any[] | string) => items.length 

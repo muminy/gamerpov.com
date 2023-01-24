@@ -68,6 +68,17 @@ export const QUERY_POSTS_BY_CATEGORY_ID = gql`
   }
 `
 
+export const QUERY_SEARCH_POSTS = gql`
+  ${FRAGMENTS_POST}
+  query SearchPosts($search: String) {
+    posts(where: { search: $search }) {
+      nodes {
+        ...PostFields
+      }
+    }
+  }
+`
+
 export const QUERY_GET_POST_BY_SLUG = gql`
   ${FRAGMENTS_POST}
   query PostBySlug($slug: ID!) {

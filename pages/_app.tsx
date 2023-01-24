@@ -11,7 +11,7 @@ import { SiteContext, SiteContextType } from "context/site"
 import { ThemeProvider } from "next-themes"
 import GoogleAnalytics from "@/components/GoogleAnalytics"
 import Alert, { alertRef } from "@/components/Alert"
-import Search, { searchRef } from "@/components/Search"
+import Modal, { modalRef } from "@/components/Modal"
 
 export default function MyCustomApp({
   Component,
@@ -24,7 +24,7 @@ export default function MyCustomApp({
       <GoogleAnalytics />
       <ThemeProvider attribute="class" defaultTheme="dark">
         <Alert ref={alertRef} />
-        <Search ref={searchRef} />
+        <Modal ref={modalRef} />
         <SiteContext.Provider value={{ categories, menu }}>
           <Layout>
             <Seo {...initialSeo} />
