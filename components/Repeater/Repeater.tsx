@@ -13,10 +13,9 @@ export default function Repeater<T>({
   return (
     <Fragment>
       {renderHeader && renderHeader()}
+      {items.length === 0 && renderNotFound && renderNotFound}
       <Wrapper className={className}>
-        {items.length === 0
-          ? renderNotFound && renderNotFound()
-          : items.map(renderItem)}
+        {items.map(renderItem)}
         {renderBottom && renderBottom}
       </Wrapper>
     </Fragment>

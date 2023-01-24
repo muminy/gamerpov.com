@@ -39,5 +39,8 @@ export default function MyCustomApp({
 MyCustomApp.getInitialProps = async () => {
   const categories = await getCategories()
 
-  return { categories, menu: categories.filter((item) => item.showmenu) }
+  return {
+    categories,
+    menu: categories.filter((item) => item.showmenu),
+  }
 }

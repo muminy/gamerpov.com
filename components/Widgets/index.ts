@@ -3,11 +3,13 @@ import { PostType } from "@/types/index"
 import Author from "./Author"
 import Share from "./Share"
 import TextList from "./TextList"
+import Category from "./Category"
 
 const Widgets = {
   TextList,
   Author,
   Share,
+  Category,
 }
 
 export type TextListProps = {

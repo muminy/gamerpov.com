@@ -35,8 +35,8 @@ export default function BlogCard({
         src={image?.sourceUrl ?? defaultImage}
         alt={image?.title ?? title}
       />
-      <div className="absolute top-4 right-4 w-10 h-10 rounded-full dark:bg-white dark:bg-opacity-10 text-gray-200 flex items-center justify-center">
-        <Icon size={16} icon="external" />
+      <div className="absolute top-2 right-2 w-10 h-10 rounded-full bg-white bg-opacity-25 dark:bg-white dark:bg-opacity-10 text-gray-200 flex items-center justify-center">
+        <Icon size={16} icon="pin" />
       </div>
       <div className="font-bold absolute bottom-4 px-4 text-white">
         {title}

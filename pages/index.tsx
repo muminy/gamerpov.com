@@ -13,6 +13,7 @@ export default function Home({ posts, left, right, hero }: HomeProps) {
   return (
     <Container>
       <Hero.HomeHero items={hero} />
+      <Widgets.Category />
       <div className="grid grid-cols-12 xl:gap-10 gap-5 mt-10">
         <div className="xl:col-span-3 lg:col-span-4 col-span-12">
           <Widgets.TextList

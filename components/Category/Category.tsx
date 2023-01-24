@@ -5,24 +5,24 @@ import Permalink from "../Permalink"
 export default function Category({ image, name, slug }: CategoryType) {
   return (
     <Permalink
-      href={`/kategori/${slug}`}
+      href={`/category/${slug}`}
       className={classNames(
-        "w-[200px] h-[80px] relative",
+        "w-[210px] h-[290px] relative block",
         "overflow-hidden",
-        "group select-none"
+        "group select-none rounded-md"
       )}
     >
       <img
         src={image.sourceUrl}
         alt={image.title}
-        className="absolute left-0 duration-300 group-hover:scale-125 top-0 object-cover w-full h-full z-10"
+        className="absolute left-0 duration-300 group-hover:scale-105 top-0 object-cover w-full h-full"
       />
       <div
         className={classNames(
           "absolute w-full h-full",
-          "bg-black bg-opacity-70 duration-300 group-hover:bg-pink-400 group-hover:bg-opacity-100 text-white",
-          "flex items-center justify-center z-20",
-          "font-black"
+          "bg-black bg-opacity-50 duration-300 text-white",
+          "flex items-center justify-center z-20 px-4",
+          "font-black uppercase text-2xl text-center"
         )}
       >
         {name}
