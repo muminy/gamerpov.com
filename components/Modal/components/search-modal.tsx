@@ -39,7 +39,7 @@ export default function SearchModal() {
         <Widgets.TextList title={"Arama Sonuçları"} items={posts} />
       ) : (
         <Card className="dark:text-gray-600 text-gray-500">
-          You haven't searched for anything yet
+          You haven{"'"}t searched for anything yet
         </Card>
       )}
     </Card>
