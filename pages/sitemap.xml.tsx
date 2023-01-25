@@ -16,7 +16,7 @@ function generateSiteMap({ posts }: { posts: PostType[] }) {
        .map(({ slug, date }) => {
          return `
        <url>
-           <loc>${`${domain}/tarif/${slug}`}</loc>
+           <loc>${`${domain}/post/${slug}`}</loc>
            <lastmod>${dayjs(date).format("YYYY-MM-DD")}</lastmod>
        </url>
      `
