@@ -6,14 +6,10 @@ import IconButton from "../IconButton/IconButton"
 import Drawer from "../Drawer"
 import React, { useState } from "react"
 import MenuList from "../MenuList"
-import Button from "../Button"
-import Icon from "../Icon"
-import { useRouter } from "next/router"
 import { showModal } from "@/helpers/modal"
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false)
-  const { push } = useRouter()
 
   return (
     <div
@@ -31,13 +27,6 @@ export default function Header() {
         <div className="flex items-center text-white justify-between w-full">
           <MenuList />
           <div className="flex items-center ml-auto space-x-2">
-            <Button.Gradient
-              onClick={() => push("/find-mate")}
-              className="space-x-2"
-            >
-              <Icon size={18} icon="commentFill" />
-              <span>Find Mate</span>
-            </Button.Gradient>
             <IconButton
               onClick={() => showModal("search-modal")}
               icon="search"
