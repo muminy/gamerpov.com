@@ -31,10 +31,13 @@ export default function Header() {
             <IconButton
               onClick={() => showModal("search-modal")}
               icon="search"
-              className="rounded-full h-9 px-3 space-x-1"
+              className={classNames(
+                "rounded-full h-9 px-3 space-x-1",
+                "xl:w-auto w-9"
+              )}
               text="Search"
               isDark
-              textClassName="text-xs"
+              textClassName="text-xs xl:block hidden"
             />
             <SwitchTheme />
             <IconButton
