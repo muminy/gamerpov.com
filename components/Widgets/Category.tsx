@@ -12,7 +12,7 @@ export default function CategoryList() {
   const { categories } = useSiteContent()
 
   const renderItem = (item: CategoryType, index: number) => (
-    <SwiperSlide key={index} style={{ width: 210, marginRight: 10 }}>
+    <SwiperSlide key={index} style={{ width: 180, marginRight: 10 }}>
       <Category {...item} />
     </SwiperSlide>
   )

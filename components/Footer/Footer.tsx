@@ -21,6 +21,7 @@ export default function Footer({
         "text-white text-sm",
         "hover:text-blue-500 duration-300"
       )}
+      key={index}
       href={item.href}
       title={item.title}
     />

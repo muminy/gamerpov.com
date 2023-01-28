@@ -57,7 +57,7 @@ export default function Logo({
         />
         <path
           d="M61.7914 10.1519H62.0954L63.4634 8.83192V8.55192L62.0954 7.23992H61.7914L60.4794 8.55192V8.83192L61.7914 10.1519Z"
-          fill="#3045FF"
+          fill="#00FFA3"
         />
       </svg>
     </Permalink>

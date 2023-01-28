@@ -1,3 +1,4 @@
+import Logo from "@/components/Logo"
 import { ImageResponse } from "@vercel/og"
 import { NextRequest } from "next/server"
 
@@ -22,13 +23,12 @@ export default async function handler(req: NextRequest) {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
-          backgroundColor: "white",
           fontFamily: "Inter",
+          background:
+            "linear-gradient(225deg, #FCFF7D 0%, #2B3EEF 32.29%, #FF7D7D 56.25%, #BD00FF 76.56%, #0085FF 100%)",
         }}
       >
-        <div tw="p-10 text-6xl font-black uppercase leading-[70px]">
-          GAMERPOV
-        </div>
+        <Logo size={124} color="#ffffff" />
       </div>
     ),
     {

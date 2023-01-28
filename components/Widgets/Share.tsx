@@ -11,7 +11,7 @@ export enum Socials {
 
 export default function Share({ className, text, ...remaining }: ShareProps) {
   const getLink = (social: Socials) => {
-    const link = "https://tailwindcss.com/docs/will-change"
+    const link = window.location.href
 
     switch (social) {
       case Socials.twitter:

@@ -7,7 +7,7 @@ export default function Category({ image, name, slug }: CategoryType) {
     <Permalink
       href={`/category/${slug}`}
       className={classNames(
-        "w-[210px] h-[290px] relative block",
+        "w-[180px] h-[290px] relative block",
         "overflow-hidden",
         "group select-none rounded-md"
       )}
