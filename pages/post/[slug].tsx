@@ -14,6 +14,7 @@ import Repeater from "@/components/Repeater"
 import Permalink from "@/components/Permalink"
 import { useRouter } from "next/router"
 import Comment from "@/components/Comment"
+import { removeHtmlTags } from "@/helpers/string"
 
 export interface PostDetailProps {
   post: PostType
@@ -33,7 +34,7 @@ export default function PostDetail({
     <Container className="relative">
       <Seo
         title={post.title}
-        description={post.excerpt}
+        description={removeHtmlTags(post.excerpt)}
         image={`${BASE_URL}/api/og/blog?title=${post.title}`}
       />
       <Breadcrumb

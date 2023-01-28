@@ -27,7 +27,6 @@ export default function MyCustomApp({
         <Modal ref={modalRef} />
         <SiteContext.Provider value={{ categories, menu }}>
           <Layout>
-            <Seo {...initialSeo} />
             <Component {...pageProps} />
           </Layout>
         </SiteContext.Provider>

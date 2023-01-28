@@ -9,3 +9,7 @@ export const threeDots = (
     return default_text ?? ""
   }
 }
+
+export function removeHtmlTags(str: string) {
+  return str.replace(/(<([^>]+)>)/gi, "")
+}

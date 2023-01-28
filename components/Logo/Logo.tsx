@@ -8,14 +8,7 @@ export default function Logo({
   className,
 }: LogoProps) {
   return (
-    <Permalink
-      href={"/"}
-      className={cn(
-        "block rounded-sm py-1.5 text-lg uppercase",
-        className
-      )}
-      aria-label="logo"
-    >
+    <Permalink href={"/"} className={cn(className)} aria-label="logo">
       <svg
         width={size * 4.92}
         height={size}

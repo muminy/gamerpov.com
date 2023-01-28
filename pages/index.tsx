@@ -1,6 +1,8 @@
 import Container from "@/components/Container"
 import Hero from "@/components/Hero"
+import Seo from "@/components/Seo"
 import Widgets from "@/components/Widgets"
+import { initialSeo } from "@/constants/seo"
 import { getAllPosts } from "@/services/post"
 import { PostType } from "@/types/index"
 import { useRouter } from "next/router"
@@ -12,6 +14,7 @@ export default function Home({ posts, left, right, hero }: HomeProps) {
   const { push } = useRouter()
   return (
     <Container>
+      <Seo {...initialSeo} />
       <Hero.HomeHero items={hero} />
       <Widgets.Category />
       <div className="grid grid-cols-12 xl:gap-10 gap-5 mt-10">
