@@ -15,19 +15,30 @@ const ArrowButtons = () => {
         icon="arrowLeft"
         className={classNames(
           "image-swiper-button-prev",
-          "flex items-center justify-center",
-          "rounded-lg bg-gray-100 dark:bg-dark-secondary",
-          "disabled:bg-opacity-0 disabled:dark:bg-opacity-0"
+          "bg-black dark:bg-dark-secondary",
+          "text-white",
+          "font-semibold space-x-2 px-4",
+          "disabled:dark:bg-dark-secondary disabled:dark:text-white disabled:dark:!text-opacity-25",
+          "disabled:text-opacity-25"
         )}
+        text="Prev"
+        isDark
+        textClassName="text-xs"
       />
       <IconButton
         icon="arrowRight"
         className={classNames(
           "image-swiper-button-next",
-          "flex items-center justify-center",
-          "rounded-lg bg-gray-100 dark:bg-dark-secondary",
-          "disabled:bg-opacity-0 disabled:dark:bg-opacity-0"
+          "flex-row-reverse",
+          "bg-black dark:bg-dark-secondary",
+          "text-white",
+          "font-semibold px-4",
+          "disabled:dark:text-opacity-25",
+          "disabled:text-opacity-25"
         )}
+        text="Next"
+        isDark
+        textClassName="text-xs mr-1"
       />
     </div>
   )

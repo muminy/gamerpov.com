@@ -30,7 +30,7 @@ export default function PostDetail({
   }
 
   return (
-    <Container size="big" className="relative">
+    <Container className="relative">
       <Seo
         title={post.title}
         description={post.excerpt}

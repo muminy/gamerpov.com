@@ -7,6 +7,7 @@ import Drawer from "../Drawer"
 import React, { useState } from "react"
 import MenuList from "../MenuList"
 import { showModal } from "@/helpers/modal"
+import SwitchTheme from "../SwitchTheme"
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false)
@@ -15,14 +16,14 @@ export default function Header() {
     <div
       className={classNames(
         style.header,
-        "flex items-center mb-5 border-b border-dark-border"
+        "flex items-center mb-5 border-b border-gray-100 dark:border-dark-border",
+        "bg-white dark:bg-dark-bg"
       )}
     >
-      <Container size="big" className={style.container}>
+      <Container className={style.container}>
         <Logo
-          className="xl:border-r lg:border-r xl:-ml-8 lg:-ml-8 border-white pr-4 border-opacity-10 h-[70px] flex items-center"
-          size={18}
-          color="#ffffff"
+          className="h-[70px] flex items-center text-black dark:text-white"
+          size={24}
         />
         <div className="flex items-center text-white justify-between w-full">
           <MenuList />
@@ -30,13 +31,19 @@ export default function Header() {
             <IconButton
               onClick={() => showModal("search-modal")}
               icon="search"
+              className="rounded-full h-9 px-3 space-x-1"
+              text="Search"
+              isDark
+              textClassName="text-xs"
             />
+            <SwitchTheme />
             <IconButton
               icon="menu"
               id="responsive-menu"
               size={18}
               onClick={() => setIsActive(true)}
-              className="xl:hidden lg:hidden flex"
+              className="xl:hidden lg:hidden flex rounded-full h-9 w-9"
+              isDark
             />
           </div>
         </div>

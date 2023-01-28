@@ -8,17 +8,26 @@ export default function IconButton({
   className,
   size = 16,
   color,
-  bgType = "secondary",
+  text,
+  textClassName,
+  isDark,
   ...remaining
 }: IconButtonProps) {
-  const types = { none: style.none, secondary: style.secondary }
   return (
     <button
       {...remaining}
-      className={cn(style.container, types[bgType], className)}
+      className={cn(
+        style.container,
+        className,
+        "dark:bg-dark-secondary bg-gray-100 dark:text-white",
+        {
+          "bg-dark-secondary text-white": isDark,
+        }
+      )}
       aria-label={icon}
     >
       <Icon size={size} color={color} icon={icon} />
+      {text && <span className={textClassName}>{text}</span>}
     </button>
   )
 }

@@ -23,7 +23,7 @@ export default function Drawer({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-white dark:bg-dark-secondary dark:bg-opacity-70 bg-opacity-20 transition-opacity" />
+          <div className="fixed inset-0 bg-white dark:bg-dark-bg dark:bg-opacity-70 bg-opacity-20 transition-opacity" />
         </Transition.Child>
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">

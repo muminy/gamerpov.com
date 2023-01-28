@@ -1,11 +1,3 @@
 .container {
-  @apply w-8 h-8 flex items-center justify-center rounded-lg;
-}
-
-.secondary {
-  @apply bg-dark-secondary;
-}
-
-.none {
-  @apply hover:bg-white hover:bg-opacity-10 duration-150;
+  @apply h-9 flex items-center justify-center rounded-full;
 }

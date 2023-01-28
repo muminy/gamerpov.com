@@ -11,10 +11,15 @@ import { useForm } from "react-hook-form"
 import { emailPattern } from "@/constants/patterns"
 import { showAlert } from "@/helpers/alert"
 import { useState } from "react"
+import NotFound from "../NotFound"
 
 export type CommentFormType = Omit<CreateCommentType, "commentOn">
 
-export default function Comment({ className, items, postId }: CommentProps) {
+export default function Comment({
+  className,
+  items,
+  postId,
+}: CommentProps) {
   const [loading, setLoading] = useState(false)
   const { handleSubmit, register, reset } = useForm<CommentFormType>()
 
@@ -78,6 +83,7 @@ export default function Comment({ className, items, postId }: CommentProps) {
       <Repeater<CommentType>
         items={items}
         className="space-y-3"
+        renderNotFound={<NotFound title="Not any comment" />}
         renderItem={(item, index) => <CommentCard {...item} key={index} />}
       />
     </div>

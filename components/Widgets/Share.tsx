@@ -31,20 +31,20 @@ export default function Share({ className, text, ...remaining }: ShareProps) {
       {...remaining}
       className={classNames(
         className,
-        "flex justify-between items-center py-2 mb-10"
+        "flex justify-between items-center py-2 mb-5"
       )}
     >
       <div className="font-semibold text-sm">Share</div>
       <div className="flex items-center">
         <IconButton
           onClick={() => shareLink(Socials.twitter)}
-          bgType="none"
           icon="twitter"
+          className="w-9"
         />
         <IconButton
           onClick={() => shareLink(Socials.facebook)}
-          bgType="none"
           icon="facebook"
+          className="w-9"
         />
       </div>
     </Card>

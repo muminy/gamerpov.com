@@ -11,13 +11,13 @@ export default function Author({
   ...remaining
 }: AuthorProps) {
   return (
-    <div {...remaining} className={classNames(className, "mb-10")}>
+    <div {...remaining} className={classNames(className, "mb-5")}>
       <Title title={"Written By"} icon="pen" />
       <Card className="space-y-2">
         <div className="font-black text-gray-800 dark:text-gray-300">
           {name}
         </div>
-        <div className="text-xs dark:text-gray-600 text-gray-500">
+        <div className="text-xs dark:text-white dark:text-opacity-70 text-gray-500">
           {threeDots(description, 100)}
         </div>
       </Card>
