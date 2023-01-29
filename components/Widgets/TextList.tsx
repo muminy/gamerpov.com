@@ -1,4 +1,5 @@
 import { PostType } from "@/types/index"
+import classNames from "classnames"
 import { TextListProps } from "."
 import Article from "../ArticleCard"
 import Card from "../Card"
@@ -13,11 +14,12 @@ export default function TextList({
   icon,
   moreText,
   onClick,
+  className,
 }: TextListProps) {
   return (
-    <div className="mb-10">
+    <>
       {title && <Title icon={icon} title={title} />}
-      <Card>
+      <Card className={classNames(className)}>
         <Repeater<PostType>
           items={items}
           className="space-y-5"
@@ -38,6 +40,6 @@ export default function TextList({
           }
         />
       </Card>
-    </div>
+    </>
   )
 }

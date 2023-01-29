@@ -55,22 +55,22 @@ export default function Comment({
         onSubmit={handleSubmit(onCreateComment)}
         className="space-y-2 mb-10"
       >
-        <div className="second-text text-sm mb-2">Create a comment</div>
-        <div className="flex space-x-2">
-          <Form.Input
-            {...register("author", { required: true })}
-            className="mb-2"
-            placeholder="Name"
-          />
-          <Form.Input
-            {...register("authorEmail", {
-              required: true,
-              pattern: emailPattern,
-            })}
-            className="mb-2"
-            placeholder="Your E-mail Address"
-          />
+        <div className="text-center text-sm text-gray-500 dark:text-gray-400 mb-2">
+          what do you think about this article
         </div>
+        <Form.Input
+          {...register("author", { required: true })}
+          className="mb-2"
+          placeholder="Name"
+        />
+        <Form.Input
+          {...register("authorEmail", {
+            required: true,
+            pattern: emailPattern,
+          })}
+          className="mb-2"
+          placeholder="Your E-mail Address"
+        />
         <Form.TextArea
           {...register("content", { required: true })}
           placeholder="Do you want to comment?"

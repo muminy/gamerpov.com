@@ -6,26 +6,33 @@ import Repeater from "../Repeater"
 import { CategoryType } from "@/types/index"
 import Image from "next/image"
 import { defaultImage } from "@/constants/default"
+import Badge from "../Badge"
+import classNames from "classnames"
 
 export default function BlogCard({
   image,
   categories,
   title,
   slug,
+  className,
 }: HeroCardType) {
+  const renderCategory = (item: CategoryType, i: number) => (
+    <Badge
+      key={i}
+      className="text-sm font-semibold px-2 py-0.5 bg-primary text-black rounded-lg"
+      text={item.name}
+    />
+  )
+
   return (
-    <Permalink href={`/post/${slug}`} className={style.container}>
+    <Permalink
+      href={`/post/${slug}`}
+      className={classNames(style.container, className)}
+    >
       <Repeater<CategoryType>
         items={categories}
         className="flex items-center space-x-2 absolute top-2 left-2"
-        renderItem={(item, index) => (
-          <div
-            key={index}
-            className="text-sm font-semibold px-2 py-0.5 bg-primary text-black rounded-lg"
-          >
-            {item.name}
-          </div>
-        )}
+        renderItem={renderCategory}
       />
       <Image
         width={250}

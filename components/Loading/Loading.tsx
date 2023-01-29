@@ -8,7 +8,7 @@ export default function Loading({ title }: LoadingProps) {
       <div className="animate-spin duration-1000">
         <Icon icon="spin" />
       </div>
-      <div className="font-semibold text-sm">{title ?? "Yükleniyor"}</div>
+      <div className="font-semibold text-sm">{title ?? "Loading"}</div>
     </Card>
   )
 }

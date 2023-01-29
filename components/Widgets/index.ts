@@ -18,6 +18,7 @@ export type TextListProps = {
   icon?: IconTypes
   onClick?(): void
   moreText?: string
+  className?: string
 }
 
 export type AuthorProps = {

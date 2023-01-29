@@ -26,7 +26,7 @@ export default function SearchModal() {
   }, [search])
 
   return (
-    <Card className="dark:bg-black bg-white">
+    <Card className="dark:bg-black bg-white p-8">
       <Form.Input
         placeholder="Valoran agents..."
         onChange={(event) => setSearch(event.target.value)}
@@ -38,7 +38,7 @@ export default function SearchModal() {
       ) : itemsLength(search) >= minQueryLength ? (
         <Widgets.TextList title={"Arama Sonuçları"} items={posts} />
       ) : (
-        <Card className="dark:text-gray-600 text-gray-500">
+        <Card className="dark:text-gray-600 text-gray-500 text-center">
           You haven{"'"}t searched for anything yet
         </Card>
       )}

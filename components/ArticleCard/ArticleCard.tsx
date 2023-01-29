@@ -14,6 +14,8 @@ export default function ArticleCard({ image, title, slug }: PostType) {
         blurDataURL={defaultImage}
         width={190}
         height={260}
+        loading="lazy"
+        placeholder="blur"
         className="w-full rounded-md object-cover h-full"
       />
       <IconButton

@@ -1,5 +1,5 @@
 .container {
-  @apply block relative mb-4 rounded-md overflow-hidden xl:h-[260px] lg:h-[220px] h-[180px];
+  @apply block relative mb-4 overflow-hidden xl:h-[260px] lg:h-[220px] h-[180px];
 }
 
 .container::before {
