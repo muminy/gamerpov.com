@@ -7,7 +7,7 @@ export default function About() {
     <Container size="small" className="article-content">
       <Seo title="About Us" description="Gamerpov.com About" />
       <Logo
-        size={60}
+        size={40}
         className="mt-10 flex justify-center dark:!text-white !text-black"
       />
       <p className="text-center">

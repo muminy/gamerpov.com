@@ -13,6 +13,7 @@ export default function Footer({
   const contacts: MenuType[] = [
     { href: "/privacy", title: "Privacy Policy" },
     { href: "/about", title: "About Us" },
+    { href: "/contact", title: "Contact" },
   ]
 
   const renderFooterLink = (item: MenuType, index: number) => (
@@ -31,13 +32,13 @@ export default function Footer({
     <Container
       {...remainingProps}
       className={classNames(
-        "dark:bg-transparent dark:border dark:border-dark-border bg-black p-10 flex flex-col items-center grid-cols-12 space-y-5 justify-center mt-auto",
+        "dark:bg-dark-secondary bg-black p-10 flex flex-col items-center grid-cols-12 space-y-5 justify-center mt-auto",
         "xl:mb-10 xl:rounded-3xl"
       )}
     >
       <div className="space-y-2 flex flex-col justify-center items-center">
         <Logo size={24} color={"#ffffff"} />
-        <p className="text-gray-500 text-sm xl:w-2/4 mx-auto text-center">
+        <p className="text-gray-400 dark:text-gray-200 text-sm xl:w-2/4 mx-auto text-center">
           Gamerpov is a content sharing site established for games in the
           first month of 2023.
         </p>
