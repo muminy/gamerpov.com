@@ -34,6 +34,7 @@ export default function Seo(props: SeoProps) {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={meta.description} />
       <meta name="twitter:image" content={meta.image} />
+      <meta name="yandex-verification" content="d074eb2324ceef9c" />
       <meta property="og:type" content={"website"} />
       <meta property="og:site_name" content="Gamerpov" />
       <meta property="og:description" content={meta.description} />
