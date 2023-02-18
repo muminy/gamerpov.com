@@ -18,7 +18,7 @@ export default function Home({ hero, remaining }: HomeStaticProps) {
       <Seo {...initialSeo} />
       <CategoryList />
       <BlogList
-        repeaterClassName="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-2"
+        repeaterClassName="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-1 gap-2"
         blogType="IMAGE"
         renderHeader={
           <Title
