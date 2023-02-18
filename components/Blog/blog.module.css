@@ -9,7 +9,7 @@
     clip-path: polygon(15% 0,100% 0,100% 100%,0 100%);
     background-size: cover;
     background-position: center;
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 14px 14px 0;
 
     @apply xl:w-[180px] w-[140px];
 }

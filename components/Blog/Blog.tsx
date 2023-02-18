@@ -51,7 +51,8 @@ export default function Blog({
     <Card
       className={classNames(
         "hover:ring-2 hover:ring-offset-2 rounded-xl hover:ring-gray-300 hover:dark:ring-dark-secondary",
-        "duration-200 flex px-6 py-8 hover:dark:ring-offset-dark-bg"
+        "duration-200 flex px-6 py-8 hover:dark:ring-offset-dark-bg",
+        "h-full flex flex-col justify-center overflow-hidden"
       )}
     >
       <div className={style.defaultCard}>

@@ -12,6 +12,9 @@ body {
 .article-content p {
   @apply dark:font-light text-black mb-8 dark:text-white dark:text-opacity-50 text-opacity-70;
 }
+.article-content p :is(b, strong) {
+  @apply text-black dark:text-white;
+}
 .article-content a {
   @apply text-blue-600
 }

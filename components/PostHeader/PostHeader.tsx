@@ -15,7 +15,7 @@ export default function PostHeader({
       className={classNames(
         "relative",
         "after:absolute after:bg-gradient-to-b after:to-black after:from-transparent",
-        "after:w-full after:h-full after:top-0 mb-3 overflow-hidden"
+        "after:w-full after:h-full after:top-0 mb-3 overflow-hidden xl:mx-0 lg:mx-0 -mx-4"
       )}
     >
       <img
