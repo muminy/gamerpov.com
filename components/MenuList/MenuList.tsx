@@ -1,4 +1,4 @@
-import { CategoryType } from "@/types/site"
+import { CategoryType } from "@/types/index"
 import cn from "classnames"
 import { useSiteContent } from "context/site"
 import { useRouter } from "next/router"
@@ -39,7 +39,7 @@ export default function MenuList({ isResponsive }: MenuListProps) {
       renderItem={(item) => renderMenu(item, isResponsive)}
       className={cn({
         "hidden xl:flex lg:flex items-center space-x-1": !isResponsive,
-        "flex-col block space-x-0 space-y-3": isResponsive,
+        "flex-col block": isResponsive,
       })}
     />
   )

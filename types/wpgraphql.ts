@@ -35,9 +35,7 @@ export type WPPost = {
   comments: {
     nodes: WPCommentType[]
   }
-  postId: number
   excerpt: string
-  pinned: boolean
   date: string
   commentCount: number
   readingTime: number

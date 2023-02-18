@@ -23,11 +23,11 @@ export default function Drawer({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-white dark:bg-dark-bg dark:bg-opacity-70 bg-opacity-20 transition-opacity" />
+          <div className="fixed inset-0 bg-white dark:bg-dark-secondary dark:bg-opacity-70 bg-opacity-20 transition-opacity" />
         </Transition.Child>
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-[240px] pl-10">
+            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
               <Transition.Child
                 as={"div"}
                 enter="transform transition ease-in-out duration-500 sm:duration-700"
@@ -37,9 +37,9 @@ export default function Drawer({
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
               >
-                <Dialog.Panel className="pointer-events-auto relative w-screen max-w-xs">
+                <Dialog.Panel className="pointer-events-auto relative w-screen max-w-[200px]">
                   <div className="flex flex-col overflow-y-auto bg-black py-6 px-8 h-screen shadow-xl">
-                    {renderContent()}
+                    {renderContent}
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

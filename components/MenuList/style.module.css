@@ -1,0 +1,7 @@
+.permalink {
+  @apply font-medium text-sm text-gray-300 flex items-center px-3 duration-200 space-x-2;
+  @apply hover:text-primary hover:bg-opacity-10 w-full;
+}
+.active-permalink {
+  @apply text-primary;
+}

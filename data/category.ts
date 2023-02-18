@@ -10,7 +10,6 @@ const FRAGMENTS_CATEGORIES = gql`
         title
       }
     }
-    description
     showmenu
     name
     slug

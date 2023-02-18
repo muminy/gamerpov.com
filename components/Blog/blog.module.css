@@ -1,0 +1,19 @@
+
+
+.blogDefault {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    -webkit-clip-path: polygon(15% 0,100% 0,100% 100%,0 100%);
+    clip-path: polygon(15% 0,100% 0,100% 100%,0 100%);
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 8px 8px 0;
+
+    @apply xl:w-[180px] w-[140px];
+}
+
+.defaultCard {
+    @apply xl:w-[calc(100%-180px)] w-[calc(100%-140px)]
+}

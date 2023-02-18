@@ -1,7 +1,0 @@
-.title {
-  @apply font-semibold;
-}
-
-.title b {
-  @apply text-blue-600;
-}

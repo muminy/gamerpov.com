@@ -4,9 +4,9 @@ import classNames from "classnames"
 import { useState, useEffect } from "react"
 import Form from "@/components/FormElement"
 import Loading from "@/components/Loading"
-import Widgets from "@/components/Widgets"
+import { TextList } from "@/components/Witgets"
 import Card from "@/components/Card"
-import { itemsLength } from "@/libs/utils"
+import { itemsLength } from "@/helpers/utils"
 
 export default function SearchModal() {
   const [posts, setPosts] = useState<PostType[]>([])
@@ -28,7 +28,7 @@ export default function SearchModal() {
   return (
     <Card className="dark:bg-black bg-white p-8">
       <Form.Input
-        placeholder="Valoran agents..."
+        placeholder="Valorant..."
         onChange={(event) => setSearch(event.target.value)}
         className={classNames("py-4 px-6 mb-5")}
       />
@@ -36,10 +36,20 @@ export default function SearchModal() {
       {loading ? (
         <Loading />
       ) : itemsLength(search) >= minQueryLength ? (
-        <Widgets.TextList title={"Arama Sonuçları"} items={posts} />
+        <TextList
+          notFound={{
+            title: "Not Found",
+            description:
+              "No articles were found according to your search criteria.",
+          }}
+          title={{
+            title: loading ? "Loading" : "Results",
+          }}
+          items={posts}
+        />
       ) : (
         <Card className="dark:text-gray-600 text-gray-500 text-center">
-          You haven{"'"}t searched for anything yet
+          You haven't searched for anything yet
         </Card>
       )}
     </Card>

@@ -1,6 +1,6 @@
 import { CreateCommentType } from "@/types/comment"
 import { MUTATION_CREATE_COMMENT } from "@/data/comment"
-import client from "@/libs/apollo"
+import client from "@/lib/apollo"
 
 export async function createComment({
   commentOn,

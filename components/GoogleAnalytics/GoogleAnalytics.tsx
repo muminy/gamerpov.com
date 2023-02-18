@@ -1,9 +1,9 @@
 import { useRouter } from "next/router"
 import Script from "next/script"
 import { useEffect } from "react"
-import { pageview } from "@/libs/ga"
+import { pageview } from "@/lib/ga"
 
-const GA_TRACKING_ID = "G-JYX9TG6V24"
+const GA_TRACKING_ID = "G-T7ZNR8X5XG"
 
 export default function GoogleAnalytics() {
   const router = useRouter()
@@ -30,7 +30,6 @@ export default function GoogleAnalytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
           gtag('config', '${GA_TRACKING_ID}');
         `}
       </Script>

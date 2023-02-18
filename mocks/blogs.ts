@@ -1,132 +1,66 @@
 export const BlogMock = [
   {
-    category: "CSGO",
+    category: "Et",
     image:
-      "https://cdn.dribbble.com/userupload/3061397/file/original-a5322c0e6511c8f34a615193288a7ca8.jpg?compress=1&resize=1024x768",
-    title: "5 Effective Brain Recharging Activities No One is Talking About",
-    user: {
-      name: "Esra Memiş",
-      username: "",
-      forums: [],
-      image:
-        "https://cdn.sanity.io/images/cijrdavx/production/cd477178ed12f28ef668adaf9fcae6b8fc351a08-4480x6415.jpg?rect=0,0,4480,3760&w=32&q=75&fit=clip&auto=format",
-    },
+      "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    title:
+      "İstanbul'da Nefis Burgerlerini Sıcak Sıcak Eve Sipariş Edebileceğiniz En İyi 10 Burgerci",
+    user: "Esra Memiş",
   },
   {
-    category: "CSGO",
+    category: "Kahvaltı",
     image:
-      "https://cdn.dribbble.com/userupload/2798965/file/original-5fcdc62f8266e353ea97ca56731ad804.png?compress=1&resize=752x564",
-    title: "5 Effective Brain Recharging Activities No One is Talking About",
-    user: {
-      name: "Esra Memiş",
-      username: "",
-      forums: [],
-      image:
-        "https://cdn.sanity.io/images/cijrdavx/production/cd477178ed12f28ef668adaf9fcae6b8fc351a08-4480x6415.jpg?rect=0,0,4480,3760&w=32&q=75&fit=clip&auto=format",
-    },
+      "https://images.unsplash.com/photo-1576867757603-05b134ebc379?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    title:
+      "İstanbul'da Evinize Sıcak Sıcak Sipariş Verebileceğiniz En İyi 10 Lahmacuncu",
+    user: "Esra Memiş",
   },
   {
-    category: "CSGO",
+    category: "Meze",
     image:
-      "https://cdn.dribbble.com/users/975591/screenshots/15644990/media/7b182086ff2c64bd5a52a7b7855c503d.png?compress=1&resize=1600x1200&vertical=top",
-    title: "5 Effective Brain Recharging Activities No One is Talking About",
-    user: {
-      name: "Esra Memiş",
-      forums: [],
-      username: "",
-      image:
-        "https://cdn.sanity.io/images/cijrdavx/production/cd477178ed12f28ef668adaf9fcae6b8fc351a08-4480x6415.jpg?rect=0,0,4480,3760&w=32&q=75&fit=clip&auto=format",
-    },
+      "https://images.unsplash.com/photo-1608835291093-394b0c943a75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80",
+    title:
+      "Sevgilinizi Alıp Mutlu Mesut Vakit Geçirebileceğiniz 10 Aşk ve Lezzet Dolu Mekan",
+    user: "Mümin Yıldırım",
   },
   {
-    category: "CSGO",
+    category: "Tatlı",
     image:
-      "https://cdn.sanity.io/images/cijrdavx/production/e60f8ab265df3c22fdde5469de54d225017b7323-4000x5000.jpg?w=2048&q=75&fit=clip&auto=format",
-    title: "5 Effective Brain Recharging Activities No One is Talking About",
-    user: {
-      name: "Esra Memiş",
-      forums: [],
-      username: "",
-      image:
-        "https://cdn.sanity.io/images/cijrdavx/production/cd477178ed12f28ef668adaf9fcae6b8fc351a08-4480x6415.jpg?rect=0,0,4480,3760&w=32&q=75&fit=clip&auto=format",
-    },
+      "https://images.unsplash.com/photo-1547573854-74d2a71d0826?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    title:
+      "Suadiye'de Lezzet Dolu Bir Gün Geçirmek İsteyen Gurmelere 10 Nefis Mekan",
+    user: "Nanu Bati",
   },
   {
-    category: "CSGO",
+    category: "Meze",
     image:
-      "https://cdn.sanity.io/images/cijrdavx/production/279c03681911845947cd044b4ac9e91d7a3a628c-987x1481.png?w=3840&q=75&fit=clip&auto=format",
-    title: "5 Effective Brain Recharging Activities No One is Talking About",
-    user: {
-      name: "Esra Memiş",
-      forums: [],
-      username: "",
-      image:
-        "https://cdn.sanity.io/images/cijrdavx/production/cd477178ed12f28ef668adaf9fcae6b8fc351a08-4480x6415.jpg?rect=0,0,4480,3760&w=32&q=75&fit=clip&auto=format",
-    },
+      "https://images.unsplash.com/photo-1608835291093-394b0c943a75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80",
+    title:
+      "Sevgilinizi Alıp Mutlu Mesut Vakit Geçirebileceğiniz 10 Aşk ve Lezzet Dolu Mekan",
+    user: "Mümin Yıldırım",
   },
   {
-    category: "CSGO",
+    category: "Tatlı",
     image:
-      "https://cdn.sanity.io/images/cijrdavx/production/2fda477a7e32f813abb9a8ef425939e6a91c7973-987x1481.png?rect=0,279,987,607&w=2048&q=75&fit=clip&auto=format",
-    title: "5 Effective Brain Recharging Activities No One is Talking About",
-    user: {
-      name: "Esra Memiş",
-      forums: [],
-      username: "",
-      image:
-        "https://cdn.sanity.io/images/cijrdavx/production/cd477178ed12f28ef668adaf9fcae6b8fc351a08-4480x6415.jpg?rect=0,0,4480,3760&w=32&q=75&fit=clip&auto=format",
-    },
+      "https://images.unsplash.com/photo-1547573854-74d2a71d0826?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    title:
+      "Suadiye'de Lezzet Dolu Bir Gün Geçirmek İsteyen Gurmelere 10 Nefis Mekan",
+    user: "Nanu Bati",
   },
   {
-    category: "CSGO",
+    category: "Meze",
     image:
-      "https://cdn.sanity.io/images/cijrdavx/production/a5bd8977e7fd82666c00a45948583b1f9912d392-3847x5583.jpg?w=2048&q=75&fit=clip&auto=format",
-    title: "5 Effective Brain Recharging Activities No One is Talking About",
-    user: {
-      name: "Esra Memiş",
-      forums: [],
-      username: "",
-      image:
-        "https://cdn.sanity.io/images/cijrdavx/production/cd477178ed12f28ef668adaf9fcae6b8fc351a08-4480x6415.jpg?rect=0,0,4480,3760&w=32&q=75&fit=clip&auto=format",
-    },
+      "https://images.unsplash.com/photo-1608835291093-394b0c943a75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80",
+    title:
+      "Sevgilinizi Alıp Mutlu Mesut Vakit Geçirebileceğiniz 10 Aşk ve Lezzet Dolu Mekan",
+    user: "Mümin Yıldırım",
   },
   {
-    category: "CSGO",
+    category: "Tatlı",
     image:
-      "https://cdn.sanity.io/images/cijrdavx/production/c366d5116a51d3f1d8b23962e6b7caac7c960f81-7855x5240.jpg?w=2048&q=75&fit=clip&auto=format",
-    title: "5 Effective Brain Recharging Activities No One is Talking About",
-    user: {
-      name: "Esra Memiş",
-      forums: [],
-      username: "",
-      image:
-        "https://cdn.sanity.io/images/cijrdavx/production/cd477178ed12f28ef668adaf9fcae6b8fc351a08-4480x6415.jpg?rect=0,0,4480,3760&w=32&q=75&fit=clip&auto=format",
-    },
-  },
-  {
-    category: "CSGO",
-    image:
-      "https://cdn.sanity.io/images/cijrdavx/production/e60f8ab265df3c22fdde5469de54d225017b7323-4000x5000.jpg?w=2048&q=75&fit=clip&auto=format",
-    title: "5 Effective Brain Recharging Activities No One is Talking About",
-    user: {
-      name: "Esra Memiş",
-      forums: [],
-      username: "",
-      image:
-        "https://cdn.sanity.io/images/cijrdavx/production/cd477178ed12f28ef668adaf9fcae6b8fc351a08-4480x6415.jpg?rect=0,0,4480,3760&w=32&q=75&fit=clip&auto=format",
-    },
-  },
-  {
-    category: "CSGO",
-    image:
-      "https://cdn.sanity.io/images/cijrdavx/production/279c03681911845947cd044b4ac9e91d7a3a628c-987x1481.png?w=3840&q=75&fit=clip&auto=format",
-    title: "5 Effective Brain Recharging Activities No One is Talking About",
-    user: {
-      name: "Esra Memiş",
-      forums: [],
-      username: "",
-      image:
-        "https://cdn.sanity.io/images/cijrdavx/production/cd477178ed12f28ef668adaf9fcae6b8fc351a08-4480x6415.jpg?rect=0,0,4480,3760&w=32&q=75&fit=clip&auto=format",
-    },
+      "https://images.unsplash.com/photo-1547573854-74d2a71d0826?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+    title:
+      "Suadiye'de Lezzet Dolu Bir Gün Geçirmek İsteyen Gurmelere 10 Nefis Mekan",
+    user: "Nanu Bati",
   },
 ]

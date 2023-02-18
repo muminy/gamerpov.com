@@ -1,5 +1,5 @@
 import { toPost } from "@/helpers/mapper/post"
-import client from "@/libs/apollo"
+import client from "@/lib/apollo"
 import { WPPost } from "@/types/wpgraphql"
 import {
   QUERY_GET_POST_BY_SLUG,
@@ -20,12 +20,20 @@ export type WPPostDetail = {
 
 export async function getAllPosts() {
   try {
-    return await client
-      .query<WPPList>({ query: QUERY_POSTS })
-      .then((response) => response.data.posts.nodes.map(toPost))
+    const heroLength = 8
+    const response = await client.query<WPPList>({ query: QUERY_POSTS })
+    let remaining
+
+    const postList = response.data.posts.nodes.map(toPost)
+    const hero = postList.slice(0, heroLength)
+
+    if (postList.length > heroLength) {
+      remaining = postList.slice(heroLength, postList.length)
+    }
+
+    return { hero, remaining: remaining ?? [] }
   } catch (e) {
-    console.log(e)
-    return []
+    return { hero: [], remaining: [] }
   }
 }
 
@@ -44,7 +52,7 @@ export async function getPostBySlug(slug: string) {
   }
 }
 
-export async function getPostsByCategory(id: number) {
+export async function getPostCategory(id: number) {
   try {
     const response = await client.query<WPPList>({
       query: QUERY_POSTS_BY_CATEGORY_ID,

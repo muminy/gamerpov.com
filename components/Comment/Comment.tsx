@@ -36,12 +36,15 @@ export default function Comment({
       commentOn: postId,
     })
       .then(() => {
-        showAlert({ message: "Your comment has been sent to Approval" })
+        showAlert({
+          message:
+            "Your comment has been sent. It will be listed after approval.",
+        })
         reset()
       })
       .catch(() => {
         showAlert({
-          message: "An error occurred while submitting your comment.",
+          message: "Comment Could Not Be Posted",
         })
       })
       .finally(() => {
@@ -55,35 +58,36 @@ export default function Comment({
         onSubmit={handleSubmit(onCreateComment)}
         className="space-y-2 mb-10"
       >
-        <div className="text-center text-sm text-gray-500 dark:text-gray-400 mb-2">
-          what do you think about this article
+        <Title title="Comment" />
+        <div className="flex space-x-2">
+          <Form.Input
+            {...register("author", { required: true })}
+            className="mb-2"
+            placeholder="Name"
+          />
+          <Form.Input
+            {...register("authorEmail", {
+              required: true,
+              pattern: emailPattern,
+            })}
+            className="mb-2"
+            placeholder="E-mail Address"
+          />
         </div>
-        <Form.Input
-          {...register("author", { required: true })}
-          className="mb-2"
-          placeholder="Name"
-        />
-        <Form.Input
-          {...register("authorEmail", {
-            required: true,
-            pattern: emailPattern,
-          })}
-          className="mb-2"
-          placeholder="Your E-mail Address"
-        />
         <Form.TextArea
           {...register("content", { required: true })}
-          placeholder="Do you want to comment?"
+          rows={5}
+          placeholder="great article..."
         />
         <Button.Gradient disabled={loading} className="mb-10">
           {loading ? "Sending..." : "Send"}
         </Button.Gradient>
       </form>
-      <Title title="Comments" icon="comment" />
+      <Title title="Comments" />
       <Repeater<CommentType>
         items={items}
         className="space-y-3"
-        renderNotFound={<NotFound title="Not any comment" />}
+        renderNotFound={<NotFound title="Do the first to comment" />}
         renderItem={(item, index) => <CommentCard {...item} key={index} />}
       />
     </div>

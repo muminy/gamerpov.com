@@ -22,14 +22,24 @@
       "@/helpers/*": ["helpers/*"],
       "@/icons/*": ["icons/*"],
       "@/types/*": ["types/*"],
-      "@/libs/*": ["libs/*"],
-      "@/hooks/*": ["hooks/*"],
+      "@/lib/*": ["lib/*"],
+      "@/utils/*": ["utils/*"],
       "@/data/*": ["data/*"],
+      "@/hooks/*": ["hooks/*"],
       "@/store/*": ["store/*", "store/index"],
-      "@/services/*": ["services/*"],
-      "@/assets/*": ["assets/*"]
-    }
+      "@/services/*": ["services/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "server/index.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }

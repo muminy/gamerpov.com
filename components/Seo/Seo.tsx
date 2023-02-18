@@ -2,7 +2,6 @@ import Head from "next/head"
 import { SeoProps } from "."
 import { useRouter } from "next/router"
 import { initialSeo } from "@/constants/seo"
-import { useMemo } from "react"
 
 export default function Seo(props: SeoProps) {
   const router = useRouter()

@@ -1,2 +1,3 @@
-export const defaultImage = "/assets/default.webp"
-export const domain = "https://gamerpov.com"
+export const defaultImage = "/images/default.jpg"
+export const domainName = "gamerpov.com"
+export const domain = `https://${domainName}`

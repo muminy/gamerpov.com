@@ -16,7 +16,7 @@ export function toPost({
     author: author.node,
     image: {
       sourceUrl: defaultImage,
-      title: "default_image",
+      title: "default_hz_adem",
     },
   } as PostType
 

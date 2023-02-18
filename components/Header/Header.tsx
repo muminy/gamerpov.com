@@ -1,60 +1,53 @@
-import Container from "../Container"
-import Logo from "../Logo"
 import style from "./header.module.css"
 import classNames from "classnames"
+import React from "react"
+import Logo from "../Logo"
+import Container from "../Container"
 import IconButton from "../IconButton/IconButton"
 import Drawer from "../Drawer"
-import React, { useState } from "react"
-import MenuList from "../MenuList"
+import Menulist from "../MenuList"
+import { useRouter } from "next/router"
 import { showModal } from "@/helpers/modal"
 import SwitchTheme from "../SwitchTheme"
 
 export default function Header() {
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, setIsActive] = React.useState(false)
+  const { push } = useRouter()
 
   return (
     <div
       className={classNames(
         style.header,
-        "flex items-center mb-5 border-b border-gray-100 dark:border-dark-border",
-        "bg-white dark:bg-dark-bg"
+        "border-b border-b-gray-200 dark:border-b-dark-border"
       )}
     >
-      <Container className={style.container}>
-        <Logo
-          className="h-[70px] flex items-center text-black dark:text-white"
-          size={24}
-        />
-        <div className="flex items-center text-white justify-between w-full">
-          <MenuList />
-          <div className="flex items-center ml-auto space-x-2">
-            <IconButton
-              onClick={() => showModal("search-modal")}
-              icon="search"
-              className={classNames(
-                "rounded-full h-9 px-3 space-x-1",
-                "xl:w-auto w-9"
-              )}
-              text="Search"
-              isDark
-              textClassName="text-xs xl:block hidden"
-            />
-            <SwitchTheme />
-            <IconButton
-              icon="menu"
-              id="responsive-menu"
-              size={18}
-              onClick={() => setIsActive(true)}
-              className="xl:hidden lg:hidden flex rounded-full h-9 w-9"
-              isDark
-            />
-          </div>
+      <Container className="flex h-[70px] items-center rounded-xl">
+        <div className="flex items-center space-x-10 text-black dark:text-white mr-10">
+          <Logo size={20} />
+        </div>
+        <Menulist />
+        <div className="flex items-center space-x-2 ml-auto">
+          <IconButton
+            className="text-white px-3 space-x-2 xl:w-auto w-9"
+            textClassName="xl:block hidden"
+            icon="search"
+            isDark
+            text="Search"
+            onClick={() => showModal("search-modal")}
+          />
+          <SwitchTheme />
+          <IconButton
+            className="text-white xl:hidden flex w-9"
+            icon="menu"
+            isDark
+            onClick={() => setIsActive(true)}
+          />
         </div>
       </Container>
       <Drawer
         isActive={isActive}
         onClose={() => setIsActive(false)}
-        renderContent={() => <MenuList isResponsive />}
+        renderContent={<Menulist isResponsive />}
       />
     </div>
   )

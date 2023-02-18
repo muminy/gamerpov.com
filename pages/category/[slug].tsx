@@ -1,42 +1,44 @@
 import Breadcrumb from "@/components/Breadcrumb"
-import Card from "@/components/Card"
 import Container from "@/components/Container"
 import Seo from "@/components/Seo"
-import Widgets from "@/components/Widgets"
-import { BASE_URL } from "@/constants/website"
-import { threeDots } from "@/helpers/string"
-import { getPostsByCategory } from "@/services/post"
+import Title from "@/components/Title"
+import { BlogList } from "@/components/Witgets"
+import { domain } from "@/constants/default"
 import { getCategoryBySlug } from "@/services/category"
-import { PostType } from "@/types/index"
-import { CategoryType } from "@/types/site"
+import { getPostCategory } from "@/services/post"
+import { CategoryType, PostType } from "@/types/index"
 import { GetStaticPropsContext } from "next"
 
-type PageProps = {
+type CategoryPageProps = {
   posts: PostType[]
   category: CategoryType
 }
 
-export default function CategoryPost({ posts, category }: PageProps) {
+export default function Category({ posts, category }: CategoryPageProps) {
   return (
     <Container>
       <Seo
-        title={`${category.name} | Gamerpov E-sport`}
-        description={category.description}
-        image={`${BASE_URL}/api/og/blog?title=${category.name}`}
+        title={category.name}
+        description={`Latest posts in the ${category.name} Category.`}
+        image={`${domain}/api/og/blog?title=${category.name}`}
       />
-      <Container size="small">
-        <Breadcrumb
-          items={[{ title: "Home", to: "/" }, { title: category.name }]}
-        />
-        <Card className="text-sm text-gray-500 mb-14">
-          {threeDots(category.description, 200, category.name)}
-        </Card>
-        <Widgets.TextList
-          icon="flash"
-          title={`Latest Post by <b>${category.name}</b>`}
-          items={posts}
-        />
-      </Container>
+      <Breadcrumb
+        items={[{ title: "Home", to: "/" }, { title: category.name }]}
+      />
+      <BlogList
+        repeaterClassName="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-2"
+        blogType="IMAGE"
+        items={posts}
+        notFound={{
+          title: `No articles found for the category.`,
+        }}
+        renderHeader={
+          <Title
+            description={`Latest posts in the ${category.name} category.`}
+            title={`${category.name}`}
+          />
+        }
+      />
     </Container>
   )
 }
@@ -56,7 +58,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
     }
   }
 
-  const posts = await getPostsByCategory(category.id)
+  const posts = await getPostCategory(category.id)
 
   return {
     props: {

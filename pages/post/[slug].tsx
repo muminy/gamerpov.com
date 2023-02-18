@@ -1,93 +1,76 @@
-import {
-  getAllPosts,
-  getPostBySlug,
-  getPostsByCategory,
-} from "@/services/post"
-import { PostType, CategoryType } from "@/types/index"
-import { GetStaticPropsContext } from "next"
-import Container from "@/components/Container"
-import Seo from "@/components/Seo"
-import { BASE_URL } from "@/constants/website"
-import Widgets from "@/components/Widgets"
 import Breadcrumb from "@/components/Breadcrumb"
+import Comments from "@/components/Comment"
+import Container from "@/components/Container"
+import PostHeader from "@/components/PostHeader"
 import Repeater from "@/components/Repeater"
-import Permalink from "@/components/Permalink"
-import { useRouter } from "next/router"
-import Comment from "@/components/Comment"
-import { removeHtmlTags } from "@/helpers/string"
+import Seo from "@/components/Seo"
+import Tag from "@/components/Tag"
+import Title from "@/components/Title"
+import { Share } from "@/components/Witgets"
+import { removeHtmlTags } from "@/helpers/utils"
+import { getPostBySlug, getAllPosts } from "@/services/post"
+import { CategoryType, PostType } from "@/types/index"
+import { GetStaticPropsContext } from "next"
+import { useEffect } from "react"
 
-export interface PostDetailProps {
+type PostDetailProps = {
   post: PostType
-  similarPosts: PostType[]
 }
-export default function PostDetail({
-  post,
-  similarPosts = [],
-}: PostDetailProps) {
-  const router = useRouter()
 
-  const readMoreClick = () => {
-    router.push(`/category/${post.categories[0].slug}`)
+export default function Detail({ post }: PostDetailProps) {
+  useEffect(() => {
+    fetch(`/api/views/${post.slug}`, { method: "POST" })
+  }, [post.slug])
+
+  const renderItem = (item: CategoryType, index: number) => {
+    return (
+      <Tag key={index} slug={item.slug} text={item.name} className="h-9" />
+    )
   }
 
   return (
-    <Container className="relative">
+    <Container size="xlarge">
       <Seo
         title={post.title}
         description={removeHtmlTags(post.excerpt)}
-        image={`${BASE_URL}/api/og/blog?title=${post.title}`}
+        image={post.image.sourceUrl}
       />
       <Breadcrumb
         items={[
           { title: "Home", to: "/" },
-          { title: "Blog", to: "/" },
-          { title: post.title },
+          {
+            title: post.categories[0].name ?? "Post",
+            to: `/category/${post.categories[0].slug}`,
+          },
+          {
+            title: post.title,
+          },
         ]}
       />
-      <div className="grid grid-cols-12 xl:gap-20 lg:gap-10 gap-5">
-        <div className="col-span-3 w-full h-full rounded-lg hidden xl:block">
-          <Widgets.Author
-            name={post.author?.name}
-            description={post.author?.description}
-          />
-          <Widgets.Share text={post.title} />
-          <Widgets.TextList
-            icon="flash"
-            title="Similar Posts"
-            items={similarPosts.slice(0, 5)}
-            {...(similarPosts.length && { onClick: readMoreClick })}
-          />
-        </div>
-        <div className="xl:col-span-6 col-span-12">
-          <Container size="large">
-            <h1 className="text-3xl font-black mb-4">{post.title}</h1>
-            <div className="flex items-center mb-10 space-x-2 font-medium text-sm dark:text-gray-300 text-gray-900">
-              <Repeater<CategoryType>
-                items={post.categories}
-                className="space-x-2"
-                renderItem={(item, index) => (
-                  <Permalink
-                    key={index}
-                    href={`/category/${item.slug}`}
-                    title={item.name}
-                    className="px-3 py-1.5 rounded-xl dark:bg-dark-secondary bg-yellow-100"
-                  />
-                )}
-              />
-              <span>{post.readingTime} Min Read</span>
-            </div>
-            <div
-              className="article-content"
-              dangerouslySetInnerHTML={{ __html: post.content ?? "" }}
-            />
-          </Container>
-        </div>
-        <Comment
-          items={post.comments}
-          postId={post.postId}
-          className="xl:col-span-3 col-span-12 h-full rounded-lg"
+      <PostHeader
+        author={post.author.name}
+        date={post.date}
+        slug={post.slug}
+        image={post.image.sourceUrl}
+        title={post.title}
+      />
+      <Container size="large">
+        <Repeater<CategoryType>
+          items={post.categories}
+          renderItem={renderItem}
+          className="flex space-x-2 mb-3"
         />
-      </div>
+        <div
+          className="article-content"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+        <Share text={post.title} />
+        <Comments
+          className="mt-10"
+          postId={post.postId}
+          items={post.comments}
+        />
+      </Container>
     </Container>
   )
 }
@@ -107,21 +90,19 @@ export async function getStaticProps(props: GetStaticPropsContext) {
     }
   }
 
-  const similarPosts = await getPostsByCategory(post.categories[0].id)
-
   return {
     props: {
       post,
-      similarPosts,
     },
     revalidate: 10,
   }
 }
 
 export async function getStaticPaths() {
-  const posts = await getAllPosts()
+  const { hero, remaining } = await getAllPosts()
 
-  const paths = posts
+  const paths = hero
+    .concat(remaining)
     .filter(({ slug }) => typeof slug === "string")
     .map(({ slug }) => ({
       params: {

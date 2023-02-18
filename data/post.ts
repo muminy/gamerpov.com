@@ -36,11 +36,9 @@ const FRAGMENTS_POST = gql`
       }
     }
     postId
-    pinned
     date
     excerpt
     commentCount
-    readingTime
     slug
     title
   }
@@ -49,18 +47,7 @@ const FRAGMENTS_POST = gql`
 export const QUERY_POSTS = gql`
   ${FRAGMENTS_POST}
   query Posts {
-    posts {
-      nodes {
-        ...PostFields
-      }
-    }
-  }
-`
-
-export const QUERY_POSTS_BY_CATEGORY_ID = gql`
-  ${FRAGMENTS_POST}
-  query PostsByCategoryId($id: Int!) {
-    posts(where: { categoryId: $id }) {
+    posts(first: 100) {
       nodes {
         ...PostFields
       }
@@ -72,6 +59,17 @@ export const QUERY_SEARCH_POSTS = gql`
   ${FRAGMENTS_POST}
   query SearchPosts($search: String) {
     posts(where: { search: $search }) {
+      nodes {
+        ...PostFields
+      }
+    }
+  }
+`
+
+export const QUERY_POSTS_BY_CATEGORY_ID = gql`
+  ${FRAGMENTS_POST}
+  query PostsByCategoryId($id: Int!) {
+    posts(where: { categoryId: $id }) {
       nodes {
         ...PostFields
       }

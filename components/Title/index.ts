@@ -1,8 +1,8 @@
-import { IconTypes } from "@/icons/index"
-
 export type TitleProps = {
   title: string
-  icon?: IconTypes
+  description?: string
+  className?: string
+  align?: "left" | "center"
 }
 
 export { default } from "./Title"

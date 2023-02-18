@@ -1,3 +1,4 @@
+import classNames from "classnames"
 import cn from "classnames"
 import { IconButtonProps } from "."
 import Icon from "../Icon/Icon"
@@ -27,7 +28,16 @@ export default function IconButton({
       aria-label={icon}
     >
       <Icon size={size} color={color} icon={icon} />
-      {text && <span className={textClassName}>{text}</span>}
+      {text && (
+        <span
+          className={classNames(
+            "text-xs whitespace-nowrap font-semibold",
+            textClassName
+          )}
+        >
+          {text}
+        </span>
+      )}
     </button>
   )
 }

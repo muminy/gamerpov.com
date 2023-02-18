@@ -1,16 +1,14 @@
-import Logo from "@/components/Logo"
 import { ImageResponse } from "@vercel/og"
-import { NextRequest } from "next/server"
 
 export const config = {
-  runtime: "edge",
+  runtime: "experimental-edge",
 }
 
 const font = fetch(
   new URL("../../../assets/fonts/Inter-Black.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer())
 
-export default async function handler(req: NextRequest) {
+export default async function handler() {
   const fontData = await font
 
   return new ImageResponse(
@@ -20,15 +18,18 @@ export default async function handler(req: NextRequest) {
           height: "100%",
           width: "100%",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
           flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
           fontFamily: "Inter",
           background:
             "linear-gradient(225deg, #FCFF7D 0%, #2B3EEF 32.29%, #FF7D7D 56.25%, #BD00FF 76.56%, #0085FF 100%)",
         }}
       >
-        <Logo size={124} color="#ffffff" />
+        <div tw="flex text-white text-6xl font-black uppercase leading-[70px]">
+          GÜNLÜKTARİF
+        </div>
+        <div tw="bg-gray-200 rounded-xl px-2 py-1.5">.com</div>
       </div>
     ),
     {

@@ -1,74 +1,55 @@
 import Container from "@/components/Container"
-import Hero from "@/components/Hero"
 import Seo from "@/components/Seo"
-import Widgets from "@/components/Widgets"
+import Title from "@/components/Title"
+import { CategoryList, TextList } from "@/components/Witgets"
+import { BlogList } from "@/components/Witgets"
 import { initialSeo } from "@/constants/seo"
 import { getAllPosts } from "@/services/post"
-import { PostType } from "@/types/index"
-import { useRouter } from "next/router"
+import { PostType } from "../types"
 
-export type PropList = "posts" | "hero" | "right" | "left"
-export type HomeProps = Record<PropList, PostType[]>
+type HomeStaticProps = {
+  hero: PostType[]
+  remaining: PostType[]
+}
 
-export default function Home({ posts, left, right, hero }: HomeProps) {
-  const { push } = useRouter()
+export default function Home({ hero, remaining }: HomeStaticProps) {
   return (
     <Container>
       <Seo {...initialSeo} />
-      <Hero.HomeHero items={hero} />
-      <Widgets.Category />
-      <div className="grid grid-cols-12 xl:gap-10 gap-5 mt-10">
-        <div className="xl:col-span-3 lg:col-span-4 col-span-12">
-          <Widgets.TextList
-            onClick={() => push(`/category/fifa`)}
-            items={left}
-            title="Fifa"
-            icon="flash"
+      <CategoryList />
+      <BlogList
+        repeaterClassName="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-2"
+        blogType="IMAGE"
+        renderHeader={
+          <Title
+            description="Articles written during the day are listed here"
+            title="Latest Posts"
           />
-        </div>
-        <div className="xl:col-span-6 lg:col-span-4 col-span-12">
-          <Widgets.TextList
-            icon="flash"
-            title="Latest articles"
-            items={posts}
-          />
-        </div>
-        <div className="xl:col-span-3 lg:col-span-4 col-span-12">
-          <Widgets.TextList
-            onClick={() => push(`/category/valorant`)}
-            items={right}
-            title="Valorant"
-            icon="valorant"
-          />
-        </div>
-      </div>
+        }
+        className="mb-10"
+        items={hero}
+      />
+      <BlogList
+        items={remaining}
+        renderHeader={<Title title="Other Posts" />}
+        notFound={{
+          title: "Not Found",
+          description:
+            "Articles will be listed here as soon as possible. Please don't forget to follow us",
+        }}
+        repeaterClassName="grid xl:grid-cols-2 grid-cols-1 gap-5"
+      />
     </Container>
   )
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPosts()
-
-  // pinned post list
-  const hero = posts.filter((item) => item.pinned).slice(0, 4)
-
-  const leftSidebarCategoryId = 16
-  const rightSidebarCategoryId = 1
+  const { hero, remaining } = await getAllPosts()
 
   return {
     props: {
-      posts,
       hero,
-      left: posts.filter((item) =>
-        item.categories
-          .map((item) => item.id)
-          .includes(leftSidebarCategoryId)
-      ),
-      right: posts.filter((item) =>
-        item.categories
-          .map((item) => item.id)
-          .includes(rightSidebarCategoryId)
-      ),
+      remaining,
     },
     revalidate: 10,
   }

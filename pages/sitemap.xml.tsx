@@ -1,8 +1,8 @@
 import { domain } from "@/constants/default"
-import { GetServerSidePropsContext } from "next"
-import { PostType } from "@/types/index"
-import dayjs from "dayjs"
 import { getAllPosts } from "@/services/post"
+import { GetServerSidePropsContext } from "next"
+import { PostType } from "../types"
+import dayjs from "dayjs"
 
 function generateSiteMap({ posts }: { posts: PostType[] }) {
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -31,9 +31,9 @@ function SiteMap() {}
 export async function getServerSideProps({
   res,
 }: GetServerSidePropsContext) {
-  const posts = await getAllPosts()
+  const { hero, remaining } = await getAllPosts()
 
-  const sitemap = generateSiteMap({ posts })
+  const sitemap = generateSiteMap({ posts: hero.concat(remaining) })
 
   res.setHeader("Content-Type", "text/xml")
   res.write(sitemap)

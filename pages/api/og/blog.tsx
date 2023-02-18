@@ -3,7 +3,7 @@ import { ImageResponse } from "@vercel/og"
 import { NextRequest } from "next/server"
 
 export const config = {
-  runtime: "edge",
+  runtime: "experimental-edge",
 }
 
 const font = fetch(
@@ -33,9 +33,9 @@ export default async function handler(req: NextRequest) {
             "linear-gradient(225deg, #FCFF7D 0%, #2B3EEF 32.29%, #FF7D7D 56.25%, #BD00FF 76.56%, #0085FF 100%)",
         }}
       >
-        <div tw="p-20 flex flex-col h-full justify-between">
-          <Logo size={73} color="white" />
-          <div tw="text-5xl text-white font-bold leading-[60px]">
+        <div tw="p-5 flex flex-col w-full h-full justify-between text-white pt-14 pl-14">
+          <Logo size={60} />
+          <div tw="text-5xl rounded-xl w-full font-bold leading-[70px]">
             {title}
           </div>
         </div>

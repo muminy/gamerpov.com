@@ -7,7 +7,7 @@ export default function Privacy() {
     <Container size="large">
       <Seo
         title="Gizlilik Politikası"
-        description="GünlükTarif.com için hazırlanmış gizlilik politikasına ulaşabilirsiniz"
+        description="gamerpov.com Privacy Policy"
       />
       <Breadcrumb
         items={[{ title: "Home", to: "/" }, { title: "Privacy Policy" }]}

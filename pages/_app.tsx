@@ -1,35 +1,59 @@
-import { AppContext, AppProps } from "next/app"
+import { AppProps } from "next/app"
 import Layout from "@/components/Layout/Layout"
 
-import "@/styles/tailwind.css"
-import "@/styles/style.css"
+import "@/styles/global.css"
 
-import Seo from "@/components/Seo"
-import { initialSeo } from "@/constants/seo"
 import { getCategories } from "@/services/category"
-import { SiteContext, SiteContextType } from "context/site"
+import { SiteContextType, SiteProvider } from "context/site"
 import { ThemeProvider } from "next-themes"
+import { useEffect, useState } from "react"
+import { PostType } from "../types"
 import GoogleAnalytics from "@/components/GoogleAnalytics"
-import Alert, { alertRef } from "@/components/Alert"
 import Modal, { modalRef } from "@/components/Modal"
+import Alert, { alertRef } from "@/components/Alert"
+import "dayjs/locale/tr"
+
+type AppCustomProps = AppProps & SiteContextType
 
 export default function MyCustomApp({
   Component,
   pageProps,
   categories,
   menu,
-}: AppProps & SiteContextType) {
+}: AppCustomProps) {
+  const [favories, setFavories] = useState<PostType[]>([])
+
+  useEffect(() => {
+    const listem = localStorage.getItem("favories")
+    const jsonData = listem ? JSON.parse(listem) : []
+
+    if (jsonData.length > 0) {
+      setFavories(jsonData)
+    }
+  }, [])
+
+  const setFavoriList = (posts: PostType[]) => {
+    setFavories(posts)
+  }
+
   return (
     <>
       <GoogleAnalytics />
       <ThemeProvider attribute="class" defaultTheme="dark">
-        <Alert ref={alertRef} />
-        <Modal ref={modalRef} />
-        <SiteContext.Provider value={{ categories, menu }}>
+        <SiteProvider
+          value={{
+            categories,
+            menu,
+            favories,
+            setFavories: (posts) => setFavoriList(posts),
+          }}
+        >
+          <Alert ref={alertRef} />
+          <Modal ref={modalRef} />
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        </SiteContext.Provider>
+        </SiteProvider>
       </ThemeProvider>
     </>
   )
@@ -38,8 +62,5 @@ export default function MyCustomApp({
 MyCustomApp.getInitialProps = async () => {
   const categories = await getCategories()
 
-  return {
-    categories,
-    menu: categories.filter((item) => item.showmenu),
-  }
+  return { categories, menu: categories.filter((item) => item.showmenu) }
 }

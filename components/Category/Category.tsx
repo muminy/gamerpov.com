@@ -1,5 +1,7 @@
-import { CategoryType } from "@/types/site"
+import { defaultImage } from "@/constants/default"
+import { CategoryType } from "@/types/index"
 import classNames from "classnames"
+import Image from "next/image"
 import Permalink from "../Permalink"
 
 export default function Category({ image, name, slug }: CategoryType) {
@@ -7,22 +9,25 @@ export default function Category({ image, name, slug }: CategoryType) {
     <Permalink
       href={`/category/${slug}`}
       className={classNames(
-        "w-[180px] h-[290px] relative block",
+        "w-[200px] h-[80px] relative",
         "overflow-hidden",
-        "group select-none rounded-md"
+        "group select-none"
       )}
     >
-      <img
-        src={image.sourceUrl}
-        alt={image.title}
-        className="absolute left-0 duration-300 group-hover:scale-105 top-0 object-cover w-full h-full"
+      <Image
+        src={image?.sourceUrl ?? defaultImage}
+        alt={image?.title ?? "no"}
+        blurDataURL={defaultImage}
+        width={200}
+        height={80}
+        className="absolute left-0 duration-300 group-hover:scale-125 top-0 object-cover w-full h-full z-10"
       />
       <div
         className={classNames(
           "absolute w-full h-full",
-          "bg-black bg-opacity-50 duration-300 text-white",
-          "flex items-center justify-center z-20 px-4",
-          "font-black uppercase text-2xl text-center"
+          "bg-black bg-opacity-70 duration-300 group-hover:bg-primary group-hover:bg-opacity-100 text-white",
+          "flex items-center justify-center z-20",
+          "font-black"
         )}
       >
         {name}

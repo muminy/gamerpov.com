@@ -1,3 +1,4 @@
+import classNames from "classnames"
 import { BreadCrumbProps, BreadcrumbType } from "."
 import Permalink from "../Permalink"
 import Repeater from "../Repeater"
@@ -11,7 +12,10 @@ export default function Breadcrumb({ items }: BreadCrumbProps) {
       renderItem={(item, index) =>
         item.to ? (
           <Permalink
-            className="text-gray-500 dark:text-gray-600 flex"
+            className={classNames(
+              "text-gray-500 dark:text-gray-500 flex",
+              "duration-200 hover:text-black dark:hover:text-white"
+            )}
             key={index}
             href={item.to}
             title={item.title}

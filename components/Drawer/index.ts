@@ -3,7 +3,7 @@ import { ReactNode } from "react"
 export type DrawerProps = {
   width?: number
   isActive: boolean
-  renderContent(): ReactNode
+  renderContent: ReactNode
   onClose(): void
 }
 

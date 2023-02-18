@@ -12,7 +12,7 @@ export default function Repeater<T>({
 }: RepeaterProps<T>) {
   return (
     <Fragment>
-      {renderHeader && renderHeader()}
+      {renderHeader && renderHeader}
       {items.length === 0 && renderNotFound && renderNotFound}
       <Wrapper className={className}>
         {items.map(renderItem)}

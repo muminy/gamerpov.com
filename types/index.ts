@@ -1,6 +1,6 @@
 import { AxiosError } from "axios"
 import { CommentType } from "./comment"
-import { WPImage, WPPost } from "./wpgraphql"
+import { WPImage } from "./wpgraphql"
 
 export type ErrorResponseType = {
   //
@@ -28,15 +28,18 @@ export type MenuType = {
   title: string
 }
 
+export type NameValue = {
+  name: string
+  value?: string | number
+}
 export type PostType = {
   commentCount: number
-  comments: CommentType[]
   date: string
+  excerpt: string
   readingTime: number
   slug: string
+  comments: CommentType[]
   postId: number
-  pinned: boolean
-  excerpt: string
   title: string
   content: string
   categories: CategoryType[]

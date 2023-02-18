@@ -1,0 +1,15 @@
+.btn {
+  @apply px-6 py-3 duration-200 rounded-3xl;
+}
+
+.btn-secondary {
+  @apply hover:bg-white border-black border;
+}
+
+.btn-dark {
+  @apply bg-gray-900 hover:bg-gray-800 text-white;
+}
+
+.btn-primary {
+  @apply bg-blue-500 hover:bg-blue-400 text-white;
+}

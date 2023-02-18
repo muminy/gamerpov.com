@@ -9,7 +9,7 @@ export default function Container({
   const maxSize = {
     [ContainerSizeType.big]: "max-w-[1500px]",
     [ContainerSizeType.xlarge]: "max-w-7xl",
-    [ContainerSizeType.large]: "max-w-4xl",
+    [ContainerSizeType.large]: "max-w-3xl",
     [ContainerSizeType.small]: "max-w-xl",
     [ContainerSizeType.xsmall]: "max-w-[600px]",
   }

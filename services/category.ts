@@ -1,5 +1,5 @@
 import { toCategory } from "@/helpers/mapper/category"
-import client from "@/libs/apollo"
+import client from "@/lib/apollo"
 import { WPCategory } from "@/types/wpgraphql"
 import { ApolloQueryResult } from "@apollo/client"
 import { QUERY_CATEGORIES, QUERY_CATEGORY_BY_SLUG } from "data/category"
