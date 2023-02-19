@@ -38,6 +38,7 @@ export default function Seo(props: SeoProps) {
       <meta property="og:description" content={meta.description} />
       <meta property="og:title" content={title} />
       <meta property="og:image" content={meta.image} />
+      <meta name="yandex-verification" content="d074eb2324ceef9c" />
       {meta.date && (
         <meta property="article:published_time" content={meta.date} />
       )}
