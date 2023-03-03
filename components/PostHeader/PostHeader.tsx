@@ -31,7 +31,7 @@ export default function PostHeader({
         <h1
           className={classNames(
             "font-bold xl:text-4xl text-2xl z-10 mb-5",
-            "xl:leading-10 lg:leading-6 leading-6"
+            "xl:leading-10 lg:leading-6 leading-6 font-kanit"
           )}
         >
           {title}

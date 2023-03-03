@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kanit:wght@800&display=swap");
 
 body {
   font-size: 16px;
@@ -34,8 +34,9 @@ body {
   @apply w-full
 }
 .article-content :is(h1, h2, h3, h4, h5, h6) {
-  @apply font-bold mb-4;
-  @apply dark:text-white;
+  font-family: "Kanit", sans-serif;
+  @apply font-black mb-4 text-4xl;
+  @apply dark:text-white dark:text-opacity-80;
 }
 .article-content img {
   @apply max-h-[500px] object-cover w-full;
