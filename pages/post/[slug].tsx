@@ -5,19 +5,23 @@ import PostHeader from "@/components/PostHeader"
 import Repeater from "@/components/Repeater"
 import Seo from "@/components/Seo"
 import Tag from "@/components/Tag"
-import Title from "@/components/Title"
-import { Share } from "@/components/Witgets"
+import { Share, TextList } from "@/components/Witgets"
 import { removeHtmlTags } from "@/helpers/utils"
-import { getPostBySlug, getAllPosts } from "@/services/post"
+import {
+  getPostBySlug,
+  getAllPosts,
+  getPostCategory,
+} from "@/services/post"
 import { CategoryType, PostType } from "@/types/index"
 import { GetStaticPropsContext } from "next"
 import { useEffect } from "react"
 
 type PostDetailProps = {
   post: PostType
+  similarPosts: PostType[]
 }
 
-export default function Detail({ post }: PostDetailProps) {
+export default function Detail({ post, similarPosts }: PostDetailProps) {
   useEffect(() => {
     fetch(`/api/views/${post.slug}`, { method: "POST" })
   }, [post.slug])
@@ -29,48 +33,56 @@ export default function Detail({ post }: PostDetailProps) {
   }
 
   return (
-    <Container size="xlarge">
+    <Container
+      className="grid grid-cols-10 xl:gap-x-10 gap-x-0"
+      size="big"
+    >
       <Seo
         title={post.title}
         description={removeHtmlTags(post.excerpt)}
         image={post.image.sourceUrl}
-      />
-      <Breadcrumb
-        items={[
-          { title: "Home", to: "/" },
-          {
-            title: post.categories[0].name ?? "Post",
-            to: `/category/${post.categories[0].slug}`,
-          },
-          {
-            title: post.title,
-          },
-        ]}
-      />
-      <PostHeader
-        author={post.author.name}
         date={post.date}
-        slug={post.slug}
-        image={post.image.sourceUrl}
-        title={post.title}
       />
-      <Container size="large">
+      <TextList
+        notFound={{
+          title: "Not Found",
+          description: "We are working!",
+        }}
+        className="xl:block hidden col-span-2"
+        items={similarPosts}
+        title={{
+          title: "Similar Posts",
+          description: `Total ${similarPosts.length} similar posts found`,
+        }}
+      />
+      <div className="xl:col-span-8 col-span-10">
+        <Breadcrumb
+          items={[{ title: "Anasayfa", to: "/" }, { title: post.title }]}
+        />
+        <PostHeader
+          author={post.author.name}
+          date={post.date}
+          image={post.image.sourceUrl}
+          title={post.title}
+          slug={post.slug}
+        />
         <Repeater<CategoryType>
           items={post.categories}
           renderItem={renderItem}
           className="flex space-x-2 mb-3"
         />
-        <div
-          className="article-content"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
-        <Share text={post.title} />
-        <Comments
-          className="mt-10"
-          postId={post.postId}
-          items={post.comments}
-        />
-      </Container>
+        <div className="grid grid-cols-12 xl:gap-x-20 gap-x-0 gap-y-10">
+          <div
+            className="article-content xl:col-span-8 col-span-12"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+          <Comments
+            items={post.comments}
+            postId={post.postId}
+            className="xl:col-span-4 col-span-12 w-full"
+          />
+        </div>
+      </div>
     </Container>
   )
 }
@@ -83,6 +95,15 @@ export async function getStaticProps(props: GetStaticPropsContext) {
   const { slug } = props.params as ParamsType
   const post = await getPostBySlug(slug)
 
+  let similarPosts
+
+  if (post && post.categories.length) {
+    similarPosts = await getPostCategory(post.categories[0].id)
+    similarPosts = similarPosts.filter(
+      (item) => item.postId !== post.postId
+    )
+  }
+
   if (!post) {
     return {
       props: {},
@@ -93,6 +114,7 @@ export async function getStaticProps(props: GetStaticPropsContext) {
   return {
     props: {
       post,
+      similarPosts,
     },
     revalidate: 10,
   }

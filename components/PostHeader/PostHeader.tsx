@@ -1,6 +1,5 @@
 import classNames from "classnames"
 import { PostDetailProps } from "."
-import Container from "../Container"
 import PostDetail from "./PostDetail"
 
 export default function PostHeader({
@@ -23,11 +22,10 @@ export default function PostHeader({
         src={image}
         alt={title}
       />
-      <Container
-        size="large"
+      <div
         className={classNames(
           "absolute right-0 bottom-0 left-0 mx-auto z-10 text-white",
-          "xl:px-0 lg:px-8 px-5 w-full xl:py-4 lg:py-4 md:px-8 md:py-4 py-2"
+          "xl:px-14 lg:px-8 px-5 w-full xl:py-4 lg:py-4 md:px-8 md:py-4 py-2"
         )}
       >
         <h1
@@ -39,7 +37,7 @@ export default function PostHeader({
           {title}
         </h1>
         <PostDetail date={date} slug={slug} author={author} />
-      </Container>
+      </div>
     </div>
   )
 }

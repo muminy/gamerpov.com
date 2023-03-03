@@ -1,5 +1,5 @@
 .header {
-  @apply flex items-center justify-center xl:px-24 lg:px-16 px-4;
+  @apply flex items-center justify-center xl:px-14 lg:px-16 px-4;
   @apply border-b border-b-dark-border 
 }
 

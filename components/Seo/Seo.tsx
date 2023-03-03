@@ -18,7 +18,7 @@ export default function Seo(props: SeoProps) {
   return (
     <Head>
       <title>{title}</title>
-      <meta name="robots" content="follow, index" />
+      <meta name="robots" content="index,follow" />
       <meta content={meta.description} name="description" />
       <meta
         property="og:url"
@@ -34,7 +34,7 @@ export default function Seo(props: SeoProps) {
       <meta name="twitter:description" content={meta.description} />
       <meta name="twitter:image" content={meta.image} />
       <meta property="og:type" content={"website"} />
-      <meta property="og:site_name" content="Gamerpov" />
+      <meta property="og:site_name" content={title} />
       <meta property="og:description" content={meta.description} />
       <meta property="og:title" content={title} />
       <meta property="og:image" content={meta.image} />

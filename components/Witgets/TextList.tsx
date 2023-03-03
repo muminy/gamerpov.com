@@ -1,4 +1,5 @@
 import { PostType } from "@/types/index"
+import classNames from "classnames"
 import { TextListProps } from "."
 import Card from "../Card"
 import NotFound from "../NotFound"
@@ -17,16 +18,14 @@ export default function TextList({
   }
 
   return (
-    <div className={className}>
-      {title && <Title {...title} />}
-      <Card>
-        <Repeater
-          className={"space-y-4"}
-          items={items}
-          renderItem={renderItem}
-          {...(notFound && { renderNotFound: <NotFound {...notFound} /> })}
-        />
-      </Card>
+    <div className={classNames(className, "flex flex-col")}>
+      <Repeater
+        className={"space-y-2"}
+        items={items}
+        renderItem={renderItem}
+        {...(title && { renderHeader: <Title {...title} /> })}
+        {...(notFound && { renderNotFound: <NotFound {...notFound} /> })}
+      />
     </div>
   )
 }

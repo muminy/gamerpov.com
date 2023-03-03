@@ -15,5 +15,5 @@ export function removeHtmlTags(str: string) {
 }
 
 export function getDate(date: string) {
-  return dayjs(date).locale("tr").format("DD MMMM, YYYY")
+  return dayjs(date).locale("en").format("DD MMMM, YYYY")
 }

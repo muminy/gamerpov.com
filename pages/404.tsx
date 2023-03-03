@@ -1,12 +1,13 @@
 import Card from "@/components/Card"
 import Container from "@/components/Container"
+import NotFound from "@/components/NotFound"
+import Seo from "@/components/Seo"
 
-export default function NotFound() {
+export default function NotFoundPage() {
   return (
     <Container>
-      <Card className="flex items-center justify-center h-full text-4xl font-black py-10">
-        Not Found
-      </Card>
+      <Seo title="Not Found" />
+      <NotFound title="Not Found Page" description="Could you be wrong?" />
     </Container>
   )
 }

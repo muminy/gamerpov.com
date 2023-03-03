@@ -56,7 +56,7 @@ export default function Comment({
     <div className={cn(className)}>
       <form
         onSubmit={handleSubmit(onCreateComment)}
-        className="space-y-2 mb-10"
+        className="space-y-2 mb-10 w-full"
       >
         <Title title="Comment" />
         <div className="flex space-x-2">
@@ -87,7 +87,12 @@ export default function Comment({
       <Repeater<CommentType>
         items={items}
         className="space-y-3"
-        renderNotFound={<NotFound title="Do the first to comment" />}
+        renderNotFound={
+          <NotFound
+            title="No Comments"
+            description="Do the first to comment"
+          />
+        }
         renderItem={(item, index) => <CommentCard {...item} key={index} />}
       />
     </div>

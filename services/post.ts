@@ -63,7 +63,7 @@ export async function getPostCategory(id: number) {
 
     return response.data.posts.nodes.map(toPost)
   } catch (e) {
-    return null
+    return []
   }
 }
 

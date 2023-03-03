@@ -11,7 +11,6 @@ import { PostType } from "../types"
 import GoogleAnalytics from "@/components/GoogleAnalytics"
 import Modal, { modalRef } from "@/components/Modal"
 import Alert, { alertRef } from "@/components/Alert"
-import "dayjs/locale/tr"
 
 type AppCustomProps = AppProps & SiteContextType
 

@@ -38,7 +38,7 @@ export default function MenuList({ isResponsive }: MenuListProps) {
       as="ul"
       renderItem={(item) => renderMenu(item, isResponsive)}
       className={cn({
-        "hidden xl:flex lg:flex items-center space-x-1": !isResponsive,
+        "hidden xl:flex items-center space-x-1": !isResponsive,
         "flex-col block": isResponsive,
       })}
     />
