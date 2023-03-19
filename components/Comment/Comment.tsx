@@ -79,9 +79,11 @@ export default function Comment({
           rows={5}
           placeholder="great article..."
         />
-        <Button.Gradient disabled={loading} className="mb-10">
-          {loading ? "Sending..." : "Send"}
-        </Button.Gradient>
+        <Button
+          isLoading={loading}
+          text={"Send"}
+          className="mb-10"
+        ></Button>
       </form>
       <Title title="Comments" />
       <Repeater<CommentType>

@@ -29,7 +29,7 @@ export default function Blog({
         placeholder="blur"
         className={classNames(
           "absolute left-0 top-0 w-full h-full duration-300",
-          "group-hover:scale-105 object-cover"
+          "object-cover"
         )}
       />
       <div
@@ -50,8 +50,7 @@ export default function Blog({
   const DefaultContent = () => (
     <Card
       className={classNames(
-        "hover:ring-2 hover:ring-offset-2 rounded-xl hover:ring-gray-300 hover:dark:ring-dark-secondary",
-        "duration-200 flex px-6 py-8 hover:dark:ring-offset-dark-bg",
+        "duration-200 flex px-6 py-8",
         "h-full flex flex-col justify-center overflow-hidden"
       )}
     >
@@ -79,10 +78,15 @@ export default function Blog({
   return (
     <Permalink
       href={`/post/${slug}`}
-      className={classNames("w-full relative", "group block", {
-        "h-[200px] flex items-center justify-center overflow-hidden":
-          type === "IMAGE",
-      })}
+      className={classNames(
+        "w-full relative duration-300",
+        "group block rounded-xl hover:dark:ring-offset-dark-bg",
+        "hover:ring-2 hover:ring-offset-4 rounded-xl hover:ring-gray-300 hover:dark:ring-dark-secondary",
+        {
+          "h-[200px] flex items-center justify-center overflow-hidden":
+            type === "IMAGE",
+        }
+      )}
     >
       {renderContent()}
     </Permalink>

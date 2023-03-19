@@ -1,5 +1,12 @@
-import Gradient from "./Gradient"
-export type CommonButtonProps = JSX.IntrinsicElements["button"]
+import { BgColorTypes } from "@/types/index"
+import { IconTypes } from "@/icons/index"
 
-const Button = { Gradient }
-export default Button
+export type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
+  text: string
+  isLoading?: boolean
+  icon?: IconTypes
+  size?: number
+  bgColor?: keyof typeof BgColorTypes
+}
+
+export { default } from "./Button"

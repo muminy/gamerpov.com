@@ -3,19 +3,20 @@ import Category from "../Category"
 import { useSiteContent } from "context/site"
 import { SwiperSlide } from "swiper/react"
 import SwiperWrapper from "../SwiperWrapper"
+import Repeater from "../Repeater"
 
 export default function CategoryList() {
   const { categories } = useSiteContent()
 
   const renderItem = (item: CategoryType, index: number) => (
-    <SwiperSlide key={index} style={{ width: 200, marginRight: 10 }}>
-      <Category {...item} />
-    </SwiperSlide>
+    <Category key={index} {...item} />
   )
 
   return (
-    <SwiperWrapper title="Categories" spaceBetween={10}>
-      {categories.map(renderItem)}
-    </SwiperWrapper>
+    <Repeater
+      className="grid grid-cols-2 gap-2"
+      items={categories}
+      renderItem={renderItem}
+    />
   )
 }

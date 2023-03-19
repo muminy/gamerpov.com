@@ -5,7 +5,7 @@ import PostHeader from "@/components/PostHeader"
 import Repeater from "@/components/Repeater"
 import Seo from "@/components/Seo"
 import Tag from "@/components/Tag"
-import { Share, TextList } from "@/components/Witgets"
+import { TextList } from "@/components/Witgets"
 import { removeHtmlTags } from "@/helpers/utils"
 import {
   getPostBySlug,
@@ -34,7 +34,7 @@ export default function Detail({ post, similarPosts }: PostDetailProps) {
 
   return (
     <Container
-      className="grid grid-cols-10 xl:gap-x-10 gap-x-0"
+      className="grid grid-cols-10 xl:gap-x-10 gap-x-0 py-10"
       size="big"
     >
       <Seo

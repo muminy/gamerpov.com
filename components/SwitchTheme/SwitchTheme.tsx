@@ -20,12 +20,10 @@ export default function SwitchTheme() {
 
   return (
     <IconButton
-      isDark
-      text={isDark ? "Dark" : "Light"}
       icon={isDark ? "moonFill" : "sunFill"}
       className={classNames(
-        "rounded-full h-9 px-3 space-x-1",
-        "xl:w-auto w-9"
+        "rounded-2xl w-11 h-11",
+        "bg-white bg-opacity-10 text-white dark:bg-white dark:bg-opacity-10"
       )}
       textClassName="text-xs xl:block hidden"
       onClick={changeTheme}

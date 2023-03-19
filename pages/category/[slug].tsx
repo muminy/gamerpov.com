@@ -16,29 +16,28 @@ type CategoryPageProps = {
 
 export default function Category({ posts, category }: CategoryPageProps) {
   return (
-    <Container>
+    <Container className="pt-10">
       <Seo
         title={category.name}
         description={`Latest posts in the ${category.name} Category.`}
         image={`${domain}/api/og/blog?title=${category.name}`}
       />
-      <Breadcrumb
-        items={[{ title: "Home", to: "/" }, { title: category.name }]}
-      />
-      <BlogList
-        repeaterClassName="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-2"
-        blogType="IMAGE"
-        items={posts}
-        notFound={{
-          title: `No articles found for the category.`,
-        }}
-        renderHeader={
-          <Title
-            description={`Latest posts in the ${category.name} category.`}
-            title={`${category.name}`}
-          />
-        }
-      />
+      <Container size="large">
+        <BlogList
+          repeaterClassName="grid xl:grid-cols-1 grid-cols-2 gap-2 mt-10"
+          blogType="DEFAULT"
+          items={posts}
+          notFound={{
+            title: `No articles found for the category.`,
+          }}
+          renderHeader={
+            <Title
+              description={`Latest posts in the ${category.name} category.`}
+              title={`${category.name}`}
+            />
+          }
+        />
+      </Container>
     </Container>
   )
 }

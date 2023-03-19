@@ -12,6 +12,12 @@ export type ErrorCommonType = {
   error: AxiosError<ErrorResponseType>
 }
 
+
+export enum BgColorTypes {
+  DARK = "DARK",
+  DEFAULT = "DEFAULT",
+  PRIMARY = "PRIMARY",
+}
 export type CategoryType = {
   id: number
   name: string

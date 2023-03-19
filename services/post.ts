@@ -20,7 +20,7 @@ export type WPPostDetail = {
 
 export async function getAllPosts() {
   try {
-    const heroLength = 8
+    const heroLength = 4
     const response = await client.query<WPPList>({ query: QUERY_POSTS })
     let remaining
 

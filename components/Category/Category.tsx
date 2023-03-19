@@ -9,9 +9,11 @@ export default function Category({ image, name, slug }: CategoryType) {
     <Permalink
       href={`/category/${slug}`}
       className={classNames(
-        "w-[200px] h-[80px] relative",
+        "w-full h-[80px] relative",
         "overflow-hidden",
-        "group select-none"
+        "group select-none",
+        "hover:ring-2 hover:ring-offset-2 rounded-xl hover:ring-gray-300 hover:dark:ring-dark-secondary",
+        "hover:dark:ring-offset-dark-bg"
       )}
     >
       <Image
@@ -25,9 +27,9 @@ export default function Category({ image, name, slug }: CategoryType) {
       <div
         className={classNames(
           "absolute w-full h-full",
-          "bg-black bg-opacity-70 duration-300 group-hover:bg-primary group-hover:bg-opacity-100 text-white",
+          "bg-black bg-opacity-70 duration-300 group-hover:bg-black group-hover:bg-opacity-100 text-white",
           "flex items-center justify-center z-20",
-          "font-black"
+          "font-black text-center px-4"
         )}
       >
         {name}
