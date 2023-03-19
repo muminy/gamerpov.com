@@ -43,7 +43,7 @@ export default function Home({ hero, remaining }: HomeStaticProps) {
           />
         </div>
 
-        <div className="col-span-1 py-10">
+        <div className="xl:col-span-1 col-span-2 py-10">
           <Title title="Categories" />
           <CategoryList />
         </div>

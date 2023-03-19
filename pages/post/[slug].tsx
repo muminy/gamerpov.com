@@ -34,7 +34,7 @@ export default function Detail({ post, similarPosts }: PostDetailProps) {
 
   return (
     <Container
-      className="grid grid-cols-10 xl:gap-x-10 gap-x-0 py-10"
+      className="grid grid-cols-10 xl:gap-x-10 gap-x-0 py-3"
       size="big"
     >
       <Seo

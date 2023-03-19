@@ -5,7 +5,7 @@ import Seo from "@/components/Seo"
 
 export default function NotFoundPage() {
   return (
-    <Container>
+    <Container className="py-10">
       <Seo title="Not Found" />
       <NotFound title="Not Found Page" description="Could you be wrong?" />
     </Container>
