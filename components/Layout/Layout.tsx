@@ -7,7 +7,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex xl:flex-row flex-col relative">
       <Sidebar />
-      <div className="xl:ml-[140px] w-full">
+      <div className="xl:ml-[140px] w-full flex flex-col">
         <Header />
         <main className="mb-20">{children}</main>
         <Footer />

@@ -13,7 +13,7 @@ export default function Category({ image, name, slug }: CategoryType) {
         "overflow-hidden",
         "group select-none",
         "hover:ring-2 hover:ring-offset-2 rounded-xl hover:ring-gray-300 hover:dark:ring-dark-secondary",
-        "hover:dark:ring-offset-dark-bg"
+        "hover:dark:ring-offset-dark-bg duration-300"
       )}
     >
       <Image
@@ -22,12 +22,12 @@ export default function Category({ image, name, slug }: CategoryType) {
         blurDataURL={defaultImage}
         width={200}
         height={80}
-        className="absolute left-0 duration-300 group-hover:scale-125 top-0 object-cover w-full h-full z-10"
+        className="absolute rounded-2xl left-0 duration-300 top-0 object-cover w-full h-full z-10"
       />
       <div
         className={classNames(
           "absolute w-full h-full",
-          "bg-black bg-opacity-70 duration-300 group-hover:bg-black group-hover:bg-opacity-100 text-white",
+          "bg-black bg-opacity-70 duration-300 group-hover:bg-black group-hover:bg-opacity-80 text-white",
           "flex items-center justify-center z-20",
           "font-black text-center px-4"
         )}

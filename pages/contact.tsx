@@ -1,4 +1,3 @@
-import Breadcrumb from "@/components/Breadcrumb"
 import Container from "@/components/Container"
 import Icon from "@/components/Icon"
 import Repeater from "@/components/Repeater"
@@ -39,12 +38,7 @@ export default function Contact() {
   return (
     <Container size="large">
       <Seo title="Contact" />
-      <Breadcrumb
-        items={[{ title: "Home", to: "/" }, { title: "Contact" }]}
-      />
-      <h1 className="mb-4 uppercase font-black text-2xl">
-        Contact With Us
-      </h1>
+      <h1 className="my-4 font-black text-2xl">Contact With Us</h1>
 
       <Repeater<ContactType>
         className="flex flex-col items-baseline space-y-2"

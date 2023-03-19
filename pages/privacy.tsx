@@ -4,9 +4,9 @@ import Seo from "@/components/Seo"
 
 export default function Privacy() {
   return (
-    <Container size="large">
+    <Container size="large" className="py-5">
       <Seo
-        title="Gizlilik Politikası"
+        title="Privacy Policy"
         description="gamerpov.com Privacy Policy"
       />
       <Breadcrumb

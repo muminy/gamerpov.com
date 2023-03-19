@@ -18,10 +18,11 @@ export default function Navigation({ isResponsive }: NavigationProps) {
           "font-bold text-sm text-gray-500 dark:text-white",
           "duration-300 px-3.5 py-2 rounded-xl",
           "flex items-center space-x-2",
-          "hover:bg-gray-200 hover:dark:bg-dark-secondary:",
+          "hover:bg-gray-200 hover:dark:bg-dark-secondary",
           {
-            "bg-gray-200 dark:bg-dark-bg": asPath === link,
-            "bg-gray-500 bg-opacity-30": isResponsive,
+            "bg-gray-200 dark:bg-dark-secondary": asPath === link,
+            "bg-dark-secondary hover:bg-dark-secondary hover:text-white":
+              isResponsive,
           }
         )}
         href={link}

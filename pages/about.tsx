@@ -8,7 +8,7 @@ export default function About() {
       <Seo title="About Us" description="Gamerpov.com About" />
       <Logo
         size={40}
-        className="mt-10 flex justify-center dark:!text-white !text-black"
+        className="my-10 flex justify-center dark:!text-white !text-black"
       />
       <p className="text-center">
         Gamerpov is a content sharing site established for games in the
