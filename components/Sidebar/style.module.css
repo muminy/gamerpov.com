@@ -10,6 +10,7 @@
   @apply py-10;
 }
 
+/* */
 .sidebar::after {
   content: "";
   display: block;

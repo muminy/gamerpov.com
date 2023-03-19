@@ -5,7 +5,7 @@ import IconButton from "../IconButton"
 import Logo from "../Logo"
 import Navigation from "../Navigation"
 import SwitchTheme from "../SwitchTheme"
-import style from "./sidebar.module.css"
+import style from "./style.module.css"
 
 export default function Sidebar() {
   const [isActive, setIsActive] = useState(false)
