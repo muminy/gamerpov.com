@@ -1,3 +1,4 @@
+import { TagType } from "."
 import { WPCommentType } from "./comment"
 
 export type WPCategory = {
@@ -22,6 +23,12 @@ export type WPImage = {
   title: string
 }
 
+export type WPTage = {
+  name: string
+  slug: string
+  count: number
+}
+
 export type WPPost = {
   author: {
     node: WPAuthor
@@ -34,6 +41,9 @@ export type WPPost = {
   }
   comments: {
     nodes: WPCommentType[]
+  }
+  tags: {
+    nodes: WPTage[]
   }
   excerpt: string
   date: string

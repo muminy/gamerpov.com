@@ -1,4 +1,4 @@
-import { PostType } from "@/types/index"
+import { PostType, TagType } from "@/types/index"
 import { ReactNode } from "react"
 import { NotFoundProps } from "../NotFound"
 import { TitleProps } from "../Title"
@@ -24,6 +24,10 @@ export type BlogListProps = CommonProps & {
 
 export type ShareProps = JSX.IntrinsicElements["div"] & {
   text: string
+}
+
+export type TagListProps = JSX.IntrinsicElements["div"] & {
+  tags: TagType[]
 }
 
 export { default as CategoryList } from "./CategoryList"

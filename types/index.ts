@@ -33,6 +33,11 @@ export type MenuType = {
   href: string
   title: string
 }
+export type TagType = {
+  name: string
+  slug: string
+  count: number
+}
 
 export type NameValue = {
   name: string
@@ -44,6 +49,7 @@ export type PostType = {
   excerpt: string
   readingTime: number
   slug: string
+  tags: TagType[]
   comments: CommentType[]
   postId: number
   title: string

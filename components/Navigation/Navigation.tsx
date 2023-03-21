@@ -15,12 +15,12 @@ export default function Navigation({ isResponsive }: NavigationProps) {
     return (
       <Permalink
         className={cn(
-          "font-bold text-sm text-gray-500 dark:text-white",
+          "font-bold text-sm text-gray-900 dark:text-white",
           "duration-300 px-3.5 py-2 rounded-xl",
           "flex items-center space-x-2",
-          "hover:bg-gray-200 hover:dark:bg-dark-secondary",
+          "hover:bg-gray-100 hover:dark:bg-dark-secondary",
           {
-            "bg-gray-200 dark:bg-dark-secondary": asPath === link,
+            "bg-gray-100 dark:bg-dark-secondary": asPath === link,
             "bg-dark-secondary hover:bg-dark-secondary hover:text-white":
               isResponsive,
           }

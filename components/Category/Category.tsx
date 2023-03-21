@@ -9,7 +9,7 @@ export default function Category({ image, name, slug }: CategoryType) {
     <Permalink
       href={`/category/${slug}`}
       className={classNames(
-        "w-full h-[80px] relative",
+        "w-full min-h-[60px] relative",
         "overflow-hidden",
         "group select-none",
         "hover:ring-2 hover:ring-offset-2 rounded-xl hover:ring-gray-300 hover:dark:ring-dark-secondary",

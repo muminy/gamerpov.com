@@ -30,20 +30,20 @@ export default function Share({
   }
 
   return (
-    <div {...remaining} className={classNames("mb-5", className)}>
+    <div {...remaining} className={classNames("mb-10", className)}>
       <Title title="Share" />
-      <div className="flex items-center space-x-2 mb-2">
+      <div className="flex flex-wrap">
         <IconButton
           onClick={() => shareLink(Socials.twitter)}
           icon="twitter"
           text="Twitter"
-          className="rounded-none h-8 px-2 space-x-2"
+          className="rounded-xl h-10 px-4 space-x-2 mr-2 mb-2"
         />
         <IconButton
           onClick={() => shareLink(Socials.facebook)}
           icon="facebook"
           text="Facebook"
-          className="rounded-none h-8 px-2 space-x-2"
+          className="rounded-xl h-10 px-4 space-x-2 mr-2 mb-2"
         />
       </div>
     </div>

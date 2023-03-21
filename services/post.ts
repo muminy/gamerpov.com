@@ -5,6 +5,7 @@ import {
   QUERY_GET_POST_BY_SLUG,
   QUERY_POSTS,
   QUERY_POSTS_BY_CATEGORY_ID,
+  QUERY_POSTS_BY_TAG_NAME,
   QUERY_SEARCH_POSTS,
 } from "data/post"
 
@@ -58,6 +59,21 @@ export async function getPostCategory(id: number) {
       query: QUERY_POSTS_BY_CATEGORY_ID,
       variables: {
         id,
+      },
+    })
+
+    return response.data.posts.nodes.map(toPost)
+  } catch (e) {
+    return []
+  }
+}
+
+export async function getPostByTag(tag: string) {
+  try {
+    const response = await client.query<WPPList>({
+      query: QUERY_POSTS_BY_TAG_NAME,
+      variables: {
+        tag,
       },
     })
 

@@ -5,7 +5,8 @@ import PostHeader from "@/components/PostHeader"
 import Repeater from "@/components/Repeater"
 import Seo from "@/components/Seo"
 import Tag from "@/components/Tag"
-import { TextList } from "@/components/Witgets"
+import { Share, TextList } from "@/components/Witgets"
+import TagList from "@/components/Witgets/TagList"
 import { removeHtmlTags } from "@/helpers/utils"
 import {
   getPostBySlug,
@@ -28,7 +29,12 @@ export default function Detail({ post, similarPosts }: PostDetailProps) {
 
   const renderItem = (item: CategoryType, index: number) => {
     return (
-      <Tag key={index} slug={item.slug} text={item.name} className="h-9" />
+      <Tag
+        key={index}
+        href={`/category/${item.slug}`}
+        text={item.name}
+        className="h-9"
+      />
     )
   }
 
@@ -43,18 +49,21 @@ export default function Detail({ post, similarPosts }: PostDetailProps) {
         image={post.image.sourceUrl}
         date={post.date}
       />
-      <TextList
-        notFound={{
-          title: "Not Found",
-          description: "We are working!",
-        }}
-        className="xl:block hidden col-span-2"
-        items={similarPosts}
-        title={{
-          title: "Similar Posts",
-          description: `Total ${similarPosts.length} similar posts found`,
-        }}
-      />
+      <div className="xl:block hidden col-span-2">
+        <TextList
+          notFound={{
+            title: "Not Found",
+            description: "We are working!",
+          }}
+          items={similarPosts}
+          title={{
+            title: "Similar Posts",
+            description: `Total ${similarPosts.length} similar posts found`,
+          }}
+        />
+        <Share className="mt-10" text={post.title} />
+        <TagList tags={post.tags} />
+      </div>
       <div className="xl:col-span-8 col-span-10">
         <Breadcrumb
           items={[{ title: "Anasayfa", to: "/" }, { title: post.title }]}

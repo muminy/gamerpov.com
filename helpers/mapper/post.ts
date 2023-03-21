@@ -9,6 +9,7 @@ export function toPost({
   featuredImage,
   categories,
   comments,
+  tags,
   ...common
 }: WPPost): PostType {
   const post = {
@@ -18,6 +19,7 @@ export function toPost({
       sourceUrl: defaultImage,
       title: "default_hz_adem",
     },
+    tags: tags.nodes,
   } as PostType
 
   if (featuredImage?.node) {

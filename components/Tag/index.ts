@@ -1,7 +1,7 @@
 export type TagType = {
   text: string
   className?: string
-  slug: string
+  href: string
 }
 
 export { default } from "./Tag"
