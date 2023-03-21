@@ -1,4 +1,5 @@
 import { TagListProps } from "."
+import NotFound from "../NotFound"
 import Repeater from "../Repeater"
 import Tag from "../Tag"
 import Title from "../Title"
@@ -17,6 +18,7 @@ export default function TagList({ tags }: TagListProps) {
           text={item.name}
         />
       )}
+      renderNotFound={<NotFound title="Tag Not Founded" />}
     />
   )
 }
