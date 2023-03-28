@@ -44,6 +44,7 @@ const FRAGMENTS_POST = gql`
     }
     postId
     date
+    modified
     excerpt
     commentCount
     slug

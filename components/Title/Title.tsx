@@ -13,13 +13,11 @@ export default function Title({
         "text-center": align === "center",
       })}
     >
-      <div className="font-bold dark:text-white text-gray-900">
-        {title}
-      </div>
+      <h1 className="font-bold dark:text-white text-gray-900">{title}</h1>
       {description && (
-        <div className="text-sm dark:text-gray-400 text-gray-500">
+        <p className="text-sm dark:text-gray-400 text-gray-500">
           {description}
-        </div>
+        </p>
       )}
     </div>
   )

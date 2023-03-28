@@ -7,7 +7,7 @@ import Seo from "@/components/Seo"
 import Tag from "@/components/Tag"
 import { Share, TextList } from "@/components/Witgets"
 import TagList from "@/components/Witgets/TagList"
-import { removeHtmlTags } from "@/helpers/utils"
+import { getKeywords, removeHtmlTags } from "@/helpers/utils"
 import {
   getPostBySlug,
   getAllPosts,
@@ -48,6 +48,8 @@ export default function Detail({ post, similarPosts }: PostDetailProps) {
         description={removeHtmlTags(post.excerpt)}
         image={post.image.sourceUrl}
         date={post.date}
+        modified={post.modified}
+        keywords={getKeywords(post.tags)}
       />
       <div className="xl:block hidden col-span-2">
         <TextList

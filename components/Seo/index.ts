@@ -5,6 +5,8 @@ export type SeoProps = {
   twitter?: TwitterSeoType
   openGraph?: OpenGraphSeoType
   date?: string
+  keywords?: string
+  modified?: string
 }
 
 export type TwitterSeoType = {
