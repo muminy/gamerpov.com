@@ -69,6 +69,23 @@ body {
 .article-content ul {
   @apply list-disc px-8 space-y-1 mb-10;
 }
+
+.article-content .source-link::before {
+  content: 'Source';
+  display: block;
+  @apply dark:text-gray-400 text-gray-500 font-medium text-sm mb-2;
+}
+
+.article-content .source-link {
+ @apply dark:bg-dark-secondary bg-gray-100 px-6 py-5;
+ @apply rounded-xl dark:text-white text-gray-900
+}
+
+.article-content .source-link a {
+  @apply dark:text-white text-gray-900 font-medium
+}
+
+
 .article-content ol ul {
   @apply px-4 mb-0 my-2
 }
